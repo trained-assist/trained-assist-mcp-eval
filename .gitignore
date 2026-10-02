@@ -1,3 +1,4 @@
 node_modules/
 out/catalog-full.json
 out/eval.v1.json
+out/informativeness.v1.json
