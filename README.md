@@ -34,7 +34,7 @@ invariant in §3):
 - `out/catalog-full.json` — names + descriptions + schema presence. For diffing and for humans.
 - `out/collisions.json` — hard name duplicates and ungrouped leftovers.
 
-For scale: the full catalog with descriptions is ~27 595 tokens. Names only is 16× smaller, which is
+For scale: the full catalog with descriptions is ~33 603 tokens. Names only is 16× smaller, which is
 the plan's §1 premise confirmed by measurement rather than by promise.
 
 ## Run it
@@ -65,8 +65,12 @@ repository, which is how it works on a laptop with the usual `~/Code` layout.
 
 ## Baseline
 
-**90.7% (176/194), 0 unavailable, 0 parse errors**, served by `opencode-go/deepseek-v4-flash` with 3
+**90.2% (175/194), 0 unavailable, 0 parse errors**, served by `opencode-go/deepseek-v4-flash` with 3
 calls falling through to `opencode-go/longcat-2.5-preview-free`.
+
+An independent CI run of the same corpus, same seed, same model gave **89.2% (173/194)** — about one
+percentage point of run-to-run variance on free-tier providers. So do not implement §7's "no
+regression" as exact equality: below ~1 pp is indistinguishable from noise, above ~2 pp is a signal.
 
 That number is the gate for the rename: a new name set must not make it worse on the same corpus.
 See [`FINDINGS.md`](FINDINGS.md) for what the errors actually are — the short version is that the
