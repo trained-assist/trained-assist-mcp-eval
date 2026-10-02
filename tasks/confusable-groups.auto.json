@@ -1,0 +1,798 @@
+{
+  "_comment": "Derived from measured routing errors, not curated. Regenerate with `node src/derive-groups.mjs` after a corpus run. Refusals (tool: null) are excluded — they are the refusal bug, not a name collision.",
+  "source": "out/eval.v1.json",
+  "minEdge": 2,
+  "maxGroup": 4,
+  "groups": [
+    {
+      "id": "auto-4-candidate_report_render",
+      "names": [
+        "candidate_report_render",
+        "demo_candidate_profile",
+        "hermes_candidate_report",
+        "hh_candidate_profile"
+      ],
+      "why": "измерено: demo_candidate_profile→hh_candidate_profile ×5, hh_candidate_profile→candidate_report_render ×5, hermes_candidate_report→candidate_report_render ×5",
+      "evidenceTotal": 15,
+      "evidence": [
+        {
+          "from": "demo_candidate_profile",
+          "to": "hh_candidate_profile",
+          "n": 5
+        },
+        {
+          "from": "hh_candidate_profile",
+          "to": "candidate_report_render",
+          "n": 5
+        },
+        {
+          "from": "hermes_candidate_report",
+          "to": "candidate_report_render",
+          "n": 5
+        }
+      ]
+    },
+    {
+      "id": "auto-4-agent_store_artifact",
+      "names": [
+        "agent_store_artifact",
+        "context_set",
+        "engineering_generation_note",
+        "tilda_set_config"
+      ],
+      "why": "измерено: agent_store_artifact→context_set ×5, tilda_set_config→context_set ×3, engineering_generation_note→context_set ×2",
+      "evidenceTotal": 10,
+      "evidence": [
+        {
+          "from": "agent_store_artifact",
+          "to": "context_set",
+          "n": 5
+        },
+        {
+          "from": "tilda_set_config",
+          "to": "context_set",
+          "n": 3
+        },
+        {
+          "from": "engineering_generation_note",
+          "to": "context_set",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-3-calltips_list_candidates",
+      "names": [
+        "calltips_list_candidates",
+        "demo_candidates",
+        "hh_list_responses"
+      ],
+      "why": "измерено: calltips_list_candidates→hh_list_responses ×5, demo_candidates→hh_list_responses ×4",
+      "evidenceTotal": 9,
+      "evidence": [
+        {
+          "from": "calltips_list_candidates",
+          "to": "hh_list_responses",
+          "n": 5
+        },
+        {
+          "from": "demo_candidates",
+          "to": "hh_list_responses",
+          "n": 4
+        }
+      ]
+    },
+    {
+      "id": "auto-3-checko_get",
+      "names": [
+        "checko_get",
+        "company_get_by_inn",
+        "dadata_find"
+      ],
+      "why": "измерено: checko_get→company_get_by_inn ×5, dadata_find→company_get_by_inn ×4",
+      "evidenceTotal": 9,
+      "evidence": [
+        {
+          "from": "checko_get",
+          "to": "company_get_by_inn",
+          "n": 5
+        },
+        {
+          "from": "dadata_find",
+          "to": "company_get_by_inn",
+          "n": 4
+        }
+      ]
+    },
+    {
+      "id": "auto-3-company_find_by_name",
+      "names": [
+        "company_find_by_name",
+        "company_review",
+        "dadata_suggest"
+      ],
+      "why": "измерено: dadata_suggest→company_find_by_name ×5, company_review→company_find_by_name ×4",
+      "evidenceTotal": 9,
+      "evidence": [
+        {
+          "from": "dadata_suggest",
+          "to": "company_find_by_name",
+          "n": 5
+        },
+        {
+          "from": "company_review",
+          "to": "company_find_by_name",
+          "n": 4
+        }
+      ]
+    },
+    {
+      "id": "auto-4-agent_knowledge_summary",
+      "names": [
+        "agent_knowledge_summary",
+        "context_get",
+        "engineering_repo_context",
+        "load_full_context"
+      ],
+      "why": "измерено: context_get→load_full_context ×4, engineering_repo_context→context_get ×3, agent_knowledge_summary→context_get ×2",
+      "evidenceTotal": 9,
+      "evidence": [
+        {
+          "from": "context_get",
+          "to": "load_full_context",
+          "n": 4
+        },
+        {
+          "from": "engineering_repo_context",
+          "to": "context_get",
+          "n": 3
+        },
+        {
+          "from": "agent_knowledge_summary",
+          "to": "context_get",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-4-get_chat_history",
+      "names": [
+        "get_chat_history",
+        "get_group_history",
+        "last_messages",
+        "load_full_context"
+      ],
+      "why": "измерено: last_messages→get_chat_history ×4, get_chat_history→load_full_context ×2, get_group_history→get_chat_history ×2",
+      "evidenceTotal": 8,
+      "evidence": [
+        {
+          "from": "last_messages",
+          "to": "get_chat_history",
+          "n": 4
+        },
+        {
+          "from": "get_chat_history",
+          "to": "load_full_context",
+          "n": 2
+        },
+        {
+          "from": "get_group_history",
+          "to": "get_chat_history",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-4-browser_session_url",
+      "names": [
+        "browser_session_url",
+        "connect",
+        "gc_connect",
+        "web_state"
+      ],
+      "why": "измерено: web_state→browser_session_url ×4, browser_session_url→connect ×2, gc_connect→connect ×2",
+      "evidenceTotal": 8,
+      "evidence": [
+        {
+          "from": "web_state",
+          "to": "browser_session_url",
+          "n": 4
+        },
+        {
+          "from": "browser_session_url",
+          "to": "connect",
+          "n": 2
+        },
+        {
+          "from": "gc_connect",
+          "to": "connect",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-3-cold_message_generate",
+      "names": [
+        "cold_message_generate",
+        "hh_generate_message",
+        "hh_invite_resume"
+      ],
+      "why": "измерено: cold_message_generate→hh_generate_message ×4, hh_invite_resume→hh_generate_message ×3",
+      "evidenceTotal": 7,
+      "evidence": [
+        {
+          "from": "cold_message_generate",
+          "to": "hh_generate_message",
+          "n": 4
+        },
+        {
+          "from": "hh_invite_resume",
+          "to": "hh_generate_message",
+          "n": 3
+        }
+      ]
+    },
+    {
+      "id": "auto-3-gdrive_list_files",
+      "names": [
+        "gdrive_list_files",
+        "gdrive_public_folder",
+        "gdrive_status"
+      ],
+      "why": "измерено: gdrive_public_folder→gdrive_list_files ×4, gdrive_status→gdrive_list_files ×3",
+      "evidenceTotal": 7,
+      "evidence": [
+        {
+          "from": "gdrive_public_folder",
+          "to": "gdrive_list_files",
+          "n": 4
+        },
+        {
+          "from": "gdrive_status",
+          "to": "gdrive_list_files",
+          "n": 3
+        }
+      ]
+    },
+    {
+      "id": "auto-3-hh_vacancy_publish_page",
+      "names": [
+        "hh_vacancy_publish_page",
+        "publish_page",
+        "tilda_publish_page"
+      ],
+      "why": "измерено: tilda_publish_page→publish_page ×4, hh_vacancy_publish_page→publish_page ×3",
+      "evidenceTotal": 7,
+      "evidence": [
+        {
+          "from": "tilda_publish_page",
+          "to": "publish_page",
+          "n": 4
+        },
+        {
+          "from": "hh_vacancy_publish_page",
+          "to": "publish_page",
+          "n": 3
+        }
+      ]
+    },
+    {
+      "id": "auto-4-browser_session_autologin",
+      "names": [
+        "browser_session_autologin",
+        "browser_session_login",
+        "web_login",
+        "website_request"
+      ],
+      "why": "измерено: browser_session_login→web_login ×3, web_login→browser_session_autologin ×2, website_request→browser_session_autologin ×2",
+      "evidenceTotal": 7,
+      "evidence": [
+        {
+          "from": "browser_session_login",
+          "to": "web_login",
+          "n": 3
+        },
+        {
+          "from": "web_login",
+          "to": "browser_session_autologin",
+          "n": 2
+        },
+        {
+          "from": "website_request",
+          "to": "browser_session_autologin",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-4-calltips_prepare",
+      "names": [
+        "calltips_prepare",
+        "hh_interview_structure",
+        "interview_analyze",
+        "video_analyze_batch"
+      ],
+      "why": "измерено: hh_interview_structure→interview_analyze ×3, calltips_prepare→hh_interview_structure ×2, video_analyze_batch→interview_analyze ×2",
+      "evidenceTotal": 7,
+      "evidence": [
+        {
+          "from": "hh_interview_structure",
+          "to": "interview_analyze",
+          "n": 3
+        },
+        {
+          "from": "calltips_prepare",
+          "to": "hh_interview_structure",
+          "n": 2
+        },
+        {
+          "from": "video_analyze_batch",
+          "to": "interview_analyze",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-3-playbook_edit",
+      "names": [
+        "playbook_edit",
+        "task_item_add",
+        "task_item_update"
+      ],
+      "why": "измерено: task_item_add→playbook_edit ×4, task_item_update→playbook_edit ×2",
+      "evidenceTotal": 6,
+      "evidence": [
+        {
+          "from": "task_item_add",
+          "to": "playbook_edit",
+          "n": 4
+        },
+        {
+          "from": "task_item_update",
+          "to": "playbook_edit",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-gdrive_public_sheet",
+      "names": [
+        "gdrive_public_sheet",
+        "gdrive_read_file"
+      ],
+      "why": "измерено: gdrive_public_sheet→gdrive_read_file ×5",
+      "evidenceTotal": 5,
+      "evidence": [
+        {
+          "from": "gdrive_public_sheet",
+          "to": "gdrive_read_file",
+          "n": 5
+        }
+      ]
+    },
+    {
+      "id": "auto-2-ba_export_client_doc",
+      "names": [
+        "ba_export_client_doc",
+        "doc_export"
+      ],
+      "why": "измерено: ba_export_client_doc→doc_export ×4",
+      "evidenceTotal": 4,
+      "evidence": [
+        {
+          "from": "ba_export_client_doc",
+          "to": "doc_export",
+          "n": 4
+        }
+      ]
+    },
+    {
+      "id": "auto-2-github_pr_checks",
+      "names": [
+        "github_pr_checks",
+        "pr_status"
+      ],
+      "why": "измерено: github_pr_checks→pr_status ×4",
+      "evidenceTotal": 4,
+      "evidence": [
+        {
+          "from": "github_pr_checks",
+          "to": "pr_status",
+          "n": 4
+        }
+      ]
+    },
+    {
+      "id": "auto-2-list_pages",
+      "names": [
+        "list_pages",
+        "tilda_list_pages"
+      ],
+      "why": "измерено: tilda_list_pages→list_pages ×4",
+      "evidenceTotal": 4,
+      "evidence": [
+        {
+          "from": "tilda_list_pages",
+          "to": "list_pages",
+          "n": 4
+        }
+      ]
+    },
+    {
+      "id": "auto-3-ba_write_spec",
+      "names": [
+        "ba_write_spec",
+        "engineering_generate_all",
+        "engineering_generate_spec"
+      ],
+      "why": "измерено: engineering_generate_spec→engineering_generate_all ×2, engineering_generate_spec→ba_write_spec ×2",
+      "evidenceTotal": 4,
+      "evidence": [
+        {
+          "from": "engineering_generate_spec",
+          "to": "engineering_generate_all",
+          "n": 2
+        },
+        {
+          "from": "engineering_generate_spec",
+          "to": "ba_write_spec",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-3-browser_session_evaluate",
+      "names": [
+        "browser_session_evaluate",
+        "get_page_content",
+        "tilda_get_page"
+      ],
+      "why": "измерено: get_page_content→browser_session_evaluate ×2, tilda_get_page→get_page_content ×2",
+      "evidenceTotal": 4,
+      "evidence": [
+        {
+          "from": "get_page_content",
+          "to": "browser_session_evaluate",
+          "n": 2
+        },
+        {
+          "from": "tilda_get_page",
+          "to": "get_page_content",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-3-hh_interview_coverage",
+      "names": [
+        "hh_interview_coverage",
+        "hh_portrait_completeness",
+        "hh_portrait_extract"
+      ],
+      "why": "измерено: hh_interview_coverage→hh_portrait_completeness ×2, hh_portrait_extract→hh_portrait_completeness ×2",
+      "evidenceTotal": 4,
+      "evidence": [
+        {
+          "from": "hh_interview_coverage",
+          "to": "hh_portrait_completeness",
+          "n": 2
+        },
+        {
+          "from": "hh_portrait_extract",
+          "to": "hh_portrait_completeness",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-3-playbook_run",
+      "names": [
+        "playbook_run",
+        "reproject_apply",
+        "task_update"
+      ],
+      "why": "измерено: reproject_apply→playbook_run ×2, task_update→playbook_run ×2",
+      "evidenceTotal": 4,
+      "evidence": [
+        {
+          "from": "reproject_apply",
+          "to": "playbook_run",
+          "n": 2
+        },
+        {
+          "from": "task_update",
+          "to": "playbook_run",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-ba_clarify_requirements",
+      "names": [
+        "ba_clarify_requirements",
+        "engineering_estimate_complexity"
+      ],
+      "why": "измерено: ba_clarify_requirements→engineering_estimate_complexity ×3",
+      "evidenceTotal": 3,
+      "evidence": [
+        {
+          "from": "ba_clarify_requirements",
+          "to": "engineering_estimate_complexity",
+          "n": 3
+        }
+      ]
+    },
+    {
+      "id": "auto-2-expo_pipeline_qualify",
+      "names": [
+        "expo_pipeline_qualify",
+        "expo_pipeline_run"
+      ],
+      "why": "измерено: expo_pipeline_qualify→expo_pipeline_run ×3",
+      "evidenceTotal": 3,
+      "evidence": [
+        {
+          "from": "expo_pipeline_qualify",
+          "to": "expo_pipeline_run",
+          "n": 3
+        }
+      ]
+    },
+    {
+      "id": "auto-2-expo_enable",
+      "names": [
+        "expo_enable",
+        "flexi_set_exhibition"
+      ],
+      "why": "измерено: flexi_set_exhibition→expo_enable ×3",
+      "evidenceTotal": 3,
+      "evidence": [
+        {
+          "from": "flexi_set_exhibition",
+          "to": "expo_enable",
+          "n": 3
+        }
+      ]
+    },
+    {
+      "id": "auto-2-hermes_research",
+      "names": [
+        "hermes_research",
+        "hermes_run"
+      ],
+      "why": "измерено: hermes_run→hermes_research ×3",
+      "evidenceTotal": 3,
+      "evidence": [
+        {
+          "from": "hermes_run",
+          "to": "hermes_research",
+          "n": 3
+        }
+      ]
+    },
+    {
+      "id": "auto-2-hh_proactive_search",
+      "names": [
+        "hh_proactive_search",
+        "hh_proactive_view"
+      ],
+      "why": "измерено: hh_proactive_view→hh_proactive_search ×3",
+      "evidenceTotal": 3,
+      "evidence": [
+        {
+          "from": "hh_proactive_view",
+          "to": "hh_proactive_search",
+          "n": 3
+        }
+      ]
+    },
+    {
+      "id": "auto-2-engineering_prepare_task",
+      "names": [
+        "engineering_prepare_task",
+        "task_create"
+      ],
+      "why": "измерено: task_create→engineering_prepare_task ×3",
+      "evidenceTotal": 3,
+      "evidence": [
+        {
+          "from": "task_create",
+          "to": "engineering_prepare_task",
+          "n": 3
+        }
+      ]
+    },
+    {
+      "id": "auto-2-cicd_track_pr",
+      "names": [
+        "cicd_track_pr",
+        "task_item_wait"
+      ],
+      "why": "измерено: task_item_wait→cicd_track_pr ×3",
+      "evidenceTotal": 3,
+      "evidence": [
+        {
+          "from": "task_item_wait",
+          "to": "cicd_track_pr",
+          "n": 3
+        }
+      ]
+    },
+    {
+      "id": "auto-2-applylink_list_vacancies",
+      "names": [
+        "applylink_list_vacancies",
+        "hh_list_vacancies"
+      ],
+      "why": "измерено: applylink_list_vacancies→hh_list_vacancies ×2",
+      "evidenceTotal": 2,
+      "evidence": [
+        {
+          "from": "applylink_list_vacancies",
+          "to": "hh_list_vacancies",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-candidate_report_context",
+      "names": [
+        "candidate_report_context",
+        "hh_portrait_update"
+      ],
+      "why": "измерено: candidate_report_context→hh_portrait_update ×2",
+      "evidenceTotal": 2,
+      "evidence": [
+        {
+          "from": "candidate_report_context",
+          "to": "hh_portrait_update",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-dev_workspace_setup",
+      "names": [
+        "dev_workspace_setup",
+        "engineering_spawn_workspace"
+      ],
+      "why": "измерено: dev_workspace_setup→engineering_spawn_workspace ×2",
+      "evidenceTotal": 2,
+      "evidence": [
+        {
+          "from": "dev_workspace_setup",
+          "to": "engineering_spawn_workspace",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-expo_pipeline_set_criteria",
+      "names": [
+        "expo_pipeline_set_criteria",
+        "expo_pipeline_set_site_config"
+      ],
+      "why": "измерено: expo_pipeline_set_site_config→expo_pipeline_set_criteria ×2",
+      "evidenceTotal": 2,
+      "evidence": [
+        {
+          "from": "expo_pipeline_set_site_config",
+          "to": "expo_pipeline_set_criteria",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-gc_user_notifications",
+      "names": [
+        "gc_user_notifications",
+        "hh_get_messages"
+      ],
+      "why": "измерено: gc_user_notifications→hh_get_messages ×2",
+      "evidenceTotal": 2,
+      "evidence": [
+        {
+          "from": "gc_user_notifications",
+          "to": "hh_get_messages",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-github_status",
+      "names": [
+        "github_status",
+        "nalog_get_profile"
+      ],
+      "why": "измерено: github_status→nalog_get_profile ×2",
+      "evidenceTotal": 2,
+      "evidence": [
+        {
+          "from": "github_status",
+          "to": "nalog_get_profile",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-hh_extract_ats_config",
+      "names": [
+        "hh_extract_ats_config",
+        "interview_set_criteria"
+      ],
+      "why": "измерено: hh_extract_ats_config→interview_set_criteria ×2",
+      "evidenceTotal": 2,
+      "evidence": [
+        {
+          "from": "hh_extract_ats_config",
+          "to": "interview_set_criteria",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-playbook_batch_status",
+      "names": [
+        "playbook_batch_status",
+        "playbook_health"
+      ],
+      "why": "измерено: playbook_health→playbook_batch_status ×2",
+      "evidenceTotal": 2,
+      "evidence": [
+        {
+          "from": "playbook_health",
+          "to": "playbook_batch_status",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-search_exa",
+      "names": [
+        "search_exa",
+        "search_serper"
+      ],
+      "why": "измерено: search_exa→search_serper ×2",
+      "evidenceTotal": 2,
+      "evidence": [
+        {
+          "from": "search_exa",
+          "to": "search_serper",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-freelance_list",
+      "names": [
+        "freelance_list",
+        "tilda_list_all_projects"
+      ],
+      "why": "измерено: tilda_list_all_projects→freelance_list ×2",
+      "evidenceTotal": 2,
+      "evidence": [
+        {
+          "from": "tilda_list_all_projects",
+          "to": "freelance_list",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "id": "auto-2-web_open",
+      "names": [
+        "web_open",
+        "web_text"
+      ],
+      "why": "измерено: web_open→web_text ×2",
+      "evidenceTotal": 2,
+      "evidence": [
+        {
+          "from": "web_open",
+          "to": "web_text",
+          "n": 2
+        }
+      ]
+    }
+  ]
+}
