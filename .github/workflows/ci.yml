@@ -97,15 +97,33 @@ jobs:
           CATALOG_REPO_ROOT: ${{ runner.temp }}/repos
         run: node src/catalog.mjs
 
-      - name: Run selection eval on free models
+      - name: Route the generated corpus
         env:
           CATALOG_REPO_ROOT: ${{ runner.temp }}/repos
           LADDER_TOKEN: ${{ secrets.LADDER_TOKEN }}
         run: |
           node src/eval-select.mjs \
+            --tasks tasks/corpus.v1.jsonl \
+            --runs "${{ github.event.inputs.runs || 1 }}" \
+            --distractors "${{ github.event.inputs.distractors || 5 }}" \
+            --concurrency 5
+
+      - name: Route the hand-written corpus
+        env:
+          CATALOG_REPO_ROOT: ${{ runner.temp }}/repos
+          LADDER_TOKEN: ${{ secrets.LADDER_TOKEN }}
+        run: |
+          node src/eval-select.mjs \
+            --tasks tasks/selection.v1.jsonl \
             --runs "${{ github.event.inputs.runs || 2 }}" \
             --distractors "${{ github.event.inputs.distractors || 5 }}" \
             --concurrency 4
+
+      - name: Measure name informativeness
+        env:
+          CATALOG_REPO_ROOT: ${{ runner.temp }}/repos
+          LADDER_TOKEN: ${{ secrets.LADDER_TOKEN }}
+        run: node src/eval-informativeness.mjs --concurrency 4
 
       - name: Upload eval artifacts
         uses: actions/upload-artifact@v4
@@ -116,9 +134,9 @@ jobs:
 
       - name: Fail on regression vs baseline
         run: |
-          # The baseline is recorded in FINDINGS.md, not hardcoded here: a threshold that silently
-          # moves is worse than no threshold. This step fails only on a hard collapse, and the
-          # per-category table in out/eval.v1.md is what a human reads.
+          # The baselines are recorded in FINDINGS.md / FINDINGS-corpus.md, not hardcoded here: a
+          # threshold that silently moves is worse than no threshold. This step fails only on a hard
+          # collapse, and the per-tool table in out/eval.v1.md is what a human reads.
           node -e "
             const fs=require('fs');
             const rows=JSON.parse(fs.readFileSync('out/eval.v1.json','utf8'));
