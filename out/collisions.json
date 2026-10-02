@@ -1,0 +1,13 @@
+{
+  "hardDuplicates": [
+    {
+      "name": "search_serp_free",
+      "sources": [
+        "core",
+        "search"
+      ]
+    }
+  ],
+  "ungroupedTools": [],
+  "note": "Semantic near-duplication is not detected here — it needs an LLM and lives in tasks/ + src/eval-select.mjs."
+}

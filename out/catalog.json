@@ -1,0 +1,1065 @@
+{
+  "generatedFrom": [
+    {
+      "id": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": 137
+    },
+    {
+      "id": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": 72
+    },
+    {
+      "id": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": 54
+    },
+    {
+      "id": "documents",
+      "repo": "trained-assist/trained-assist-documents-skill",
+      "commit": "726dc1e023b67d5f87fc9dea1ef809d17c33d46c",
+      "tools": 17
+    },
+    {
+      "id": "freelance",
+      "repo": "trained-assist/trained-assist-freelance-skill",
+      "commit": "54bb6bc5ecbfe26d5353329e68f634cbab9b6049",
+      "tools": 9
+    },
+    {
+      "id": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": 40
+    },
+    {
+      "id": "search",
+      "repo": "trained-assist/trained-assist-search-skill",
+      "commit": "08be0c3f7e0534e3469c09477b24b1f616760714",
+      "tools": 2
+    }
+  ],
+  "totalTools": 331,
+  "totalGroups": 76,
+  "groups": [
+    {
+      "group": "core",
+      "subgroup": "00-meta",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "list_skills"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "01-session-history",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "load_full_context"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "02-chat-history",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "get_chat_history",
+        "get_group_file",
+        "get_group_history",
+        "get_new_messages"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "03-context-store",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "context_clear",
+        "context_get",
+        "context_list",
+        "context_set"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "04-cron",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "cron_create",
+        "cron_delete",
+        "cron_list",
+        "cron_pause",
+        "cron_resume",
+        "cron_run_now"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "05-session",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "last_messages",
+        "session_extend_timeout",
+        "session_search"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "06-reproject",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "reproject_adjust",
+        "reproject_apply",
+        "reproject_preview",
+        "reproject_revert"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "10-nalog",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "nalog_create_receipt",
+        "nalog_get_incomes",
+        "nalog_get_profile",
+        "nalog_refresh_token"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "100-hermes",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "hermes_candidate_report",
+        "hermes_research",
+        "hermes_run"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "101-durable-tasks",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "task_create",
+        "task_get",
+        "task_item_add",
+        "task_item_complete",
+        "task_item_exception",
+        "task_item_result",
+        "task_item_retry",
+        "task_item_skip",
+        "task_item_update",
+        "task_item_wait",
+        "task_item_wake",
+        "task_list",
+        "task_update"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "102-playbooks",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "playbook_batch_control",
+        "playbook_batch_status",
+        "playbook_draft",
+        "playbook_edit",
+        "playbook_get",
+        "playbook_health",
+        "playbook_list",
+        "playbook_run",
+        "playbook_run_batch",
+        "playbook_save",
+        "playbook_suggest"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "103-content-rewrite",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "content_rewrite"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "20-tilda",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "tilda_backup_page",
+        "tilda_create_staging",
+        "tilda_get_blocks",
+        "tilda_get_page",
+        "tilda_list_all_projects",
+        "tilda_list_pages",
+        "tilda_publish_page",
+        "tilda_save_block",
+        "tilda_set_config",
+        "tilda_status"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "21-browser-session",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "browser_session_autologin",
+        "browser_session_capture_cookies",
+        "browser_session_evaluate",
+        "browser_session_login",
+        "browser_session_navigate",
+        "browser_session_status",
+        "browser_session_url"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "22-connect",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "connect"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "22-ru-browser",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "ru_browser_fetch",
+        "ru_browser_screenshot"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "23-credentials-form",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "credentials_form_create"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "24-web-ops",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "web_ask",
+        "web_click",
+        "web_fill",
+        "web_find",
+        "web_login",
+        "web_open",
+        "web_screenshot",
+        "web_state",
+        "web_text"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "62-business-analyst",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "ba_clarify_requirements",
+        "ba_client_spec_template",
+        "ba_development_playbook",
+        "ba_export_client_doc",
+        "ba_write_spec"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "80-getcourse",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "gc_connect",
+        "gc_course_create",
+        "gc_course_list",
+        "gc_group_courses",
+        "gc_group_list",
+        "gc_lesson_add_text",
+        "gc_lesson_add_video",
+        "gc_lesson_create",
+        "gc_lesson_sort",
+        "gc_order_list",
+        "gc_section_create",
+        "gc_status",
+        "gc_user_add",
+        "gc_user_find",
+        "gc_user_notifications",
+        "gc_user_trainings"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "81-gc-discovery",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "gc_api_call",
+        "gc_discover"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "84-artifacts",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "agent_knowledge_summary",
+        "agent_query_artifacts",
+        "agent_store_artifact"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "94-tg-send",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "tg_send_file"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "95-illustrate",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "illustrate_generate",
+        "illustrate_preview_prompt",
+        "illustrate_providers",
+        "illustrate_refine",
+        "illustrate_setup",
+        "illustrate_styles",
+        "illustrate_tips"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "95-video-analysis",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "video_analysis_status",
+        "video_analyze_batch",
+        "video_set_deepgram_key"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "96-label",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "image_label"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "97-publish",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "delete_page",
+        "get_page_content",
+        "list_pages",
+        "publish_page",
+        "set_publish_domain"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "97b-site-deploy",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "site_deploy",
+        "site_deploy_status"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "98-api-from-website",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "website_credentials_list",
+        "website_credentials_save",
+        "website_discover",
+        "website_request"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "99b-search-exa",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "fetch_exa",
+        "search_exa"
+      ]
+    },
+    {
+      "group": "core",
+      "subgroup": "99c-search-searxng",
+      "source": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "commit": "b9e5ded0adfe1226819f40a241dc514b41aae30e",
+      "tools": [
+        "search_serp_free"
+      ]
+    },
+    {
+      "group": "documents",
+      "subgroup": "10-deck",
+      "source": "documents",
+      "repo": "trained-assist/trained-assist-documents-skill",
+      "commit": "726dc1e023b67d5f87fc9dea1ef809d17c33d46c",
+      "tools": [
+        "deck_check",
+        "deck_markup_guide",
+        "deck_render"
+      ]
+    },
+    {
+      "group": "documents",
+      "subgroup": "20-doc-export",
+      "source": "documents",
+      "repo": "trained-assist/trained-assist-documents-skill",
+      "commit": "726dc1e023b67d5f87fc9dea1ef809d17c33d46c",
+      "tools": [
+        "doc_export"
+      ]
+    },
+    {
+      "group": "documents",
+      "subgroup": "50-gdrive",
+      "source": "documents",
+      "repo": "trained-assist/trained-assist-documents-skill",
+      "commit": "726dc1e023b67d5f87fc9dea1ef809d17c33d46c",
+      "tools": [
+        "gdrive_create_file",
+        "gdrive_delete_file",
+        "gdrive_docs_get_structure",
+        "gdrive_docs_insert_text",
+        "gdrive_list_files",
+        "gdrive_public_folder",
+        "gdrive_public_sheet",
+        "gdrive_read_file",
+        "gdrive_search",
+        "gdrive_setup",
+        "gdrive_status",
+        "gdrive_update_file",
+        "gdrive_write_sheet"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "10-prepare-task",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "engineering_prepare_task"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "20-workspace",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "engineering_release_workspace",
+        "engineering_spawn_workspace",
+        "engineering_workspace_status"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "30-repo-context",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "engineering_repo_context"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "35-repo-map",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "repo_map"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "40-qa-logs",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "qa_log_list",
+        "qa_log_lookup",
+        "qa_log_register"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "50-pr-autofix",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "engineering_pr_autofix_disable",
+        "engineering_pr_autofix_install",
+        "engineering_pr_autofix_register",
+        "engineering_pr_autofix_rollout",
+        "engineering_pr_autofix_status"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "60-github",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "github_add_comment",
+        "github_create_issue",
+        "github_create_or_update_file",
+        "github_create_pr",
+        "github_get_file",
+        "github_list_issues",
+        "github_list_prs",
+        "github_list_repos",
+        "github_pr_checks",
+        "github_search",
+        "github_status",
+        "github_update_issue"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "61-dev",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "dev_new_repo",
+        "dev_supersede_pr",
+        "dev_workspace_setup"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "62-pr-status",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "issue_status",
+        "pr_status"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "63-ci-cd",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "ci_run_branch",
+        "cicd_track_pr"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "64-complexity",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "engineering_estimate_complexity"
+      ]
+    },
+    {
+      "group": "engineering",
+      "subgroup": "65-spec-generation",
+      "source": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "commit": "8d5057aefd7095b13b645a0b7c3dec11a6b19419",
+      "tools": [
+        "engineering_generate_all",
+        "engineering_generate_spec",
+        "engineering_generation_note",
+        "engineering_get_spec",
+        "engineering_spec_generation_defaults",
+        "engineering_spec_generation_explained"
+      ]
+    },
+    {
+      "group": "freelance",
+      "subgroup": "10-freelance-project",
+      "source": "freelance",
+      "repo": "trained-assist/trained-assist-freelance-skill",
+      "commit": "54bb6bc5ecbfe26d5353329e68f634cbab9b6049",
+      "tools": [
+        "freelance_add_info",
+        "freelance_assess",
+        "freelance_get_project",
+        "freelance_list",
+        "freelance_new_project",
+        "freelance_questions",
+        "freelance_set_folder"
+      ]
+    },
+    {
+      "group": "freelance",
+      "subgroup": "20-freelance-classifier",
+      "source": "freelance",
+      "repo": "trained-assist/trained-assist-freelance-skill",
+      "commit": "54bb6bc5ecbfe26d5353329e68f634cbab9b6049",
+      "tools": [
+        "freelance_classify_document"
+      ]
+    },
+    {
+      "group": "freelance",
+      "subgroup": "30-freelance-search",
+      "source": "freelance",
+      "repo": "trained-assist/trained-assist-freelance-skill",
+      "commit": "54bb6bc5ecbfe26d5353329e68f634cbab9b6049",
+      "tools": [
+        "freelance_search"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "90-hh",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "hh_batch_evaluate",
+        "hh_bulk_reject",
+        "hh_candidate_profile",
+        "hh_connect",
+        "hh_deactivate_vacancy",
+        "hh_draft_review_page",
+        "hh_evaluate_candidate",
+        "hh_evaluate_resume",
+        "hh_extract_ats_config",
+        "hh_funnel_stats",
+        "hh_generate_message",
+        "hh_get_messages",
+        "hh_invite_resume",
+        "hh_list_responses",
+        "hh_list_vacancies",
+        "hh_move_candidate",
+        "hh_open_ats_editor",
+        "hh_regenerate_messages",
+        "hh_search_resumes",
+        "hh_send_message",
+        "hh_set_active_vacancy",
+        "hh_set_publish_domain",
+        "hh_set_rejection_template",
+        "hh_set_token",
+        "hh_status",
+        "hh_vacancy_create_draft",
+        "hh_vacancy_get_draft",
+        "hh_vacancy_publish_page",
+        "hh_vacancy_update_draft"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "90b-hh-portrait",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "hh_portrait_completeness",
+        "hh_portrait_extract",
+        "hh_portrait_get",
+        "hh_portrait_to_ats",
+        "hh_portrait_update"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "91-hh-discovery",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "hh_api_call",
+        "hh_discover"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "91b-hh-outreach",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "cold_message_generate",
+        "rejection_with_feedback"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "91c-hh-sync",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "hh_sync_messages"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "92-hh-proactive",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "hh_proactive_queries",
+        "hh_proactive_schedule",
+        "hh_proactive_scoring_prompt",
+        "hh_proactive_search",
+        "hh_proactive_view"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "94-calltips",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "calltips_get_login",
+        "calltips_list_candidates",
+        "calltips_prepare"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "95-recruiter-tools",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "boolean_search",
+        "interview_questions_bank",
+        "jd_generate",
+        "salary_benchmark",
+        "sourcing_checklist"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "96-applylink",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "applylink_create_vacancy",
+        "applylink_get_candidates",
+        "applylink_list_vacancies"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "97-candidate-client-report",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "candidate_report_add_note",
+        "candidate_report_context",
+        "candidate_report_render"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "98-demo",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "demo_activate",
+        "demo_candidate_profile",
+        "demo_candidates",
+        "demo_deactivate",
+        "demo_next_wave",
+        "demo_reply",
+        "demo_status"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "98b-interview",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "hh_interview_structure",
+        "hh_interview_transcribe"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "99-interview-analysis",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "interview_analyze",
+        "interview_get_criteria",
+        "interview_set_criteria"
+      ]
+    },
+    {
+      "group": "recruiting",
+      "subgroup": "99b-interview-portrait",
+      "source": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "commit": "e5edff14be37a4fb6210121c7994ec7c202f5eea",
+      "tools": [
+        "hh_interview_coverage",
+        "hh_interview_evaluate"
+      ]
+    },
+    {
+      "group": "sales",
+      "subgroup": "30-weeek",
+      "source": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": [
+        "weeek_add_comment",
+        "weeek_add_task",
+        "weeek_create_contact",
+        "weeek_create_deal",
+        "weeek_delete_deal",
+        "weeek_get_contact",
+        "weeek_get_deal",
+        "weeek_list_contacts",
+        "weeek_list_deals",
+        "weeek_list_funnels",
+        "weeek_list_statuses",
+        "weeek_set_token",
+        "weeek_status",
+        "weeek_update_contact",
+        "weeek_update_deal"
+      ]
+    },
+    {
+      "group": "sales",
+      "subgroup": "40-company",
+      "source": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": [
+        "company_find_by_email",
+        "company_find_by_name",
+        "company_get_by_inn",
+        "company_review",
+        "company_set_dadata_token"
+      ]
+    },
+    {
+      "group": "sales",
+      "subgroup": "70-inn-enrichment",
+      "source": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": [
+        "inn_enrich_batch",
+        "inn_set_checko_key",
+        "inn_set_dadata_token",
+        "inn_set_rusprofile_cookie",
+        "inn_status"
+      ]
+    },
+    {
+      "group": "sales",
+      "subgroup": "71-dadata",
+      "source": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": [
+        "dadata_address",
+        "dadata_find",
+        "dadata_suggest"
+      ]
+    },
+    {
+      "group": "sales",
+      "subgroup": "72-checko",
+      "source": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": [
+        "checko_discover",
+        "checko_get",
+        "checko_qualify"
+      ]
+    },
+    {
+      "group": "sales",
+      "subgroup": "85-expo",
+      "source": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": [
+        "expo_enable",
+        "expo_find_participants",
+        "expo_parse_participants"
+      ]
+    },
+    {
+      "group": "sales",
+      "subgroup": "86-expo-flexi",
+      "source": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": [
+        "expo_check_target_revenue",
+        "expo_classify_targets",
+        "expo_generate_ex_array"
+      ]
+    },
+    {
+      "group": "sales",
+      "subgroup": "87-expo-pipeline",
+      "source": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": [
+        "expo_pipeline_get_criteria",
+        "expo_pipeline_get_site_config",
+        "expo_pipeline_qualify",
+        "expo_pipeline_set_criteria",
+        "expo_pipeline_set_site_config",
+        "expo_pipeline_status"
+      ]
+    },
+    {
+      "group": "sales",
+      "subgroup": "88-expo-catalog",
+      "source": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": [
+        "expo_build_catalog",
+        "expo_deploy_catalog"
+      ]
+    },
+    {
+      "group": "sales",
+      "subgroup": "89-expo-pipeline-run",
+      "source": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": [
+        "expo_pipeline_run"
+      ]
+    },
+    {
+      "group": "sales",
+      "subgroup": "92-flexi-sales",
+      "source": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "commit": "2cc543d688489b995f97f09f4e0531d301c1eb11",
+      "tools": [
+        "flexi_add_note",
+        "flexi_delete_note",
+        "flexi_get_notes",
+        "flexi_get_notes_bulk",
+        "flexi_reject_company",
+        "flexi_set_exhibition",
+        "flexi_status",
+        "flexi_unreject_company"
+      ]
+    },
+    {
+      "group": "search",
+      "subgroup": "99-search-serper",
+      "source": "search",
+      "repo": "trained-assist/trained-assist-search-skill",
+      "commit": "08be0c3f7e0534e3469c09477b24b1f616760714",
+      "tools": [
+        "search_serper"
+      ]
+    },
+    {
+      "group": "search",
+      "subgroup": "99c-search-searxng",
+      "source": "search",
+      "repo": "trained-assist/trained-assist-search-skill",
+      "commit": "08be0c3f7e0534e3469c09477b24b1f616760714",
+      "tools": [
+        "search_serp_free"
+      ]
+    }
+  ]
+}

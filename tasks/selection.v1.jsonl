@@ -1,0 +1,97 @@
+{"id":"syn-001","category":"synonym","request":"покажи все вакансии, которые я разместил на hh","accept":["hh_list_vacancies"],"note":"естественная формулировка без имени инструмента"}
+{"id":"syn-002","category":"synonym","request":"сколько денег я заработал в этом месяце по самозанятости","accept":["nalog_get_incomes"],"note":"nalog_get_incomes, а не nalog_get_profile"}
+{"id":"syn-003","category":"synonym","request":"выпиши мне чек на пять тысяч за вёрстку","accept":["nalog_create_receipt"],"note":"русская разговорная формулировка чека"}
+{"id":"syn-004","category":"synonym","request":"запусти настройку getcourse чтобы я подключился","accept":["gc_connect"]}
+{"id":"syn-005","category":"synonym","request":"создай новый раздел в курсе","accept":["gc_section_create"],"note":"не путать с gc_lesson_create"}
+{"id":"syn-006","category":"synonym","request":"добавь в раздел текстовый урок","accept":["gc_lesson_add_text"],"note":" sibling gc_lesson_add_video — различие в типе контента"}
+{"id":"syn-007","category":"synonym","request":"добавь в этот урок видео","accept":["gc_lesson_add_video"]}
+{"id":"syn-008","category":"synonym","request":"покажи заказы учеников","accept":["gc_order_list"]}
+{"id":"syn-009","category":"synonym","request":"найди клиента по инн","accept":["company_get_by_inn"]}
+{"id":"syn-010","category":"synonym","request":"найди компанию по названию","accept":["company_find_by_name","dadata_find","checko_discover"],"expect":"ambiguous","note":"три честных кандидата — не ошибка"}
+{"id":"syn-011","category":"synonym","request":"опубликуй страницу на tilda","accept":["tilda_publish_page"]}
+{"id":"syn-012","category":"synonym","request":"сделай резервную копию страницы tilda перед правками","accept":["tilda_backup_page"]}
+{"id":"syn-013","category":"synonym","request":"опубликуй отчёт на моём домене","accept":["publish_page"]}
+{"id":"syn-014","category":"synonym","request":"сгенерируй картинку для статьи","accept":["illustrate_generate"]}
+{"id":"syn-015","category":"synonym","request":"какие стили иллюстраций вообще доступны","accept":["illustrate_styles","illustrate_providers"],"expect":"ambiguous"}
+{"id":"syn-016","category":"synonym","request":"отрендери презентацию","accept":["deck_render"]}
+{"id":"syn-017","category":"synonym","request":"выгрузи документ в другой формат","accept":["doc_export"]}
+{"id":"syn-018","category":"synonym","request":"проверь документ по содержанию","accept":["document_content_review"]}
+{"id":"syn-019","category":"synonym","request":"залей файл на google disk","accept":["gdrive_create_file"]}
+{"id":"syn-020","category":"synonym","request":"найди файл на google диске по названию","accept":["gdrive_search"]}
+{"id":"syn-021","category":"synonym","request":"запиши в таблицу на google Sheets","accept":["gdrive_write_sheet"]}
+{"id":"syn-022","category":"synonym","request":"сделай новый проект фриланса","accept":["freelance_new_project"]}
+{"id":"syn-023","category":"synonym","request":"оцени, подходит ли мне этот заказ","accept":["freelance_assess"]}
+{"id":"syn-024","category":"synonym","request":"определи, что это за документ","accept":["freelance_classify_document"]}
+{"id":"syn-025","category":"synonym","request":"поставь напоминалку через крон","accept":["cron_create"]}
+{"id":"syn-026","category":"synonym","request":"запусти задачу по крону прямо сейчас","accept":["cron_run_now"]}
+{"id":"syn-027","category":"synonym","request":"приостанови все cron задачи","accept":["cron_pause"]}
+{"id":"syn-028","category":"synonym","request":"создай задачу в списке дел","accept":["task_create"]}
+{"id":"syn-029","category":"synonym","request":"покажи мои задачи","accept":["task_list"]}
+{"id":"syn-030","category":"synonym","request":"покажи какие плейбуки есть","accept":["playbook_list"]}
+{"id":"syn-031","category":"synonym","request":"запусти плейбук","accept":["playbook_run"]}
+{"id":"syn-032","category":"synonym","request":"какие плейбуки сейчас сломаны","accept":["playbook_health"]}
+{"id":"syn-033","category":"synonym","request":"задеплой сайт","accept":["site_deploy"]}
+{"id":"syn-034","category":"synonym","request":"как прошёл деплой","accept":["site_deploy_status"]}
+{"id":"syn-035","category":"synonym","request":"погугли мне про мобильные приложения для медитации","accept":["search_exa","search_serp_free","search_serper"],"expect":"ambiguous","note":"три поисковых инструмента"}
+{"id":"syn-036","category":"synonym","request":"сходи по ссылке и вытащи оттуда текст","accept":["fetch_exa"]}
+{"id":"syn-037","category":"synonym","request":"сравни компанию с конкурентами, дай разбор","accept":["company_review"]}
+{"id":"syn-038","category":"synonym","request":"найди участников выставки по exhibitors.json","accept":["expo_find_participants","expo_parse_participants"],"expect":"ambiguous"}
+{"id":"syn-039","category":"synonym","request":"собери каталог участников и выложи его","accept":["expo_build_catalog"]}
+{"id":"syn-040","category":"synonym","request":"определи, наши ли это целевые клиенты","accept":["expo_classify_targets"]}
+{"id":"syn-041","category":"synonym","request":"найди и вытащи контакты из объявления hh","accept":["hh_discover","hh_extract_ats_config"],"expect":"ambiguous"}
+{"id":"syn-042","category":"synonym","request":"напиши сопроводительное письмо кандидату","accept":["hh_generate_message","cold_message_generate"],"expect":"ambiguous"}
+{"id":"syn-043","category":"synonym","request":"отправь отказ кандидату с обратной связью","accept":["rejection_with_feedback"]}
+{"id":"syn-044","category":"synonym","request":"пригласи кандидата на вакансию","accept":["hh_invite_resume"]}
+{"id":"syn-045","category":"synonym","request":"покажи воронку подбора","accept":["hh_funnel_stats"]}
+{"id":"syn-046","category":"synonym","request":"составь список вопросов для интервью","accept":["interview_questions_bank"]}
+{"id":"syn-047","category":"synonym","request":"сделай чек-лист для поиска кандидатов","accept":["sourcing_checklist"]}
+{"id":"syn-048","category":"synonym","request":"сравни зарплаты по рынку","accept":["salary_benchmark"]}
+{"id":"syn-049","category":"synonym","request":"сгенерируй описание вакансии","accept":["jd_generate"]}
+{"id":"syn-050","category":"synonym","request":"покажи заметки по компании","accept":["flexi_get_notes"]}
+{"id":"syn-051","category":"synonym","request":"перепиши этот текст более коротко","accept":["content_rewrite"]}
+{"id":"syn-052","category":"synonym","request":"разбери требования и задай уточняющие вопросы","accept":["ba_clarify_requirements"]}
+{"id":"syn-053","category":"synonym","request":"напиши спецификацию по этому ТЗ","accept":["ba_write_spec"]}
+{"id":"syn-054","category":"synonym","request":"задеплой репозиторий в отдельное рабочее окружение","accept":["engineering_spawn_workspace"],"note":"вложенный инструмент в отдельном репо"}
+{"id":"syn-055","category":"synonym","request":"освободи рабочее окружение","accept":["engineering_release_workspace"]}
+{"id":"typo-001","category":"typo","request":"покзаи вакансии на хх","accept":["hh_list_vacancies"],"note":"опечатки в двух словах"}
+{"id":"typo-002","category":"typo","request":"создайче новый разлдел в курсе","accept":["gc_section_create"]}
+{"id":"typo-003","category":"typo","request":"выпусти меня че на 3000","accept":["nalog_create_receipt"]}
+{"id":"typo-004","category":"typo","request":"опубликуй стрраницу","accept":["tilda_publish_page","publish_page"],"expect":"ambiguous"}
+{"id":"typo-005","category":"typo","request":"покжи мои задачки","accept":["task_list"]}
+{"id":"sim-001","category":"similar","request":"оцени резюме кандидата из холодного поиска, отклика от него ещё нет","accept":["hh_evaluate_resume"],"note":"различие с hh_evaluate_candidate — нет отклика"}
+{"id":"sim-002","category":"similar","request":"оцени кандидата, который уже откликнулся на вакансию","accept":["hh_evaluate_candidate"],"note":"различие с hh_evaluate_resume — есть отклик"}
+{"id":"sim-003","category":"similar","request":"создай новый раздел","accept":["gc_section_create"],"note":"не lesson"}
+{"id":"sim-004","category":"similar","request":"создай новый урок","accept":["gc_lesson_create"],"note":"не section"}
+{"id":"sim-005","category":"similar","request":"покажи список вакансий","accept":["hh_list_vacancies","applylink_list_vacancies"],"expect":"ambiguous","note":"два честных кандидата из разных интеграций; модель нестабильна между None и угадыванием — сигнал, а не ошибка разметки"}
+{"id":"sim-006","category":"similar","request":"покажи отклики на вакансию","accept":["hh_list_responses"]}
+{"id":"sim-007","category":"similar","request":"покажи сообщения с кандидатом","accept":["hh_get_messages"],"note":"не hh_send_message"}
+{"id":"sim-008","category":"similar","request":"синхронизируй сообщения hh","accept":["hh_sync_messages"]}
+{"id":"sim-009","category":"similar","request":"перенеси кандидата на другую вакансию","accept":["hh_move_candidate"]}
+{"id":"sim-010","category":"similar","request":"отклони всех кандидатов разом","accept":["hh_bulk_reject"],"note":"не hh_bulk_reject по одному — массово"}
+{"id":"sim-011","category":"similar","request":"посмотри какого провайдера иллюстраций можно использовать","accept":["illustrate_providers"]}
+{"id":"sim-012","category":"similar","request":"открой профиль кандидата","accept":["hh_candidate_profile","demo_candidate_profile"],"expect":"ambiguous","note":"демо-режим неотличим по имени от боевого инструмента — префикс demo_ не несёт смысла для маршрутизатора"}
+{"id":"sim-013","category":"similar","request":"покажи заметки по нескольким компаниям сразу","accept":["flexi_get_notes_bulk"],"note":"не flexi_get_notes"}
+{"id":"sim-014","category":"similar","request":"сделай заметку по компании","accept":["flexi_add_note"]}
+{"id":"sim-015","category":"similar","request":"покажи дела, которые я жду","accept":["task_item_wait"]}
+{"id":"sim-016","category":"similar","request":"задача застряла, разбуди её","accept":["task_item_wake"]}
+{"id":"dir-001","category":"direct","request":"Вызови hh_list_vacancies","accept":["hh_list_vacancies"],"note":"прямая контрольная проверка: отделяет ошибку модели от поломки инструмента"}
+{"id":"dir-002","category":"direct","request":"Вызови task_list","accept":["task_list"]}
+{"id":"dir-003","category":"direct","request":"Вызови gc_status","accept":["gc_status"]}
+{"id":"dir-004","category":"direct","request":"Вызови playbook_list","accept":["playbook_list"]}
+{"id":"dir-005","category":"direct","request":"Вызови cron_list","accept":["cron_list"]}
+{"id":"none-001","category":"no_tool","request":"покажи текущий курс доллара к рублю","accept":[],"expect":"none"}
+{"id":"none-002","category":"no_tool","request":"забронируй столик в ресторане на пятницу","accept":[],"expect":"none"}
+{"id":"none-003","category":"no_tool","request":"позвони клиенту и продиктуй ему прайс","accept":[],"expect":"none","note":"телефонии в каталоге нет"}
+{"id":"none-004","category":"no_tool","request":"переведи текст на китайский язык","accept":[],"expect":"none","note":"content_rewrite не переводчик — проверка на ложный выбор"}
+{"id":"none-005","category":"no_tool","request":"собери мне портфолио из фотографий в pdf-каталог","accept":[],"expect":"none","note":"doc_export есть, но фото→каталог нет"}
+{"id":"none-006","category":"no_tool","request":"отправь письмо клиенту на мою почту","accept":[],"expect":"none","note":"почтового инструмента нет вообще"}
+{"id":"none-007","category":"no_tool","request":"посчитай налоги за квартал по всем доходам","accept":[],"expect":"none","note":"nalog_get_incomes есть, квартального расчёта нет"}
+{"id":"amb-001","category":"ambiguous","request":"удали это","accept":[],"expect":"clarify"}
+{"id":"amb-002","category":"ambiguous","request":"сделай получше","accept":[],"expect":"clarify"}
+{"id":"amb-003","category":"ambiguous","request":"запусти процесс","accept":[],"expect":"clarify","note":"слишком общо, чтобы угадывать инструмент"}
+{"id":"amb-004","category":"ambiguous","request":"настрой всё","accept":[],"expect":"clarify"}
+{"id":"vis-001","category":"access","request":"покажи отклики на вакансию","accept":["hh_list_responses"],"note":"инструмент есть, но без токена hh модель обязана предложить подключение, а не молчать"}
+{"id":"vis-002","category":"access","request":"подключи getcourse","accept":["gc_connect"],"note":"инструмент подключения виден всегда — setupTools"}
+{"id":"vis-003","category":"access","request":"как подключить google drive","accept":["gdrive_setup","gdrive_status"],"expect":"ambiguous","note":"setup виден всегда"}
+{"id":"vis-004","category":"access","request":"задай токен weeek","accept":["weeek_set_token"],"note":"setup-инструмент, виден без токена"}
+{"id":"vis-005","category":"access","request":"покажи сделки в weeek","accept":["weeek_list_deals"],"note":"требует токена — доступность проверяется при вызове"}

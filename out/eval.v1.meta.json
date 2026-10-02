@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-02T14:01:08.256Z",
+  "profile": "free",
+  "seed": 20261002,
+  "runs": 2,
+  "concurrency": 4,
+  "shuffle": true,
+  "distractors": 5,
+  "catalogTools": 331,
+  "catalogGroups": 76,
+  "catalogTokens": 2029,
+  "tasks": 97
+}

@@ -1,0 +1,131 @@
+name: CI
+
+# Two deliberately different jobs, because they cost different things and answer different questions.
+#
+#   catalog  — deterministic, no credentials, runs on every PR. Builds the names-only catalog from
+#              the seven public MCP repos and fails on a hard name duplicate or an ungrouped tool.
+#              This is the machine-checkable half of plan §5, and it is what makes a rename reviewable
+#              as a rename: the catalog diff shows exactly which names moved.
+#
+#   eval     — the Level-2 selection measurement (plan §6.2). Costs real LLM calls, so it runs on a
+#              schedule and on dispatch, never on a PR. It needs LADDER_TOKEN, which is why it is a
+#              separate job: a PR from a fork must never be able to spend the token.
+#
+# Nothing here touches a product server. All seven repos are public, so the catalog job clones them
+# with no credentials at all.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      runs:
+        description: 'Runs per task (1-5)'
+        required: false
+        default: '2'
+      distractors:
+        description: 'Fake tools added to the catalog'
+        required: false
+        default: '5'
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    name: Catalog + collisions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Clone the seven public MCP repos
+        run: |
+          mkdir -p "$RUNNER_TEMP/repos"
+          for r in trained-assist-agent trained-assist-hh-skill trained-assist-sales-skill \
+                   trained-assist-documents-skill trained-assist-freelance-skill \
+                   trained-assist-engineering trained-assist-search-skill; do
+            git clone --depth 1 -q "https://github.com/trained-assist/$r.git" "$RUNNER_TEMP/repos/$r"
+          done
+          # Only core needs installing: its registry requires better-sqlite3 (native) via
+          # 101-durable-tasks.js. The six siblings' registries require nothing external, which is
+          # why a bare clone is enough for them. This asymmetry is itself a finding — see
+          # REVIEW-OF-ISSUE-124.md §"Что уже есть".
+          npm ci --no-audit --no-fund --prefix "$RUNNER_TEMP/repos/trained-assist-agent"
+
+      - name: Build names-only catalog
+        env:
+          CATALOG_REPO_ROOT: ${{ runner.temp }}/repos
+        run: node src/catalog.mjs
+
+      - name: Upload catalog artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalog
+          path: out/
+          if-no-files-found: error
+
+  eval:
+    name: Level-2 selection eval
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Clone the seven public MCP repos
+        run: |
+          mkdir -p "$RUNNER_TEMP/repos"
+          for r in trained-assist-agent trained-assist-hh-skill trained-assist-sales-skill \
+                   trained-assist-documents-skill trained-assist-freelance-skill \
+                   trained-assist-engineering trained-assist-search-skill; do
+            git clone --depth 1 -q "https://github.com/trained-assist/$r.git" "$RUNNER_TEMP/repos/$r"
+          done
+          npm ci --no-audit --no-fund --prefix "$RUNNER_TEMP/repos/trained-assist-agent"
+
+      - name: Build catalog
+        env:
+          CATALOG_REPO_ROOT: ${{ runner.temp }}/repos
+        run: node src/catalog.mjs
+
+      - name: Run selection eval on free models
+        env:
+          CATALOG_REPO_ROOT: ${{ runner.temp }}/repos
+          LADDER_TOKEN: ${{ secrets.LADDER_TOKEN }}
+        run: |
+          node src/eval-select.mjs \
+            --runs "${{ github.event.inputs.runs || 2 }}" \
+            --distractors "${{ github.event.inputs.distractors || 5 }}" \
+            --concurrency 4
+
+      - name: Upload eval artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval
+          path: out/
+          if-no-files-found: error
+
+      - name: Fail on regression vs baseline
+        run: |
+          # The baseline is recorded in FINDINGS.md, not hardcoded here: a threshold that silently
+          # moves is worse than no threshold. This step fails only on a hard collapse, and the
+          # per-category table in out/eval.v1.md is what a human reads.
+          node -e "
+            const fs=require('fs');
+            const rows=JSON.parse(fs.readFileSync('out/eval.v1.json','utf8'));
+            const scored=rows.filter(r=>r.status!=='unavailable');
+            const acc=scored.filter(r=>r.status==='correct').length/scored.length;
+            const unavailable=rows.length-scored.length;
+            console.log('accuracy='+(100*acc).toFixed(1)+'% unavailable='+unavailable+'/'+rows.length);
+            if (unavailable/rows.length > 0.25) { console.error('too many unavailable runs — inconclusive'); process.exit(1); }
+            if (acc < 0.75) { console.error('accuracy collapsed below 75%'); process.exit(1); }
+          "

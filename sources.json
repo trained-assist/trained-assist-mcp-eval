@@ -1,0 +1,61 @@
+{
+  "_comment": "MCP tool sources for the names-only catalog. Every repo here is PUBLIC, so CI can clone all of them with no credentials and the eval never touches a product server. `group` is the level-1 group name in the names-only catalog; tools are grouped one level deeper by module (core) or source file (siblings). `registry` / `toolsDir` are relative to the repo root. Sourced from the inventory in trained-assist/trained-agent-architecture#124.",
+  "sources": [
+    {
+      "id": "core",
+      "repo": "trained-assist/trained-assist-agent",
+      "serverId": "trained-skills",
+      "group": "core",
+      "registry": "src/mcp-skills/registry.js",
+      "toolsDir": "src/mcp-skills/tools"
+    },
+    {
+      "id": "hh",
+      "repo": "trained-assist/trained-assist-hh-skill",
+      "serverId": "hh-skills",
+      "group": "recruiting",
+      "registry": "src/mcp-skills/registry.js",
+      "toolsDir": "src/mcp-skills/tools"
+    },
+    {
+      "id": "sales",
+      "repo": "trained-assist/trained-assist-sales-skill",
+      "serverId": "sales-skills",
+      "group": "sales",
+      "registry": "src/mcp-skills/registry.js",
+      "toolsDir": "src/mcp-skills/tools"
+    },
+    {
+      "id": "documents",
+      "repo": "trained-assist/trained-assist-documents-skill",
+      "serverId": "documents-skills",
+      "group": "documents",
+      "registry": "src/mcp-skills/registry.js",
+      "toolsDir": "src/mcp-skills/tools"
+    },
+    {
+      "id": "freelance",
+      "repo": "trained-assist/trained-assist-freelance-skill",
+      "serverId": "freelance-skills",
+      "group": "freelance",
+      "registry": "src/mcp-skills/registry.js",
+      "toolsDir": "src/mcp-skills/tools"
+    },
+    {
+      "id": "engineering",
+      "repo": "trained-assist/trained-assist-engineering",
+      "serverId": "engineering-skills",
+      "group": "engineering",
+      "registry": "src/mcp-skills/registry.js",
+      "toolsDir": "src/mcp-skills/tools"
+    },
+    {
+      "id": "search",
+      "repo": "trained-assist/trained-assist-search-skill",
+      "serverId": "search-skills",
+      "group": "search",
+      "registry": "src/mcp-skills/registry.js",
+      "toolsDir": "src/mcp-skills/tools"
+    }
+  ]
+}
