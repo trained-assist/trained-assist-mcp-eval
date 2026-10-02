@@ -46,7 +46,7 @@ const PROFILE = arg('profile', 'free');
 const CONCURRENCY = Math.min(8, Math.max(1, Number(arg('concurrency', 3))));
 const SEED = Number(arg('seed', 20261002));
 const LIMIT = Number(arg('limit', 0));
-const PROBES = (arg('probes', 'ab') || 'ab').split('').filter((c) => 'ab'.includes(c));
+const PROBES = (arg('probes', 'abc') || 'abc').split('').filter((c) => 'abc'.includes(c));
 
 function mulberry32(a) {
   return function () {
@@ -233,6 +233,86 @@ async function probeB(group, rand) {
   };
 }
 
+// ---------- Probe C: closed-set routing over a confusable group ----------
+//
+// Probe B asks the model to match REAL DESCRIPTIONS to names. That leaks the very information the
+// router will not have: `hh_evaluate_resume` is described as "из холодного поиска ... БЕЗ отклика"
+// and `hh_evaluate_candidate` as "откликнулся", so the model matches on those tokens and scores 100%
+// — while in real routing, with names only, the pair is genuinely hard.
+//
+// Probe C removes the leak and also removes the rest of the catalog. Only the k confusable names are
+// visible, and the model must route real corpus phrasings to one of them. If the names distinguish the
+// tools, accuracy approaches 1. If they do not, it falls to chance 1/k. A 4-way group is a far sharper
+// instrument than a pair, and this is the probe that catches "these two are the same capability with
+// two names" — the case the plan's §2 calls a merge, not a rename.
+
+const ROUTE_PROMPT = (group, request) => [
+  'Ты — маршрутизатор инструментов. Ниже — каталог из нескольких похожих инструментов в формате',
+  '«группа: имена через запятую». Описаний нет — выбирай только по именам.',
+  '',
+  'Правила:',
+  '1. Выбери ровно один инструмент из списка.',
+  '2. Если ни один не подходит — ответь {"tool": null, "reason": "нет подходящего инструмента"}.',
+  '3. Ответь строго одним JSON-объектом, без markdown.',
+  '',
+  'КАТАЛОГ:',
+  `${group.id || 'tools'}: ${group.names.join(', ')}`,
+  '',
+  'ЗАПРОС ПОЛЬЗОВАТЕЛЯ:',
+  request,
+  '',
+  'Ответ:',
+].join('\n');
+
+async function routeOne(group, phrasing, rand) {
+  const res = await callLadder([{ role: 'user', content: ROUTE_PROMPT(group, phrasing.request) }]);
+  if (!res.ok) {
+    return { groupId: group.id, tool: phrasing.tool, request: phrasing.request, status: 'unavailable', error: res.error, servedModel: null };
+  }
+  const parsed = parseJson(res.content);
+  if (parsed.parseError || !parsed.value) {
+    return { groupId: group.id, tool: phrasing.tool, request: phrasing.request, status: 'parse_error', raw: res.content, servedModel: res.servedModel };
+  }
+  const got = typeof parsed.value.tool === 'string' ? parsed.value.tool : null;
+  return {
+    groupId: group.id,
+    tool: phrasing.tool,
+    request: phrasing.request,
+    status: got === phrasing.tool ? 'correct' : 'wrong',
+    actual: got,
+    reason: typeof parsed.value.reason === 'string' ? parsed.value.reason : '',
+    servedModel: res.servedModel,
+  };
+}
+
+async function probeC(group, phrasings, rand) {
+  const rows = await pool(phrasings, CONCURRENCY, (p) => routeOne(group, p, rand));
+  const scored = rows.filter((r) => r.status !== 'unavailable');
+  const correct = scored.filter((r) => r.status === 'correct').length;
+  const perTool = {};
+  for (const p of phrasings) perTool[p.tool] = perTool[p.tool] || { total: 0, correct: 0 };
+  for (const r of rows) {
+    if (!perTool[r.tool]) continue;
+    perTool[r.tool].total++;
+    if (r.status === 'correct') perTool[r.tool].correct++;
+  }
+  return {
+    probe: 'C',
+    groupId: group.id,
+    names: group.names,
+    k: group.names.length,
+    chance: 1 / group.names.length,
+    total: rows.length,
+    scored: scored.length,
+    correct,
+    accuracy: scored.length ? correct / scored.length : null,
+    refused: rows.filter((r) => r.actual === null).length,
+    perTool,
+    rows,
+    why: group.why || '',
+  };
+}
+
 async function pool(items, size, worker) {
   const results = new Array(items.length);
   let next = 0;
@@ -291,7 +371,39 @@ function summarizeB(rows) {
   };
 }
 
-function markdown(meta, a, b, rowsA, rowsB) {
+function summarizeC(rows) {
+  const scored = rows.filter((r) => r.scored > 0);
+  const totalPhr = scored.reduce((s, r) => s + r.scored, 0);
+  const correct = scored.reduce((s, r) => s + r.correct, 0);
+  const byGroup = {};
+  for (const r of scored) {
+    byGroup[r.groupId] = {
+      k: r.k,
+      chance: r.chance,
+      correct: r.correct,
+      scored: r.scored,
+      accuracy: r.accuracy,
+      refused: r.refused,
+      why: r.why,
+    };
+  }
+  // How far above chance each group sits. Negative means the names are worse than useless — the
+  // model is actively drawn to the wrong member of the group.
+  const lift = {};
+  for (const [id, g] of Object.entries(byGroup)) lift[id] = g.chance > 0 ? g.accuracy / g.chance : 0;
+  return {
+    total: rows.length,
+    scored: scored.length,
+    correct,
+    totalPhr,
+    meanAccuracy: totalPhr ? correct / totalPhr : null,
+    atOrBelowChance: Object.entries(byGroup).filter(([, g]) => g.accuracy <= g.chance + 1e-9).map(([id]) => id),
+    byGroup,
+    lift,
+  };
+}
+
+function markdown(meta, a, b, c, rowsA, rowsB, rowsC) {
   const pct = (n, d) => (d ? `${((100 * n) / d).toFixed(1)}%` : 'n/a');
   const L = [];
   L.push(`# Name-informativeness eval — ${meta.profile}`);
@@ -353,6 +465,37 @@ function markdown(meta, a, b, rowsA, rowsB) {
     L.push(`| ${id} | ${g.k} | ${(100 * g.chance).toFixed(0)}% | ${g.correct}/${g.total} | ${(100 * g.accuracy).toFixed(0)}% |`);
   }
   L.push('');
+  L.push('## Probe C — маршрутизация в закрытом наборе близких имён');
+  L.push('');
+  L.push('Probe B показывает высокую точность, но это утечка: модель получает настоящие описания и');
+  L.push('матчит по словам, которых при маршрутизации не будет. Probe C убирает обе подсказки —');
+  L.push('остаются только k похожих имён и реальные формулировки корпуса.');
+  L.push('');
+  if (c.total === 0) {
+    L.push('_Не выполнялся._');
+  } else {
+    L.push(`| Метрика | Значение |`);
+    L.push(`|---|---|`);
+    L.push(`| Групп | ${c.scored} |`);
+    L.push(`| Формулировок | ${c.totalPhr} |`);
+    L.push(`| Средняя точность | ${pct(c.correct, c.totalPhr)} |`);
+    L.push(`| Групп на уровне шанса или ниже | ${c.atOrBelowChance.length} |`);
+    L.push('');
+    L.push('Группа на уровне шанса или ниже — имена не различают инструменты. Это не вопрос лучшего');
+    L.push('имени, это вопрос объединения: §2 предлагает «объединить действительно одинаковые');
+    L.push('возможности» либо «выделить общий инструмент с явным параметром».');
+    L.push('');
+    L.push(`| Группа | k | Шанс | Точность | Отказ | ×шанс | Различие |`);
+    L.push(`|---|---|---|---|---|---|---|`);
+    const ordered = Object.entries(c.byGroup).sort((x, y) => x[1].accuracy - y[1].accuracy);
+    for (const [id, g] of ordered) {
+      const atChance = g.accuracy <= g.chance + 1e-9;
+      L.push(
+        `| ${id}${atChance ? ' ⚠' : ''} | ${g.k} | ${(100 * g.chance).toFixed(0)}% | ${(100 * g.accuracy).toFixed(0)}% | ${g.refused} | ${c.lift[id].toFixed(1)}× | ${(g.why || '').replace(/\|/g, '\\|')} |`
+      );
+    }
+  }
+  L.push('');
   return L.join('\n');
 }
 
@@ -383,6 +526,7 @@ async function main() {
   const rand = mulberry32(SEED);
   const rowsA = [];
   const rowsB = [];
+  const rowsC = [];
 
   if (PROBES.includes('a')) {
     const subset = LIMIT > 0 ? tools.slice(0, LIMIT) : tools;
@@ -393,12 +537,41 @@ async function main() {
     console.error(`[info] Probe B: ${groups.length} confusable groups`);
     rowsB.push(...(await pool(groups, CONCURRENCY, (g) => probeB(g, rand))));
   }
+  if (PROBES.includes('c')) {
+    const corpusFile = path.join(ROOT, 'tasks', 'corpus.v1.jsonl');
+    if (!fs.existsSync(corpusFile)) {
+      console.error('[info] Probe C needs tasks/corpus.v1.jsonl — run `node src/gen-corpus.mjs` first');
+      process.exitCode = 1;
+    } else {
+      // Real corpus phrasings, restricted to the group's tools. This is what makes Probe C harder
+      // than the selection eval: no descriptions, and no other 300 names to fall back on.
+      const byTool = new Map();
+      for (const line of fs.readFileSync(corpusFile, 'utf8').split('\n')) {
+        if (!line.trim()) continue;
+        const row = JSON.parse(line);
+        if (!byTool.has(row.tool)) byTool.set(row.tool, []);
+        byTool.get(row.tool).push(row);
+      }
+      const usable = groups.filter((g) => g.names.every((n) => byTool.has(n)));
+      const missing = groups.filter((g) => !g.names.every((n) => byTool.has(n)));
+      if (missing.length) {
+        console.error(`[info] Probe C: ${missing.length} group(s) skipped — no corpus phrasings for ${missing.flatMap((g) => g.names.filter((n) => !byTool.has(n))).join(', ')}`);
+      }
+      const count = usable.reduce((s, g) => s + g.names.reduce((t, n) => t + byTool.get(n).length, 0), 0);
+      console.error(`[info] Probe C: ${usable.length} groups, ${count} phrasings, closed set`);
+      rowsC.push(...(await pool(usable, Math.max(1, Math.floor(CONCURRENCY / 3)), (g) => probeC(g, g.names.flatMap((n) => byTool.get(n)), rand))));
+    }
+  }
 
   const sumA = summarizeA(rowsA);
   const sumB = summarizeB(rowsB);
+  const sumC = summarizeC(rowsC);
   const outDir = path.join(ROOT, 'out');
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, 'informativeness.v1.json'), JSON.stringify({ probeA: rowsA, probeB: rowsB }, null, 2) + '\n');
+  fs.writeFileSync(
+    path.join(outDir, 'informativeness.v1.json'),
+    JSON.stringify({ probeA: rowsA, probeB: rowsB, probeC: rowsC }, null, 2) + '\n'
+  );
 
   const meta = {
     at: new Date().toISOString(),
@@ -408,10 +581,11 @@ async function main() {
     groups: groups.length,
   };
   fs.writeFileSync(path.join(outDir, 'informativeness.v1.meta.json'), JSON.stringify(meta, null, 2) + '\n');
-  fs.writeFileSync(path.join(outDir, 'informativeness.v1.md'), markdown(meta, sumA, sumB, rowsA, rowsB));
+  fs.writeFileSync(path.join(outDir, 'informativeness.v1.md'), markdown(meta, sumA, sumB, sumC, rowsA, rowsB, rowsC));
 
   console.error(`[info] Probe A: mean=${sumA.meanScore == null ? 'n/a' : sumA.meanScore.toFixed(2)}/4 overconfident=${sumA.overconfident}`);
   console.error(`[info] Probe B: mean=${sumB.meanAccuracy == null ? 'n/a' : (100 * sumB.meanAccuracy).toFixed(1) + '%'} (${sumB.correctNames}/${sumB.totalNames})`);
+  console.error(`[info] Probe C: mean=${sumC.meanAccuracy == null ? 'n/a' : (100 * sumC.meanAccuracy).toFixed(1) + '%'} at-or-below-chance=${sumC.atOrBelowChance.length}/${sumC.scored}`);
   console.error(`[info] report: out/informativeness.v1.md`);
 }
 
