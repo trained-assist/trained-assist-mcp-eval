@@ -1,0 +1,3305 @@
+{
+  "probeA": [
+    {
+      "probe": "A",
+      "name": "agent_knowledge_summary",
+      "status": "scored",
+      "guess": "Создает сводку знаний агента",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент связан со сводкой знаний, но неточно — это сводка знаний о пользователе, а не агента, и она показывается, а не создаётся.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "agent_query_artifacts",
+      "status": "scored",
+      "guess": "Запрашивает/ищет артефакты от имени агента",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент ищет сохранённые артефакты/знания, но догадка не уточняет, что это именно ранее сохранённый контекст о пользователе или проекте и что его нужно использовать в начале сессии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "agent_store_artifact",
+      "status": "scored",
+      "guess": "Сохраняет артефакт для агента",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент сохраняет данные для агента, но не указано, что это важная информация о пользователе/задаче и что она доступна в следующих сессиях.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "applylink_create_vacancy",
+      "status": "scored",
+      "guess": "Создает вакансию через сервис applylink",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: не указано обновление вакансий и возврат ссылки для отклика.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "applylink_get_candidates",
+      "status": "scored",
+      "guess": "получает кандидатов для ссылки подачи заявки",
+      "clear": false,
+      "score": 3,
+      "why": "Верно улавливает основное — получение списка кандидатов, но не уточняет, что это выгрузка всех откликов ApplyLink с контактами, оценками и медиассылками.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "applylink_list_vacancies",
+      "status": "scored",
+      "guess": "Выводит список вакансий с ссылками для отклика",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно выводит список вакансий с ссылками для отклика. Но не упомянуты алиасы, статус активности и назначение поиска ID вакансии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "ba_clarify_requirements",
+      "status": "scored",
+      "guess": "Уточняет требования",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верно улавливает часть функции (генерация уточняющих вопросов), но упускает главное: классификацию задачи по размеру и решение о необходимости церемоний или написания спеки.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "ba_client_spec_template",
+      "status": "scored",
+      "guess": "Создаёт шаблон клиентской спецификации",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: инструмент возвращает обязательную структуру разделов клиентского ТЗ/спецификации.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "ba_development_playbook",
+      "status": "scored",
+      "guess": "Предоставляет плейбук по разработке (префикс ba неоднозначен)",
+      "clear": false,
+      "score": 3,
+      "why": "Догадка верно определяет, что инструмент связан с плейбуком по разработке, но не уточняет, что это read-only legacy-версия и что он не обязателен для запуска плана.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "ba_export_client_doc",
+      "status": "scored",
+      "guess": "Экспортирует документ клиента",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: инструмент действительно формирует документ клиента, но догадка упускает главное — сборку из markdown в HTML+PDF+DOCX и решение проблем вёрстки.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "ba_write_spec",
+      "status": "scored",
+      "guess": "Пишет спецификацию",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно пишет спецификацию, но догадка не отражает ключевые нюансы — это durable spec.md до начала работы, только для feature-tier задач, с конкретной структурой и привязкой к коду.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "boolean_search",
+      "status": "scored",
+      "guess": "Выполняет поиск по булевому запросу",
+      "clear": true,
+      "score": 2,
+      "why": "Угадана связь с булевыми запросами, но перепутано главное: инструмент не выполняет поиск, а генерирует строки запросов для Google/LinkedIn/HH.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "browser_session_autologin",
+      "status": "scored",
+      "guess": "Automatically logs in to a browser session",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно выполняет автоматический вход в браузерную сессию. Но догадка неполна — не указано, что используются сохранённые учётные данные, требуется предварительное создание credentials_form_create, и после входа нужно взаимодействовать через browser_session_evaluate.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "browser_session_capture_cookies",
+      "status": "scored",
+      "guess": "Захватывает cookies текущей сессии браузера.",
+      "clear": true,
+      "score": 2,
+      "why": "Верно, что захватывает cookies, но упущено главное: инструмент предназначен только для Tilda.cc (IP-bound сессии), а не для обычных сайтов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "browser_session_evaluate",
+      "status": "scored",
+      "guess": "Evaluates a script or expression in a browser session",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно выполняет скрипт в браузерной сессии. Но догадка не упоминает ключевые детали: использование аутентифицированной сессии, работу в контексте страницы и типичные сценарии (клики, чтение данных, fetch с куками).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "browser_session_login",
+      "status": "scored",
+      "guess": "Выполняет вход в сессию браузера",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не уточняет детали: заполнение формы, удалённый браузер, обработку CAPTCHA/2FA.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "browser_session_navigate",
+      "status": "scored",
+      "guess": "Навигация в браузерной сессии",
+      "clear": true,
+      "score": 3,
+      "why": "Верно определяет навигацию, но не уточняет удалённый браузер и CDP, а также конкретный сценарий с логин-страницей.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "browser_session_status",
+      "status": "scored",
+      "guess": "Возвращает статус текущей сессии браузера",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент проверяет статус браузера, но догадка не уточняет, что это удалённый noVNC-браузер и что он предназначен для IP-привязанных сайтов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "browser_session_url",
+      "status": "scored",
+      "guess": "Возвращает URL текущей сессии браузера",
+      "clear": true,
+      "score": 1,
+      "why": "Догадка упоминает URL и сессию, но реальное назначение — генерация noVNC-ссылки для сайтов с привязкой к IP, а не возврат URL текущей сессии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "calltips_get_login",
+      "status": "scored",
+      "guess": "Возвращает логин пользователя",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент возвращает данные для входа, но не уточнено, что это именно для Call Tips и включает профиль и токен, а не просто логин.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "calltips_list_candidates",
+      "status": "scored",
+      "guess": "Lists candidate call-tip suggestions",
+      "clear": true,
+      "score": 2,
+      "why": "Верно угадано, что инструмент связан со списком кандидатов, но суть искажена: это не подсказки для звонков, а список откликнувшихся кандидатов для подготовки интервью.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "calltips_prepare",
+      "status": "scored",
+      "guess": "Подготавливает данные для подсказок вызовов (calltips)",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верно указывает на подготовку чего-то для Call Tips, но не отражает главное: это план интервью с кандидатом на основе его резюме, а не просто данные для подсказок.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "candidate_report_add_note",
+      "status": "scored",
+      "guess": "Добавляет заметку к отчёту о кандидате",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верна лишь частично: это действительно добавление заметки, но упущено главное — заметка является требованием рекрутера, влияющим на все будущие регенерации отчёта.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "candidate_report_context",
+      "status": "scored",
+      "guess": "Предоставляет контекст для отчёта о кандидате",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка слишком общая: реальное назначение — возвращать обязательные требования рекрутера и предыдущие данные профиля, а также быть первым вызовом при генерации/обновлении.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "candidate_report_render",
+      "status": "scored",
+      "guess": "Рендерит отчёт по кандидату",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но слишком общо: не указаны шаблон, проверка запрещённых фраз, публикация и передача password.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "checko_discover",
+      "status": "scored",
+      "guess": "выполняет обнаружение/поиск объектов в системе Checko",
+      "clear": false,
+      "score": 2,
+      "why": "Частично верно: discover намекает на обнаружение, но реально это список API endpoints, а не поиск объектов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "checko_get",
+      "status": "scored",
+      "guess": "получает данные checko",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно, но слишком общо: не указано, что данные о российских компаниях по ИНН, и не перечислены конкретные типы данных.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "checko_qualify",
+      "status": "scored",
+      "guess": "проверяет квалификацию или соответствие чему-либо",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно проверяет соответствие компании определённым критериям. Но догадка слишком общая, не указывает на конкретную предметную область (российские компании, финансовые показатели, целевые статусы Flexi).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "ci_run_branch",
+      "status": "scored",
+      "guess": "Запускает CI-сборку для ветки",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент запускает CI для ветки. Но неполно: он именно запускает полный набор тестов, а также умеет проверять статус и получать логи, а не просто 'сборку'.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "cicd_track_pr",
+      "status": "scored",
+      "guess": "Отслеживает pull request в CI/CD",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: догадка передаёт суть отслеживания PR в CI/CD, но упускает ключевые детали — это регистрация для фонового автоматического отслеживания до завершения (CI green → merged → deployed), а не разовая проверка.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "cold_message_generate",
+      "status": "scored",
+      "guess": "Генерирует холодное сообщение для рассылки или первого контакта",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно генерирует холодное сообщение. Но догадка не упоминает персонализацию под кандидата на основе резюме и вакансии, что является ключевой деталью.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "company_find_by_email",
+      "status": "scored",
+      "guess": "Находит компанию по адресу электронной почты",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт основное назначение — поиск компании по email.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "company_find_by_name",
+      "status": "scored",
+      "guess": "Находит компанию по её названию",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: инструмент не просто находит компанию по названию, а возвращает детальные данные о российской компании (ИНН, директор, адрес, ОКВЭД).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "company_get_by_inn",
+      "status": "scored",
+      "guess": "Получение информации о компании по её ИНН",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно передает основную функцию, но не уточняет, что данные полные (CEO, контакты, адрес и т.д.), поэтому неполна.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "company_review",
+      "status": "scored",
+      "guess": "Получение или управление отзывами о компании",
+      "clear": true,
+      "score": 1,
+      "why": "Догадка про отзывы, а реально — получение данных о компании (контакты, директор, выручка и т.д.).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "company_set_dadata_token",
+      "status": "scored",
+      "guess": "Устанавливает токен DaData для компании",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает действие: сохранение/установка токена DaData для компании.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "connect",
+      "status": "scored",
+      "guess": "устанавливает соединение с чем-либо",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно подключается к сервисам, но догадка слишком общая и не отражает ключевые функции хранения креденшелов, создания форм и OAuth-делегирования.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "content_rewrite",
+      "status": "scored",
+      "guess": "Rewrites or paraphrases content",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верно указывает на переписывание/перефразирование, но упускает главное: жёсткий контракт с валидацией, два режима, ретраи, style_guard и возврат violations. Это не просто рерайт, а инструмент с контролем качества.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "context_clear",
+      "status": "scored",
+      "guess": "Очищает контекст",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка передаёт идею работы с контекстом, но 'очищает контекст' подразумевает полную очистку, тогда как реально удаляется конкретное сохранённое значение.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "context_get",
+      "status": "scored",
+      "guess": "Получает контекст",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно получает сохранённый контекст. Но догадка не уточняет, что это persistent-значение, установленное через context_set, и что оно используется для восстановления состояния между сессиями.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "context_list",
+      "status": "scored",
+      "guess": "Возвращает список доступных контекстов",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт основную функцию: перечисление сохранённых контекстов. Отсутствие упоминания фильтра по навыку не меняет сути, так как это опциональная деталь.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "context_set",
+      "status": "scored",
+      "guess": "Устанавливает контекст",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка в целом верна: инструмент действительно устанавливает контекст. Но не указано главное — значение сохраняется постоянно, переживает перезапуски и новые сессии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "credentials_form_create",
+      "status": "scored",
+      "guess": "Создаёт форму для ввода учётных данных",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верна лишь в том, что инструмент создаёт форму, но упущено главное: это безопасная ссылка для сбора учётных данных напрямую на сервер, минуя Claude, с сохранением для автологина.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "cron_create",
+      "status": "scored",
+      "guess": "Создаёт задачу по расписанию (cron)",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает основное назначение: создание периодической задачи по расписанию (cron).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "cron_delete",
+      "status": "scored",
+      "guess": "Удаляет задание cron",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: удаление запланированного cron-задания.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "cron_list",
+      "status": "scored",
+      "guess": "выводит список cron-задач",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: вывод списка cron-задач пользователя.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "cron_pause",
+      "status": "scored",
+      "guess": "Приостанавливает выполнение cron-задачи или планировщика",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: приостановка cron-задачи с сохранением конфигурации.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "cron_resume",
+      "status": "scored",
+      "guess": "resumes a paused cron job",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно совпадает с реальным назначением.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "cron_run_now",
+      "status": "scored",
+      "guess": "Запускает задачу cron немедленно",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: немедленный запуск задачи cron вне зависимости от расписания.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "dadata_address",
+      "status": "scored",
+      "guess": "Подсказки и стандартизация адресов через сервис DaData",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает оба режима: подсказки (suggest) и стандартизацию/нормализацию (clean) через DaData.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "dadata_find",
+      "status": "scored",
+      "guess": "Поиск данных через сервис DaData",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верна, но слишком общая: не указано, что ищется именно компания по ИНН/ОГРН и возвращается полная карточка.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "dadata_suggest",
+      "status": "scored",
+      "guess": "Подсказки/автодополнение адресов и организаций через сервис DaData",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: это подсказки по организациям через DaData. Но неточно: не про адреса, а про поиск компаний/ИП по названию с выдачей реквизитов (ИНН, ОГРН и т.д.).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "deck_check",
+      "status": "scored",
+      "guess": "Performs a validation check on a deck",
+      "clear": false,
+      "score": 3,
+      "why": "Догадка верна в общем, но слишком общая: не указано, что проверяется именно влезание текста на слайды, и не упомянуты возвращаемые данные (warnings, defects, score).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "deck_markup_guide",
+      "status": "scored",
+      "guess": "Provides guidance for marking up presentation decks",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: это руководство/справка по разметке презентаций.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "deck_render",
+      "status": "scored",
+      "guess": "Рендерит колоду (например, слайды или карточки)",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно улавливает суть — рендер колоды, но не уточняет форматы и доп. функции.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "delete_page",
+      "status": "scored",
+      "guess": "удаляет страницу",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не указаны детали: только опубликованные страницы, по slug, и удаление необратимо.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "demo_activate",
+      "status": "scored",
+      "guess": "Активирует демонстрационный режим или демо-функцию",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но слишком общо: не указано, что это демо-режим для конкретной вакансии и что он инициализирует пул кандидатов и волну.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "demo_candidate_profile",
+      "status": "scored",
+      "guess": "Предоставляет демонстрационный профиль кандидата",
+      "clear": true,
+      "score": 2,
+      "why": "Угадано, что речь о профиле кандидата, но слово «демонстрационный» искажает суть: инструмент возвращает реальный полный профиль конкретного кандидата, включая переписку.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "demo_candidates",
+      "status": "scored",
+      "guess": "Возвращает список кандидатов для демонстрации",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно, что возвращает список кандидатов, но не указаны оценки и история переписки, что делает описание неполным.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "demo_deactivate",
+      "status": "scored",
+      "guess": "Деактивирует демо-режим или демо-аккаунт",
+      "clear": true,
+      "score": 3,
+      "why": "Верно указывает на деактивацию демо-режима, но не упоминает очистку демо-данных.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "demo_next_wave",
+      "status": "scored",
+      "guess": "демонстрация следующей волны или этапа",
+      "clear": false,
+      "score": 2,
+      "why": "Угадана идея 'следующей волны', но не указано, что это волна откликов кандидатов, а не абстрактный этап.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "demo_reply",
+      "status": "scored",
+      "guess": "Отправляет демонстрационный ответ",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка улавливает слово 'демо', но не учитывает, что инструмент симулирует переписку: отправляет сообщение кандидату и возвращает его AI-ответ.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "demo_status",
+      "status": "scored",
+      "guess": "Показывает статус демо-режима или демонстрации",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: не указаны детали о вакансии и числе кандидатов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "dev_new_repo",
+      "status": "scored",
+      "guess": "Создает новый репозиторий",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно указывает на создание репозитория, но не упоминает подготовку изолированного рабочего пространства для задачи.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "dev_supersede_pr",
+      "status": "scored",
+      "guess": "Заменяет или помечает pull request как устаревший",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт суть: инструмент помечает PR как заменённый (superseded) и закрывает его.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "dev_workspace_setup",
+      "status": "scored",
+      "guess": "Настраивает рабочее окружение разработчика",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка в целом верна, но слишком общая: не упоминает изоляцию, git worktree, ветки и установку зависимостей.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "doc_export",
+      "status": "scored",
+      "guess": "Экспортирует документ в файл",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка слишком общая: инструмент не просто экспортирует, а собирает документ из markdown в HTML, PDF и DOCX с контролем вёрстки.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_estimate_complexity",
+      "status": "scored",
+      "guess": "Оценивает сложность инженерной задачи",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верно указывает на оценку сложности, но упускает главное: инструмент преобразует сложность в ценовую оценку проекта с множителями, рисками и предупреждениями.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_generate_all",
+      "status": "scored",
+      "guess": "Generates all engineering-related outputs",
+      "clear": false,
+      "score": 2,
+      "why": "Догадка слишком общая: реальный инструмент — это пакетная генерация ТЗ по контекстам за период, а не всех engineering-выводов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_generate_spec",
+      "status": "scored",
+      "guess": "Генерирует инженерную спецификацию",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верна по сути, но упускает главное: инструмент не генерирует файлы сам, а готовит контекст и инструкции для генерации, а также по умолчанию создаёт два независимых варианта (long/short).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_generation_note",
+      "status": "scored",
+      "guess": "создает или сохраняет заметку, связанную с инженерной генерацией",
+      "clear": false,
+      "score": 2,
+      "why": "Частично верно: инструмент действительно сохраняет инструкцию/заметку для генерации, но догадка упускает главное — это постоянная инструкция, влияющая на все последующие генерации, а не разовая заметка.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_get_spec",
+      "status": "scored",
+      "guess": "Получить спецификацию (техническое описание) для инженерной задачи",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: инструмент действительно возвращает текст ТЗ, но его главное назначение — точечное редактирование существующего документа, а не получение спецификации для инженерной задачи.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_pr_autofix_disable",
+      "status": "scored",
+      "guess": "Отключает автоматическое исправление для pull request",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт основное назначение: отключение автоправок для PR. Реальное описание добавляет детали, но не меняет суть.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_pr_autofix_install",
+      "status": "scored",
+      "guess": "Installs an autofix for engineering pull requests",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка в целом верна: инструмент действительно устанавливает workflow pr-autofix для pull request. Но неполна: не указаны обновление, создание PR, закрепление ref и опциональная очистка.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_pr_autofix_register",
+      "status": "scored",
+      "guess": "Registers an autofix for pull requests",
+      "clear": true,
+      "score": 2,
+      "why": "The guess captures the registration aspect for PR autofix, but misses the main point: it registers a repository for the service with configuration, not a specific autofix action.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_pr_autofix_rollout",
+      "status": "scored",
+      "guess": "Поэтапно применяет автоматические исправления к pull request'ам",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка частично верна: упоминает автоматические исправления и PR, но упущено главное — это rollout workflow по репозиториям, а не применение исправлений к PR.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_pr_autofix_status",
+      "status": "scored",
+      "guess": "Проверяет статус автоматического исправления для pull request",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент сообщает о состоянии pr-autofix, но реально речь о регистрациях и их жизненном цикле, а не о самом исправлении.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_prepare_task",
+      "status": "scored",
+      "guess": "Подготавливает инженерную задачу",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно подготавливает инженерную задачу, но догадка слишком общая и не отражает ключевые детали: компактный пакет задачи, работу с локальным репозиторием и использование перед дорогой моделью.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_release_workspace",
+      "status": "scored",
+      "guess": "Освобождает инженерное рабочее пространство",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка передаёт основную суть — освобождение рабочего пространства, но не уточняет детали: удаление worktree и ветки, условие merge/review.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_repo_context",
+      "status": "scored",
+      "guess": "Предоставляет контекст об инженерном репозитории",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно выдаёт контекст по репозиторию, но догадка не отражает ключевую особенность — ранжированный поиск по ключевым словам и локальный индекс.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_spawn_workspace",
+      "status": "scored",
+      "guess": "создает рабочее пространство для инженерных задач",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верна в общем смысле (создаёт рабочее пространство), но упущено главное: это изолированный git worktree и ветка для конкретной задачи, а не просто инженерное пространство.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_spec_generation_defaults",
+      "status": "scored",
+      "guess": "Generates default settings/parameters for engineering specification generation",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: речь о дефолтах/настройках генерации ТЗ, но упущено главное — команда не генерирует, а только показывает текущие настройки (read-only).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_spec_generation_explained",
+      "status": "scored",
+      "guess": "Объясняет процесс генерации инженерных спецификаций",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно передаёт суть — объяснение процесса генерации, но не упоминает конкретные детали (пайплайн, нормализацию, long/short, sandbox и т.д.), поэтому неполна.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "engineering_workspace_status",
+      "status": "scored",
+      "guess": "Возвращает статус инженерного рабочего пространства",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: догадка передаёт основную идею (статус рабочего пространства), но не уточняет, что это статус задачи, включает codePath и не мутирует состояние.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_build_catalog",
+      "status": "scored",
+      "guess": "Собирает каталог для Expo-проекта",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно собирает каталог для выставки (Expo), но догадка не уточняет, что это HTML-каталог на основе обогащённых данных и классификации, и может быть понята как каталог для Expo-проекта в смысле React Native.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_check_target_revenue",
+      "status": "scored",
+      "guess": "Проверяет достижение целевой выручки",
+      "clear": true,
+      "score": 2,
+      "why": "В целом похоже, но не указано, что это проверка конкретной компании по критериям Flexi, а не просто целевой выручки.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_classify_targets",
+      "status": "scored",
+      "guess": "Классифицирует целевые объекты (таргеты)",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент классифицирует объекты по категориям целевых, но догадка слишком общая и не отражает конкретные классы (целевая/почти целевая/не целевая) и контекст компаний выставки.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_deploy_catalog",
+      "status": "scored",
+      "guess": "Deploys a catalog for Expo",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: инструмент связан с Expo-каталогом и передачей его в site_deploy, но сам не деплоит, а только определяет расположение готового каталога.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_enable",
+      "status": "scored",
+      "guess": "Включает Expo",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: включает Expo, но не упоминает Flexi и активацию целого пайплайна навыков.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_find_participants",
+      "status": "scored",
+      "guess": "Находит участников мероприятия/выставки",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент находит участников/экспонентов выставки. Но не указано, что возвращается список компаний в CSV и что сначала ищется страница участников.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_generate_ex_array",
+      "status": "scored",
+      "guess": "generates an example array",
+      "clear": false,
+      "score": 2,
+      "why": "Догадка улавливает, что инструмент генерирует массив, но путает EX-массив с «example array» и не отражает реальное назначение: подготовка данных для HTML-каталога выставки.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_parse_participants",
+      "status": "scored",
+      "guess": "Parses participant information",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но слишком общо: не указано, что это парсинг HTML страницы, извлечение компаний в CSV и использование как запасной вариант.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_pipeline_get_criteria",
+      "status": "scored",
+      "guess": "Получает критерии для пайплайна экспо",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт основное назначение: получение критериев для пайплайна экспо.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_pipeline_get_site_config",
+      "status": "scored",
+      "guess": "Получает конфигурацию сайта для пайплайна Expo",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: не указаны детали (каталог выставки, фильтры по выручке, хранение per-user).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_pipeline_qualify",
+      "status": "scored",
+      "guess": "Определяет, прошел ли объект пайплайна Expo квалификацию",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: инструмент применяет критерии и определяет, какие компании проходят квалификацию. Но догадка неточна в формулировке «объект пайплайна» и не упоминает конкретный вход/выход (enriched.json → targets.json).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_pipeline_run",
+      "status": "scored",
+      "guess": "Запускает пайплайн для Expo-проекта",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: не указаны последовательный запуск всех шагов, отчёт о прогрессе и возможность продолжения с места остановки.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_pipeline_set_criteria",
+      "status": "scored",
+      "guess": "Sets criteria for an Expo pipeline",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент задаёт критерии для пайплайна, но догадка не отражает ключевой нюанс — критерии обновляются и сливаются с текущими, а не заменяются.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_pipeline_set_site_config",
+      "status": "scored",
+      "guess": "Sets site configuration for an Expo pipeline",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно задаёт конфигурацию сайта. Но догадка не уточняет, что речь о каталоге выставки, обновлении слиянием и настройках фильтров, поэтому неполно.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "expo_pipeline_status",
+      "status": "scored",
+      "guess": "Получение статуса пайплайна Expo",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передает суть: инструмент показывает статус пайплайнов Expo.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "fetch_exa",
+      "status": "scored",
+      "guess": "Fetches data from the Exa search API",
+      "clear": false,
+      "score": 2,
+      "why": "Упомянут Exa, но догадка говорит о поисковом API, а реально это загрузка страниц по URL в markdown.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "flexi_add_note",
+      "status": "scored",
+      "guess": "adds a note",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верна по сути, но неполна: не указано, что заметка добавляется по компании на выставке и сохраняется в системе прелидов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "flexi_delete_note",
+      "status": "scored",
+      "guess": "Удаляет заметку",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт основное действие — удаление заметки; реальное назначение уточняет контекст, но не меняет суть.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "flexi_get_notes",
+      "status": "scored",
+      "guess": "Получает заметки",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно указывает на получение заметок, но не упоминает статус и привязку к компании на выставке, что делает описание неполным.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "flexi_get_notes_bulk",
+      "status": "scored",
+      "guess": "Получить несколько заметок массово",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: массовое получение заметок, но не указаны статусы и привязка к компаниям/стендам.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "flexi_reject_company",
+      "status": "scored",
+      "guess": "Отклоняет компанию (например, отклоняет заявку компании) с гибкими настройками",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент связан с отклонением компании, но точнее это пометка статуса отказа, а не отклонение заявки, и гибкие настройки не упомянуты.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "flexi_set_exhibition",
+      "status": "scored",
+      "guess": "Настраивает гибкую выставку",
+      "clear": false,
+      "score": 2,
+      "why": "Частично верно: связано с выставкой, но 'гибкая' неверно, упущено главное — выбор активной выставки и сохранение между сессиями.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "flexi_status",
+      "status": "scored",
+      "guess": "Возвращает статус гибкого объекта или процесса",
+      "clear": false,
+      "score": 1,
+      "why": "Догадка общая, реальное назначение — проверка выставки и API заметок, не связано с гибкими объектами.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "flexi_unreject_company",
+      "status": "scored",
+      "guess": "Отменяет отклонение компании (снимает отказ) с возможностью гибкой настройки",
+      "clear": true,
+      "score": 3,
+      "why": "Основная суть передана верно, но добавление «гибкой настройки» не подтверждается реальным назначением.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "freelance_add_info",
+      "status": "scored",
+      "guess": "Добавляет информацию в системе фриланса",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка слишком общая: инструмент действительно добавляет информацию, но главное — он классифицирует её по стадиям pipeline (fact/requirement/interpretation/solution/qna) и ведёт provenance, чтобы не смешивать типы данных.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "freelance_assess",
+      "status": "scored",
+      "guess": "оценка фриланс-заявки или исполнителя",
+      "clear": false,
+      "score": 2,
+      "why": "Догадка передаёт общую идею оценки, но не указывает на пересчёт GO/NO-GO риск-оценки и обновление вкладок, что является ключевым.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "freelance_classify_document",
+      "status": "scored",
+      "guess": "Классифицирует документ по категориям или типу",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верна в том, что инструмент классифицирует документ, но не по категориям/типу, а по принадлежности к существующему фриланс-проекту или новому проекту, с порогами уверенности.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "freelance_get_project",
+      "status": "scored",
+      "guess": "Получает данные проекта на фриланс-платформе",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верно улавливает, что инструмент получает данные проекта, но упускает главное: он предназначен для восстановления полного контекста работы в новой сессии, включая требования, решения, QnA и риск-оценку.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "freelance_list",
+      "status": "scored",
+      "guess": "получить список фриланс-заданий или проектов",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: это список фриланс-проектов. Но не указано, что список относится к профилю и поддерживает фильтр по времени (since), что важно для batch-запросов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "freelance_new_project",
+      "status": "scored",
+      "guess": "Создаёт новый проект для фриланс-задачи",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент создаёт новый фриланс-проект. Но догадка не отражает ключевые детали: общее хранилище, скелет pipeline-файлов, типы проектов, GO/NO-GO оценку и проверку дубликатов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "freelance_questions",
+      "status": "scored",
+      "guess": "Инструмент для работы с вопросами, связанными с фрилансом",
+      "clear": true,
+      "score": 2,
+      "why": "Угадано про вопросы, но упущено главное: это вопросы клиенту по проекту, а не вообще про фриланс.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "freelance_search",
+      "status": "scored",
+      "guess": "Поиск фриланс-проектов или исполнителей",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: это поиск, связанный с фрилансом, но не по проектам/исполнителям, а по содержимому файлов проектов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "freelance_set_folder",
+      "status": "scored",
+      "guess": "Устанавливает папку для фриланс-проекта",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не указано, что это папка Google Drive для таблиц и что она используется всеми новыми проектами профиля.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_api_call",
+      "status": "scored",
+      "guess": "Выполняет API-вызов",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно выполняет API-вызов, но догадка не уточняет, что это GetCourse API, и не отражает нюансы использования (после gc_discover, уровни L1/L2, авторизация через gc_connect).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_connect",
+      "status": "scored",
+      "guess": "подключение к чему-то, обозначенному как GC",
+      "clear": false,
+      "score": 2,
+      "why": "Догадка улавливает идею подключения, но реальное назначение — генерация одноразовой ссылки с вводом данных, а не просто подключение к 'GC'.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_course_create",
+      "status": "scored",
+      "guess": "Создает курс",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно передаёт основную функцию, но не упоминает возврат id и URL и использование в gc_section_create, поэтому неполна.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_course_list",
+      "status": "scored",
+      "guess": "Получение списка курсов",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает основное назначение инструмента — получение списка курсов. Реальное назначение уточняет детали (GetCourse, id, title, url, способ получения), но не меняет суть.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_discover",
+      "status": "scored",
+      "guess": "обнаруживает объекты, связанные с gc (возможно, сборкой мусора или Google Cloud)",
+      "clear": false,
+      "score": 0,
+      "why": "Догадка ошибочно интерпретирует GC как сборку мусора или Google Cloud, тогда как инструмент предназначен для обнаружения возможностей API GetCourse.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_group_courses",
+      "status": "scored",
+      "guess": "Управление групповыми курсами",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка предполагает управление, но инструмент только выводит список курсов, доступных группе.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_group_list",
+      "status": "scored",
+      "guess": "Получение списка групп",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: не указано, что это группы доступа в GetCourse, и не упомянуты детали использования.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_lesson_add_text",
+      "status": "scored",
+      "guess": "Добавляет текст к уроку",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт основное действие — добавление текста в урок; уточнение про HTML-блок и возврат blockId не меняет суть.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_lesson_add_video",
+      "status": "scored",
+      "guess": "Добавляет видео к уроку",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: добавление видео к уроку, хотя не уточняет тип (Kinescope) и возвращаемый blockId.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_lesson_create",
+      "status": "scored",
+      "guess": "Создает урок",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно передаёт основную функцию, но не уточняет, что урок создаётся внутри раздела и возвращает id для дальнейшего добавления контента.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_lesson_sort",
+      "status": "scored",
+      "guess": "Сортирует уроки",
+      "clear": true,
+      "score": 2,
+      "why": "Верно угадана идея сортировки, но перепутан объект: сортируются не уроки, а блоки внутри урока.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_order_list",
+      "status": "scored",
+      "guess": "получение списка заказов",
+      "clear": false,
+      "score": 4,
+      "why": "Догадка точно передаёт основное назначение — получение списка заказов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_section_create",
+      "status": "scored",
+      "guess": "создаёт раздел (секцию)",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно создаёт раздел/секцию, но догадка не уточняет, что это подраздел курса и что возвращается id для дальнейшего использования.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_status",
+      "status": "scored",
+      "guess": "показывает статус сборщика мусора (garbage collection)",
+      "clear": false,
+      "score": 0,
+      "why": "Догадка про сборщик мусора не связана с реальным назначением: gc_status показывает статус подключения к GetCourse, а не garbage collection.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_user_add",
+      "status": "scored",
+      "guess": "Добавляет пользователя",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: упущены обновление пользователя и добавление в группы доступа.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_user_find",
+      "status": "scored",
+      "guess": "Поиск пользователя по заданным критериям",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верна в части поиска пользователя, но не указывает конкретный способ (email, Playwright, L2-сессия) и шире по критериям.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_user_notifications",
+      "status": "scored",
+      "guess": "получает уведомления пользователя",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно возвращает уведомления пользователя, но догадка не уточняет, что это именно список email-уведомлений, и не отражает детали (user_id/email, статус открытия).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gc_user_trainings",
+      "status": "scored",
+      "guess": "получает данные о тренировках пользователя",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно возвращает данные о тренировках/курсах пользователя. Но не указано, что это именно список доступных курсов через членство в группах и что он используется для проверки доступа.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_create_file",
+      "status": "scored",
+      "guess": "Создаёт файл в Google Drive.",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не уточняет, что это текстовый файл и что папка доступна для сервисного аккаунта.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_delete_file",
+      "status": "scored",
+      "guess": "Deletes a file on Google Drive.",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: действие связано с удалением файла в Google Drive, но неточно, так как по умолчанию файл перемещается в корзину, а не удаляется безвозвратно.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_docs_get_structure",
+      "status": "scored",
+      "guess": "Получает структуру документов Google Drive",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно получает структуру документа, но догадка неточна — речь о структуре содержимого Google Doc (заголовки, абзацы, списки) с индексами для точечного редактирования, а не о структуре файлов в Google Drive.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_docs_insert_text",
+      "status": "scored",
+      "guess": "Вставляет текст в документ Google Drive",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент вставляет текст в Google Doc. Но догадка не упоминает ключевую особенность — вставку по точному индексу без изменения остального документа.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_list_files",
+      "status": "scored",
+      "guess": "Списывает файлы в Google Drive",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не указано, что речь о папке, доступной сервисному аккаунту.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_public_folder",
+      "status": "scored",
+      "guess": "Работа с публичной папкой Google Drive",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно связан с публичной папкой Google Drive. Но догадка слишком общая и не уточняет, что именно это получение списка файлов по публичной ссылке без Service Account.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_public_sheet",
+      "status": "scored",
+      "guess": "Получает доступ к публичному Google Sheets документу",
+      "clear": true,
+      "score": 3,
+      "why": "Верно, что инструмент работает с публичными Google-файлами, но он охватывает не только Sheets, а также Drive-файлы (например, xlsx), и предназначен для работы без Service Account.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_read_file",
+      "status": "scored",
+      "guess": "Читает файл из Google Drive",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно определяет основное действие — чтение файла из Google Drive, но неполна: не упоминает форматы, требования доступа и особенности для Excel.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_search",
+      "status": "scored",
+      "guess": "Поиск файлов в Google Drive",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно определяет основную функцию, но не уточняет, что поиск идет по имени или содержимому.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_setup",
+      "status": "scored",
+      "guess": "Настройка подключения к Google Drive",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: это настройка доступа к Google Drive, но не указаны ключевые детали — создание сервисного аккаунта и шаги по расшариванию папок.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_status",
+      "status": "scored",
+      "guess": "Проверяет статус Google Drive",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: догадка передаёт проверку статуса, но не упоминает подсчёт доступных файлов и нюансы с files_accessible.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_update_file",
+      "status": "scored",
+      "guess": "Updates a file in Google Drive",
+      "clear": true,
+      "score": 2,
+      "why": "Верно, что обновляет файл, но не указано, что только для plain-файлов и отказывается для Google Docs/Sheets/Slides.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "gdrive_write_sheet",
+      "status": "scored",
+      "guess": "Записывает данные в Google Sheets через Google Drive",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает основное назначение: запись данных в Google Sheets. Упоминание Google Drive не противоречит, так как Sheets входит в Drive.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "get_chat_history",
+      "status": "scored",
+      "guess": "Получает историю чата",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не уточняет, что история берётся из прошлых сессий и исключает текущую.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "get_group_file",
+      "status": "scored",
+      "guess": "Получает файл, связанный с группой",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка в целом верна: инструмент действительно получает файл, связанный с группой. Но не указано, что это загрузка конкретного вложения из истории группы по message_id, с сохранением в медиа/входящие.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "get_group_history",
+      "status": "scored",
+      "guess": "Получает историю сообщений или действий группы",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верна в части 'история сообщений', но не учитывает, что это только сообщения участников, не обращённые к боту, и только за период его молчания, а не любые действия.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "get_new_messages",
+      "status": "scored",
+      "guess": "Получает новые сообщения",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: инструмент действительно получает новые сообщения, но его реальное назначение шире — он для проверки появления сообщений от пользователя в текущем чате после начала задачи, чтобы не завершать ответ ожиданием.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "get_page_content",
+      "status": "scored",
+      "guess": "Получает содержимое веб-страницы",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно получает содержимое страницы. Но догадка не отражает, что это чтение исходного markdown/text опубликованной страницы для безопасного редактирования перед перепубликацией.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_add_comment",
+      "status": "scored",
+      "guess": "Добавляет комментарий в GitHub",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не уточняет, что комментарий добавляется к issue или pull request.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_create_issue",
+      "status": "scored",
+      "guess": "Создаёт issue в GitHub",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно совпадает с реальным назначением.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_create_or_update_file",
+      "status": "scored",
+      "guess": "создаёт или обновляет файл в GitHub-репозитории",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно совпадает с реальным назначением инструмента.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_create_pr",
+      "status": "scored",
+      "guess": "Создаёт pull request в GitHub",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение инструмента.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_get_file",
+      "status": "scored",
+      "guess": "Получает файл из GitHub",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: получение файла из GitHub эквивалентно чтению файла из репозитория.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_list_issues",
+      "status": "scored",
+      "guess": "Lists issues from a GitHub repository",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не упомянуты pull requests.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_list_prs",
+      "status": "scored",
+      "guess": "Lists pull requests from a GitHub repository",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение, различия только в предлоге.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_list_repos",
+      "status": "scored",
+      "guess": "Получает список репозиториев GitHub",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не указано, что репозитории доступны с токеном.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_pr_checks",
+      "status": "scored",
+      "guess": "Получение или управление проверками pull request в GitHub",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент связан с проверками PR и возвращает их статус. Но это алиас pr_status с доп. возможностями (логи, autofix, вердикт) и поведением с ошибками, поэтому догадка неполна.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_search",
+      "status": "scored",
+      "guess": "Ищет репозитории, код или другие ресурсы на GitHub",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: не указаны issues и users, а 'другие ресурсы' слишком общее.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_status",
+      "status": "scored",
+      "guess": "Проверяет статус GitHub",
+      "clear": false,
+      "score": 2,
+      "why": "Догадка про статус GitHub, а реально — проверка токена и информации о пользователе.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "github_update_issue",
+      "status": "scored",
+      "guess": "Обновляет задачу (issue) в GitHub",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает основное назначение: обновление issue в GitHub.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hermes_candidate_report",
+      "status": "scored",
+      "guess": "формирует отчёт о кандидатах",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно формирует отчёт о кандидате. Но догадка не уточняет, что это структурированный JSON из резюме, вакансии и интервью, а не просто отчёт.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hermes_research",
+      "status": "scored",
+      "guess": "выполняет исследовательские задачи",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка в целом верна, но неполна: не указано, что это именно интернет-исследование с отдельной headless-сессией, поиском и загрузкой страниц, а также особенности (долго, дорого, результат в research/).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hermes_run",
+      "status": "scored",
+      "guess": "запускает инструмент Hermes",
+      "clear": true,
+      "score": 1,
+      "why": "Догадка лишь повторяет название и факт запуска, не описывая реальное назначение: stateless-воркер для конкретной исследовательской подзадачи с возвратом структурного JSON.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_api_call",
+      "status": "scored",
+      "guess": "Выполняет вызов API hh",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт суть: инструмент выполняет произвольный вызов API hh.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_batch_evaluate",
+      "status": "scored",
+      "guess": "Выполняет пакетную оценку (batch evaluation) чего-либо",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно выполняет пакетную оценку, но догадка слишком общая и не указывает на оценку кандидатов по вакансии, ATS-скоринг и идемпотентность.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_bulk_reject",
+      "status": "scored",
+      "guess": "Массовое отклонение кандидатов или откликов на HeadHunter",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: массовое отклонение кандидатов, но не уточнено, что это делается при закрытии вакансии и через discard_vacancy_closed.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_candidate_profile",
+      "status": "scored",
+      "guess": "Получение профиля кандидата с hh.ru",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верна в части 'профиль кандидата', но не учитывает, что инструмент генерирует чистовой markdown для показа клиенту/нанимающему менеджеру, а не просто получает данные с hh.ru.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_connect",
+      "status": "scored",
+      "guess": "подключается к сервису или ресурсу с именем hh",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: инструмент связан с подключением к HeadHunter (hh). Но догадка не уточняет, что это именно OAuth2-ссылка для авторизации аккаунта.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_deactivate_vacancy",
+      "status": "scored",
+      "guess": "Деактивирует вакансию на сайте hh.ru",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верно улавливает 'деактивацию', но ошибочно относит её к вакансии на hh.ru, тогда как реально это локальная остановка отслеживания.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_discover",
+      "status": "scored",
+      "guess": "Инструмент для обнаружения или поиска ресурсов, связанных с 'hh'",
+      "clear": false,
+      "score": 3,
+      "why": "Догадка улавливает суть 'discover' как поиск/обнаружение, но не уточняет, что речь о возможностях API и что инструмент используется для операций, не покрытых другими hh_* инструментами.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_draft_review_page",
+      "status": "scored",
+      "guess": "Открывает страницу просмотра черновика",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка упоминает открытие страницы просмотра, но не указывает на оценку кандидатов и одобрение рекрутером, что является главным.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_evaluate_candidate",
+      "status": "scored",
+      "guess": "Оценивает кандидата",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но слишком общо: не указано, что оценивается именно отклик (резюме и сопроводительное письмо) через ATS-скоринг с вердиктом.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_evaluate_resume",
+      "status": "scored",
+      "guess": "Оценивает резюме",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка в целом верна: инструмент действительно оценивает резюме. Но не указано, что это оценка именно из холодного поиска, по той же рубрике, что и отклики, и без переписки.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_extract_ats_config",
+      "status": "scored",
+      "guess": "Извлекает конфигурацию ATS",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верна в части ATS-конфигурации, но реальное назначение — генерация конфигурации из текста вакансии с помощью LLM, а не извлечение готовой.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_funnel_stats",
+      "status": "scored",
+      "guess": "Получение статистики воронки",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка в целом верна: инструмент действительно отдаёт статистику по воронке. Но она неполная — не указаны активная вакансия, снимок данных, непрочитанные сообщения и новые отклики.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_generate_message",
+      "status": "scored",
+      "guess": "генерирует сообщение",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верна по сути, но слишком общая: не указаны персонализация, типы сообщений и чтение истории кандидата.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_get_messages",
+      "status": "scored",
+      "guess": "Получает сообщения (вероятно, из сервиса hh)",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно, но не уточняет, что это история переписки по кандидату.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_interview_coverage",
+      "status": "scored",
+      "guess": "Отслеживание покрытия интервью",
+      "clear": false,
+      "score": 4,
+      "why": "Догадка точно передаёт суть: инструмент отслеживает покрытие интервью, то есть какие требования прозвучали, а какие нет.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_interview_evaluate",
+      "status": "scored",
+      "guess": "Оценивает результаты интервью",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно оценивает интервью. Но догадка не отражает ключевой специфики — оценки по требованиям портрета вакансии, баллов с цитатами, покрытия, коммуникативного стиля и правила вето.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_interview_structure",
+      "status": "scored",
+      "guess": "Создаёт структуру интервью",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но слишком общо: не указано, что это разбор готового транскрипта на Q&A-ходы, определение ролей и запись в JSON.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_interview_transcribe",
+      "status": "scored",
+      "guess": "Расшифровка интервью",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт основное назначение инструмента — расшифровка интервью; остальное относится к деталям реализации.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_invite_resume",
+      "status": "scored",
+      "guess": "Приглашает соискателя по резюме на HeadHunter",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно приглашает кандидата, но догадка неполная — не указано, что это приглашение из холодного поиска по резюме, которое превращается в отклик/переписку и списывает контакт с баланса.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_list_responses",
+      "status": "scored",
+      "guess": "Получение списка откликов на HeadHunter",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт основную функцию инструмента — получение списка откликов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_list_vacancies",
+      "status": "scored",
+      "guess": "Получает список вакансий с HeadHunter",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не уточнено, что это вакансии конкретного работодателя.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_move_candidate",
+      "status": "scored",
+      "guess": "Перемещает кандидата между этапами или статусами",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: перемещение кандидата между статусами/этапами, но не уточнено, что речь о переговорах и состоянии в ATS на hh.ru.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_open_ats_editor",
+      "status": "scored",
+      "guess": "Открывает редактор ATS",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно передаёт основное действие — открытие редактора ATS, но неполна: не указано, что это визуальный редактор шаблонов для настройки воронки и скоринга, а также сохранение в контекст и возврат URL.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_portrait_completeness",
+      "status": "scored",
+      "guess": "Проверяет полноту профиля кандидата на HeadHunter",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт суть: оценка полноты профиля кандидата.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_portrait_extract",
+      "status": "scored",
+      "guess": "Извлекает портрет из источника, обозначенного как hh",
+      "clear": false,
+      "score": 2,
+      "why": "Частично верно: упоминает портрет, но главное различие в том, что инструмент не извлекает из источника 'hh', а строит структурированный портрет из разных сырых входных данных (текст вакансии, переписка и т.д.) с оценкой полноты.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_portrait_get",
+      "status": "scored",
+      "guess": "получает портрет (изображение профиля)",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: инструмент действительно получает 'портрет', но это не изображение профиля, а сводка собранных требований к кандидату на вакансию с оценкой полноты. Главное различие упущено.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_portrait_to_ats",
+      "status": "scored",
+      "guess": "Конвертирует профиль кандидата с HeadHunter в формат ATS",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: упоминает HeadHunter и ATS, но путает направление — не конвертация профиля, а генерация конфигурации оценки из портрета кандидата.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_portrait_update",
+      "status": "scored",
+      "guess": "обновляет портрет/аватар пользователя",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка частично верна: инструмент действительно обновляет портрет, но это не аватар пользователя, а структурированный портрет кандидата с точечным изменением полей и пересчётом полноты.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_proactive_queries",
+      "status": "scored",
+      "guess": "Выполняет проактивные поисковые запросы на HeadHunter",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верна в части 'проактивные поисковые запросы', но инструмент не выполняет запросы, а управляет фразами для вакансии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_proactive_schedule",
+      "status": "scored",
+      "guess": "планирование упреждающих действий по расписанию",
+      "clear": false,
+      "score": 2,
+      "why": "Частично верно: 'упреждающие действия' можно связать с автопоиском, но главное — это управление вкл/выкл/статус, а не планирование по расписанию.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_proactive_scoring_prompt",
+      "status": "scored",
+      "guess": "Оценивает проактивность ответа по заданному промпту",
+      "clear": false,
+      "score": 2,
+      "why": "Частично верно: упоминает проактивность и оценку, но путает объект — это не оценка ответа, а объяснение логики подбора кандидатов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_proactive_search",
+      "status": "scored",
+      "guess": "Проактивный поиск на HeadHunter",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: это проактивный поиск на HeadHunter. Но догадка не раскрывает главное — инструмент запускает полный цикл поиска, скоринга и публикации по активной вакансии без аргументов, используя сохранённые критерии ATS, и является предпочтительным для холодного поиска.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_proactive_view",
+      "status": "scored",
+      "guess": "просмотр проактивных данных в HeadHunter",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: инструмент связан с просмотром проактивной информации в HeadHunter, но догадка не уточняет, что это именно страница результатов поиска кандидатов с пагинацией, скорингом и AI-оценкой.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_regenerate_messages",
+      "status": "scored",
+      "guess": "Перегенерирует сообщения",
+      "clear": true,
+      "score": 3,
+      "why": "Верно передаёт основное действие — перегенерацию сообщений, но не уточняет, что это массовая перегенерация черновиков для всех оценённых кандидатов по текущим настройкам и без отправки.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_search_resumes",
+      "status": "scored",
+      "guess": "Поиск резюме кандидатов на hh.ru",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает основное назначение: инструмент действительно ищет резюме кандидатов на hh.ru.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_send_message",
+      "status": "scored",
+      "guess": "Отправляет сообщение",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верна по сути, но неполна: не указано, что сообщение отправляется кандидату в переговорном процессе и требует подтверждения рекрутером.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_set_active_vacancy",
+      "status": "scored",
+      "guess": "Устанавливает вакансию как активную",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: инструмент действительно выбирает активную вакансию, но не меняет её статус активности, а задаёт текущую вакансию для HH-сессии и сохраняет её для batch/cron.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_set_publish_domain",
+      "status": "scored",
+      "guess": "Устанавливает домен публикации для HeadHunter",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно задаёт домен публикации, но догадка неполна — он также показывает текущий домен и относится к страницам, генерируемым агентом, а не ко всему HeadHunter.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_set_rejection_template",
+      "status": "scored",
+      "guess": "Устанавливает шаблон отказа кандидату",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно связан с шаблоном отказа, но догадка упоминает только установку, тогда как реальное назначение также включает получение текущего шаблона.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_set_token",
+      "status": "scored",
+      "guess": "Устанавливает токен для API HeadHunter",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передает суть: инструмент для установки/сохранения токена HeadHunter.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_status",
+      "status": "scored",
+      "guess": "показывает статус/состояние чего-то, обозначенного как hh",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: инструмент показывает статус, но не уточнено, что это статус подключения к HeadHunter, и не упомянута информация о работодателе.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_sync_messages",
+      "status": "scored",
+      "guess": "Синхронизирует сообщения",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но слишком общо: не указано, что это синхронизация переписки по вакансии с API HH в локальную историю кандидата.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_vacancy_create_draft",
+      "status": "scored",
+      "guess": "Создаёт черновик вакансии на hh.ru",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает основное назначение: создание черновика вакансии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_vacancy_get_draft",
+      "status": "scored",
+      "guess": "Получить черновик вакансии",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: получить черновик вакансии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_vacancy_publish_page",
+      "status": "scored",
+      "guess": "Открывает страницу публикации вакансии на HeadHunter",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: речь о публикации вакансии, но не на HeadHunter, а на другом сайте, и действие не просто открытие страницы, а публикация черновика с получением ссылки.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "hh_vacancy_update_draft",
+      "status": "scored",
+      "guess": "Обновляет черновик вакансии на HeadHunter",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт основное назначение — обновление черновика вакансии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "illustrate_generate",
+      "status": "scored",
+      "guess": "Generates an illustration from a prompt or description",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно генерирует иллюстрацию по описанию. Но не указаны образовательный контекст, отправка в Telegram и обязательный предварительный шаг с подтверждением промта.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "illustrate_preview_prompt",
+      "status": "scored",
+      "guess": "Generates a preview illustration based on a prompt",
+      "clear": true,
+      "score": 1,
+      "why": "Догадка говорит о создании превью-иллюстрации, а реальный инструмент не создаёт изображение, а показывает и согласовывает текстовый промпт.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "illustrate_providers",
+      "status": "scored",
+      "guess": "Создает визуализацию или иллюстрацию провайдеров",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: речь о провайдерах, но догадка про визуализацию/иллюстрацию, а реально это список провайдеров и их возможностей.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "illustrate_refine",
+      "status": "scored",
+      "guess": "Refines illustrations",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка кратко и точно передаёт основное назначение — уточнение/доработка иллюстраций.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "illustrate_setup",
+      "status": "scored",
+      "guess": "Creates an illustration or diagram of a setup",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка предполагает создание иллюстрации, но реальное назначение — управление навыком генерации изображений (включение/проверка статуса), а не само создание.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "illustrate_styles",
+      "status": "scored",
+      "guess": "Создаёт иллюстрации в различных стилях",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка верно упоминает стили, но приписывает инструменту создание иллюстраций, тогда как реально он лишь перечисляет доступные стили с описаниями.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "illustrate_tips",
+      "status": "scored",
+      "guess": "Создаёт иллюстрации для советов или подсказок",
+      "clear": true,
+      "score": 1,
+      "why": "Догадка понимает 'tips' как подсказки, но инструмент возвращает советы по устранению проблем генерации изображений, а не создаёт иллюстрации.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "image_label",
+      "status": "scored",
+      "guess": "Assigns labels to images",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно назначает подписи/метки изображениям. Но догадка неполная — не указаны режимы работы, поддержка языков и уточнение про текстовые аннотации.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "inn_enrich_batch",
+      "status": "scored",
+      "guess": "Пакетное обогащение данных по ИНН",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно пакетно обогащает данные о российских компаниях. Неточность в том, что он обогащает список компаний реквизитами (ИНН, ОГРН, директор, выручка, прибыль), а не просто «обогащает данные по ИНН».",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "inn_set_checko_key",
+      "status": "scored",
+      "guess": "Устанавливает ключ для сервиса, связанного с ИНН",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: это сохранение ключа для сервиса, связанного с ИНН, но не указано, что сервис Checko и данные финансовые (выручка, прибыль).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "inn_set_dadata_token",
+      "status": "scored",
+      "guess": "Устанавливает токен Dadata для работы с ИНН",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: сохранение токена Dadata для работы с ИНН.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "inn_set_rusprofile_cookie",
+      "status": "scored",
+      "guess": "Устанавливает cookie для Rusprofile, связанную с ИНН",
+      "clear": true,
+      "score": 2,
+      "why": "Верно, что инструмент связан с cookie для Rusprofile, но неверно указана привязка к ИНН; главное назначение — сохранение сессионной cookie для обхода маскирования данных.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "inn_status",
+      "status": "scored",
+      "guess": "Проверяет статус ИНН",
+      "clear": true,
+      "score": 1,
+      "why": "Догадка понимает ИНН как налоговый номер, тогда как реально это статус навыка обогащения INN. Общее только слово 'статус'.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "interview_analyze",
+      "status": "scored",
+      "guess": "Анализирует интервью",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но слишком общо: не указаны конкретные критерии, скоринг, вердикт и работа с транскриптом.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "interview_get_criteria",
+      "status": "scored",
+      "guess": "Получает критерии для интервью",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно возвращает критерии для интервью, но догадка не уточняет, что это сохранённый эталон критериев заказчика и что он используется для разбора интервью.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "interview_questions_bank",
+      "status": "scored",
+      "guess": "Предоставляет банк вопросов для собеседований",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не указано, что вопросы генерируются по роли и уровню.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "interview_set_criteria",
+      "status": "scored",
+      "guess": "Устанавливает критерии для интервью",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не указано, что критерии сохраняются как эталон для последующего анализа интервью.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "issue_status",
+      "status": "scored",
+      "guess": "Возвращает статус задачи (issue)",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: инструмент связан с issue, но возвращает не статус самой задачи, а статусы связанных pull request'ов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "jd_generate",
+      "status": "scored",
+      "guess": "генерирует описание вакансии (job description)",
+      "clear": false,
+      "score": 4,
+      "why": "Догадка точно передаёт основное назначение — генерация описания вакансии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "last_messages",
+      "status": "scored",
+      "guess": "Возвращает последние сообщения",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: не указано, что это история из текущей сессии и что используется для контекста.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "list_pages",
+      "status": "scored",
+      "guess": "Получает список страниц",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не уточняет профиль пользователя и детали вывода.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "list_skills",
+      "status": "scored",
+      "guess": "Lists available skills",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не упомянуты интеграции, поэтому неполно.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "load_full_context",
+      "status": "scored",
+      "guess": "Загружает полный контекст",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно загружает историю разговора/контекст. Но неточно: он возвращает сообщения не полностью, а с ограничениями по количеству и длине, и предназначен для случаев нехватки инъекционного контекста.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "nalog_create_receipt",
+      "status": "scored",
+      "guess": "Создаёт чек для налоговой",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка верно определяет основное назначение — создание чека для налоговой (НПД).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "nalog_get_incomes",
+      "status": "scored",
+      "guess": "Получение данных о доходах из налоговой системы",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно получает данные о доходах из налоговой системы, но догадка не уточняет, что речь о НПД и о записях за период.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "nalog_get_profile",
+      "status": "scored",
+      "guess": "Получает профиль пользователя в налоговой системе",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: получение профиля пользователя в налоговой системе (налог.ру), хотя и без деталей.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "nalog_refresh_token",
+      "status": "scored",
+      "guess": "Обновляет токен доступа для сервиса Налог",
+      "clear": true,
+      "score": 4,
+      "why": "Точно описывает основное назначение: обновление токена доступа для сервиса Налог.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "playbook_batch_control",
+      "status": "scored",
+      "guess": "Управляет пакетным выполнением плейбуков",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент управляет пакетным выполнением, но догадка не отражает конкретные действия resume/retry/skip/add и работу с элементами/шагами.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "playbook_batch_status",
+      "status": "scored",
+      "guess": "Возвращает статус выполнения пакетной операции с playbook'ами",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт суть: инструмент возвращает статус пакетного запуска playbook'ов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "playbook_draft",
+      "status": "scored",
+      "guess": "Создаёт черновик плейбука",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно создаёт черновик плейбука. Но догадка неполна — не указано, что черновик создаётся из описания на естественном языке, проходит валидацию и не становится настоящим плейбуком до playbook_save.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "playbook_edit",
+      "status": "scored",
+      "guess": "Редактирует плейбук",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: упущены детали про natural-language инструкции, Hermes, черновики и diff.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "playbook_get",
+      "status": "scored",
+      "guess": "Получает playbook",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: упущены детали о версиях, черновиках и разрешении.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "playbook_health",
+      "status": "scored",
+      "guess": "Проверяет состояние и работоспособность плейбуков",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но слишком общо: не указано, что проверяется именно доступность/видимость плейбука для конкретного профиля, а не просто работоспособность.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "playbook_list",
+      "status": "scored",
+      "guess": "Возвращает список playbook'ов",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно возвращает список playbook'ов. Но догадка не отражает ключевые детали: видимость для профиля, разрешение конфликтов, read-only и обработку ошибок.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "playbook_run",
+      "status": "scored",
+      "guess": "Запускает playbook (сценарий автоматизации)",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка говорит «запускает», но реально инструмент компилирует playbook в план (по умолчанию черновик) и не выполняет его; упущено главное различие.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "playbook_run_batch",
+      "status": "scored",
+      "guess": "Запускает пакетное выполнение плейбуков",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: это запуск пакетного выполнения, но неточно — реально это один плейбук по множеству элементов, с супервизией, паузами и эскалациями.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "playbook_save",
+      "status": "scored",
+      "guess": "Сохраняет плейбук",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка в целом верна: инструмент действительно сохраняет плейбук, но не уточняет, что это продвижение черновика в пользовательский плейбук с валидацией и поднятием версии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "playbook_suggest",
+      "status": "scored",
+      "guess": "Предлагает подходящий playbook",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно предлагает playbook, но догадка не уточняет, что это выбор дефолтного playbook для конкретной аудитории и что он только сообщает рекомендацию, не запуская её.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "pr_status",
+      "status": "scored",
+      "guess": "Получение статуса pull request",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка в целом верна: инструмент действительно возвращает статус PR. Но реальное назначение шире и конкретнее: он агрегирует состояние PR (открыт/смёржен), результаты CI-проверок, логи упавших джобов, факт деплоя в прод и наличие autofix-PR, заменяя старый github_pr_checks.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "publish_page",
+      "status": "scored",
+      "guess": "Публикует страницу",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка в целом верна, но слишком общая: инструмент действительно публикует контент как страницу, но главное — это замена длинных сообщений ссылкой, с паролем и обновлением по слагу, что не отражено.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "qa_log_list",
+      "status": "scored",
+      "guess": "Список журналов/записей QA",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: это список журналов, но не указано, что для текущего профиля, и добавлено уточнение QA, которого нет в реальном назначении.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "qa_log_lookup",
+      "status": "scored",
+      "guess": "Поиск записей в логах для QA",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: поиск логов есть, но реальное назначение — поиск по метаданным зарегистрированных логов, а не записей в логах, и не только для QA.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "qa_log_register",
+      "status": "scored",
+      "guess": "Регистрирует запись в журнале QA",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: есть связь с журналированием, но догадка говорит о записи в журнал, а реально инструмент регистрирует сам лог-файл (его расположение и метаданные), а не содержимое.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "rejection_with_feedback",
+      "status": "scored",
+      "guess": "Отклоняет запрос или результат и возвращает поясняющее сообщение",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: отклонение с пояснением. Но не указано, что речь о кандидатах, вежливости и сохранении репутации компании.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "repo_map",
+      "status": "scored",
+      "guess": "создает карту репозитория",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка в целом верна: инструмент действительно создаёт карту репозитория. Но не указаны ключевые детали: сжатие, уровни детализации, фокус на символах/путях и рекомендация использовать до чтения файлов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "reproject_adjust",
+      "status": "scored",
+      "guess": "Reprojects and adjusts spatial data",
+      "clear": false,
+      "score": 1,
+      "why": "Догадка про перепроецирование и корректировку пространственных данных почти не связана с реальностью: инструмент правит план переноса/переименования проектов после предпросмотра, а не данные.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "reproject_apply",
+      "status": "scored",
+      "guess": "Применяет перепроецирование (изменение проекции) к данным",
+      "clear": true,
+      "score": 1,
+      "why": "Догадка понимает reproject как смену картографической проекции данных, тогда как реально это перенос/перепривязка сессий к проектам по плану из reproject_preview. Сходство только в названии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "reproject_preview",
+      "status": "scored",
+      "guess": "Предпросмотр результата перепроецирования (смены проекции)",
+      "clear": true,
+      "score": 2,
+      "why": "Верно уловлены части «preview» и «reproject», но перепроецирование понято как смена картографической проекции, а не как пересборка структуры проектов профиля.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "reproject_revert",
+      "status": "scored",
+      "guess": "Отменяет/возвращает результат перепроецирования",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: откат/возврат результата перепроецирования.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "ru_browser_fetch",
+      "status": "scored",
+      "guess": "Fetches web content using a browser, likely for Russian-language resources",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно улавливает браузерный fetch и связь с RU, но неточно: главное — это Russian IP для обхода гео-блокировок, а не просто русскоязычные ресурсы; также упущены CSS/JS.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "ru_browser_screenshot",
+      "status": "scored",
+      "guess": "Делает скриншот браузера",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: упущены детали про RU VM браузер, российский IP и использование для отладки гео-блокировок.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "salary_benchmark",
+      "status": "scored",
+      "guess": "Сравнивает зарплаты с рыночными ориентирами",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но догадка акцентирует сравнение, тогда как реальное назначение — получение бенчмарка для роли.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "search_exa",
+      "status": "scored",
+      "guess": "Выполняет поиск с помощью сервиса Exa",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передаёт основное назначение: поиск через сервис Exa. Реальное описание лишь уточняет детали, но не меняет суть.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "search_serp_free",
+      "status": "scored",
+      "guess": "Выполняет бесплатный поиск по поисковой выдаче (SERP)",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно выполняет бесплатный поиск по выдаче, но догадка не упоминает ключевую особенность — отсутствие API-ключа и аккаунта, а также конкретные источники (DuckDuckGo, SearXNG, Brave).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "search_serper",
+      "status": "scored",
+      "guess": "Выполняет поиск в интернете через Serper API",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает основное назначение инструмента — поиск через Serper API, хотя не уточняет, что это Google SERP API.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "session_extend_timeout",
+      "status": "scored",
+      "guess": "Продлевает время ожидания (таймаут) сессии",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно передает основную функцию — продление таймаута сессии, но не упоминает детали: 15 минут, максимум 8 продлений, использование в длительных операциях.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "session_search",
+      "status": "scored",
+      "guess": "Поиск по сессиям или истории сессий",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: поиск по сессиям/истории сессий, что совпадает с реальной функцией.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "set_publish_domain",
+      "status": "scored",
+      "guess": "Устанавливает домен для публикации",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно передает суть: устанавливает домен для публикации.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "site_deploy",
+      "status": "scored",
+      "guess": "Разворачивает сайт на сервере",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент публикует/разворачивает сайт, но догадка не уточняет, что это статический сайт на Cloudflare Pages и брендовом домене.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "site_deploy_status",
+      "status": "scored",
+      "guess": "Проверяет статус развертывания сайта",
+      "clear": true,
+      "score": 1,
+      "why": "Догадка про проверку статуса развертывания, а реально инструмент выбирает, какой токен Cloudflare использовать для профиля, и возвращает account id.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "sourcing_checklist",
+      "status": "scored",
+      "guess": "Предоставляет чек-лист для процесса поиска поставщиков или кандидатов",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неточно: реальное назначение — именно чек-лист источников для поиска кандидатов на конкретную роль, а не общий чек-лист процесса поиска поставщиков или кандидатов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_create",
+      "status": "scored",
+      "guess": "Создаёт новую задачу",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: упущены durable-характер, хранение в SQLite и атомарное сохранение плана.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_get",
+      "status": "scored",
+      "guess": "Получает задачу",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: не указаны детали (все элементы, привязка к профилю, долговременность).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_item_add",
+      "status": "scored",
+      "guess": "добавляет элемент задачи",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно добавляет шаг/элемент в задачу. Но догадка слишком общая и не отражает ключевые особенности: это шаг durable-задачи, поддержку контрактов, already_done и replaces_item_id.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_item_complete",
+      "status": "scored",
+      "guess": "Отмечает элемент задачи как выполненный",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: не учитывает отметку о сбое и активацию следующего элемента.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_item_exception",
+      "status": "scored",
+      "guess": "обрабатывает исключение, связанное с элементом задачи",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: инструмент связан с обработкой исключения для шага/элемента задачи. Но догадка слишком общая и не передаёт главного — закрытие текущего шага как исключения с указанием причины и фиксацией результата.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_item_result",
+      "status": "scored",
+      "guess": "Возвращает результат элемента задачи",
+      "clear": true,
+      "score": 2,
+      "why": "Частично верно: инструмент действительно связан с результатом шага/задачи, но догадка не передаёт главное — он отправляет структурированный результат и вердикт на сервер, а не просто «возвращает» результат.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_item_retry",
+      "status": "scored",
+      "guess": "Повторяет попытку выполнения элемента задачи",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент повторяет выполнение после сбоя. Но догадка не уточняет, что это перезапуск терминально упавшего durable-шага с новым бюджетом попыток после устранения причины, и что шаг должен быть в статусе failed.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_item_skip",
+      "status": "scored",
+      "guess": "Пропускает элемент задачи",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно пропускает шаг/элемент. Но догадка не отражает ключевые детали: пропуск только ещё не начатого шага, фиксацию причины, аудит/валидацию и возможность завершения плана.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_item_update",
+      "status": "scored",
+      "guess": "обновляет элемент задачи",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верно передаёт основное действие — обновление элемента задачи, но не упоминает режимы валидации, что делает её неполной.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_item_wait",
+      "status": "scored",
+      "guess": "Ожидает завершения или готовности элемента задачи",
+      "clear": true,
+      "score": 2,
+      "why": "Верно уловлено ожидание, но догадка привязывает его к «элементу задачи», тогда как реально это долговременная остановка текущего шага до внешнего условия/события (CI, merge, ответ пользователя, таймер и т.п.).",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_item_wake",
+      "status": "scored",
+      "guess": "Пробуждает или активирует элемент задачи",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент пробуждает ожидающий шаг задачи. Но догадка не уточняет, что речь именно о waiting-шаге, буферизации и идемпотентности сигналов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_list",
+      "status": "scored",
+      "guess": "Предоставляет список задач",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно предоставляет список задач. Но догадка не уточняет, что задачи долговременные и относятся к профилю вызывающего, а также не упоминает фильтрацию по статусу.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "task_update",
+      "status": "scored",
+      "guess": "Обновляет задачу",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка в целом верна: инструмент действительно обновляет задачу, но не отражает ключевые нюансы с контрактным планом, активацией и финализацией.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "tg_send_file",
+      "status": "scored",
+      "guess": "Отправляет файл в Telegram",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не уточняет, что файл локальный, отправляется в чат пользователя и есть режим документа.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "tilda_backup_page",
+      "status": "scored",
+      "guess": "Создаёт резервную копию страницы в Tilda",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает основное назначение: создание резервной копии страницы перед изменениями.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "tilda_create_staging",
+      "status": "scored",
+      "guess": "Создаёт staging-окружение для проекта Tilda",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент создаёт тестовую/staging копию, но догадка неточна — это не окружение проекта, а дубликат конкретной страницы с отключением индексации.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "tilda_get_blocks",
+      "status": "scored",
+      "guess": "Получает блоки из Tilda",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно получает блоки страницы, но догадка не уточняет, что возвращается детальное содержимое блоков с ID шаблона и редактируемыми полями.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "tilda_get_page",
+      "status": "scored",
+      "guess": "Получает страницу из Tilda",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: инструмент получает данные страницы и список блоков, а не просто страницу.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "tilda_list_all_projects",
+      "status": "scored",
+      "guess": "Получает список всех проектов пользователя в Tilda",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает основное назначение: получение списка всех проектов пользователя.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "tilda_list_pages",
+      "status": "scored",
+      "guess": "Получает список страниц в Tilda",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: получение списка страниц в проекте Tilda.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "tilda_publish_page",
+      "status": "scored",
+      "guess": "Публикует страницу на Tilda",
+      "clear": true,
+      "score": 3,
+      "why": "Догадка верна, но не упоминает обязательный порядок: сначала тестовая страница, затем продакшн.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "tilda_save_block",
+      "status": "scored",
+      "guess": "Сохраняет блок в Tilda",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но слишком общо: не уточняет, что речь о сохранении/обновлении контента блока, а не о самом блоке.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "tilda_set_config",
+      "status": "scored",
+      "guess": "Устанавливает конфигурацию для Tilda",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но слишком общо: не указано, что сохраняется конфигурация проекта Tilda (ID, страницы, URL) и что вызов должен идти после tilda_list_all_projects.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "tilda_status",
+      "status": "scored",
+      "guess": "проверяет статус сервиса Tilda",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, что проверяет статус, но не уточнено, что это статус авторизации и показ конфигурации, а не статус сервиса.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "video_analysis_status",
+      "status": "scored",
+      "guess": "Возвращает статус анализа видео",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно возвращает статус анализа видео. Но догадка неполная — не указано, что это авторитетное состояние из диска, а не из памяти, и что он охватывает пайплайн, пачки, вердикты и прогресс.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "video_analyze_batch",
+      "status": "scored",
+      "guess": "Пакетный анализ видео",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: это пакетный анализ видео, но догадка не отражает специфику (интервью, транскрибация, скоринг) и потому неполна.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "video_set_deepgram_key",
+      "status": "scored",
+      "guess": "Sets the Deepgram API key for video processing",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: устанавливает API-ключ Deepgram для видео/аудио, но неточно — не указано, что ключ нужен именно для расшифровки (транскрибации) и что он сохраняется на сервере.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "web_ask",
+      "status": "scored",
+      "guess": "Задает вопрос или запрос в вебе",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно задаёт вопрос и работает с веб-контентом. Но догадка слишком общая: не указано, что это запрос к конкретной странице, а не веб-поиск, и не отражены ключевые особенности — ответ с проверяемой цитатой и чтение только текста страницы.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "web_click",
+      "status": "scored",
+      "guess": "Выполняет клик по элементу веб-страницы",
+      "clear": true,
+      "score": 3,
+      "why": "Основная функция клика указана верно, но не отражены способы указания цели, возвращаемые данные и требование обновлять handle.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "web_fill",
+      "status": "scored",
+      "guess": "Заполняет поля на веб-странице",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: инструмент именно заполняет поля формы, но также поддерживает чекбоксы, select, Enter и отдельную отправку.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "web_find",
+      "status": "scored",
+      "guess": "Searches the web for information",
+      "clear": true,
+      "score": 0,
+      "why": "Догадка описывает поиск в интернете, а инструмент находит элементы на открытой странице.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "web_login",
+      "status": "scored",
+      "guess": "Выполняет вход на веб-сайт",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка верно определяет основное назначение — выполнение входа на сайт, что совпадает с реальным действием инструмента.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "web_open",
+      "status": "scored",
+      "guess": "Открывает веб-страницу или URL",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно открывает веб-страницу/URL. Но догадка неполна — не указано, что он возвращает содержимое страницы (текст, статус, заголовок и т.д.) и используется для чтения/проверки сайтов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "web_screenshot",
+      "status": "scored",
+      "guess": "Takes a screenshot of a web page",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: не указаны формат PNG, возврат пути и использование с tg_send_file.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "web_state",
+      "status": "scored",
+      "guess": "предоставляет состояние веб-страницы или браузера",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно описывает текущее состояние браузера/страницы, но догадка слишком общая и не уточняет, что это именно данные об открытой вкладке без повторного обхода.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "web_text",
+      "status": "scored",
+      "guess": "Извлекает текстовое содержимое веб-страницы",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка частично верна: инструмент действительно возвращает текст страницы, но его ключевое назначение — дочитывать уже открытую страницу по смещению, а не извлекать содержимое с нуля.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "website_credentials_list",
+      "status": "scored",
+      "guess": "Список учётных данных для веб-сайтов",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка говорит о списке учётных данных, а реально это список сайтов, для которых есть учётные данные.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "website_credentials_save",
+      "status": "scored",
+      "guess": "Сохраняет учётные данные для веб-сайта",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент сохраняет учётные данные для сайта. Но не указано, что они предназначены для последующего использования другими инструментами для авторизованных запросов.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "website_discover",
+      "status": "scored",
+      "guess": "Обнаруживает веб-сайты",
+      "clear": true,
+      "score": 2,
+      "why": "Догадка слишком общая: речь не об обнаружении сайтов, а об исследовании конкретного сохранённого сайта на предмет его API/страниц.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "website_request",
+      "status": "scored",
+      "guess": "Выполняет запрос к веб-сайту",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но неполно: упущены ключевые детали про сохранённый сайт, подстановку учётных данных и управление сессиями.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_add_comment",
+      "status": "scored",
+      "guess": "Добавляет комментарий в Weeek",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: это добавление комментария в Weeek, но не уточнено, что именно к сделке в CRM, и не указано требование L2-сессии.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_add_task",
+      "status": "scored",
+      "guess": "Добавляет задачу в сервисе Weeek",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент добавляет задачу в Weeek, но не уточнено, что задача привязывается к сделке.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_create_contact",
+      "status": "scored",
+      "guess": "Создаёт контакт в Weeek",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: создание контакта в Weeek соответствует реальной функции.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_create_deal",
+      "status": "scored",
+      "guess": "Создаёт сделку в сервисе Weeek",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не указано, что сделка создаётся в конкретном статусе/этапе CRM.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_delete_deal",
+      "status": "scored",
+      "guess": "Удаляет сделку в Weeek",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: удаление сделки в Weeek соответствует реальному удалению навсегда.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_get_contact",
+      "status": "scored",
+      "guess": "Получить контакт в Weeek",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не указано получение по ID.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_get_deal",
+      "status": "scored",
+      "guess": "Получает данные сделки из Weeek",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно, но не указано, что сделка получается по ID и это одна конкретная сделка со всеми полями.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_list_contacts",
+      "status": "scored",
+      "guess": "Получает список контактов в weeek",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает основное назначение — получение списка контактов, хотя не упоминает поиск.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_list_deals",
+      "status": "scored",
+      "guess": "Получает список сделок в Weeek",
+      "clear": true,
+      "score": 3,
+      "why": "В целом верно: инструмент действительно получает список сделок. Но догадка не уточняет, что сделки выбираются по статусу/этапу в CRM, и не упоминает пагинацию.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_list_funnels",
+      "status": "scored",
+      "guess": "Получить список воронок в Weeek",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно совпадает с реальным назначением: получение списка воронок/CRM-пайплайнов в Weeek.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_list_statuses",
+      "status": "scored",
+      "guess": "Получение списка статусов в Weeek",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: получение списка статусов в Weeek, что соответствует реальному действию.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_set_token",
+      "status": "scored",
+      "guess": "Устанавливает токен для сервиса Weeek",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: сохранение токена Weeek.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_status",
+      "status": "scored",
+      "guess": "получает статус в сервисе Weeek",
+      "clear": false,
+      "score": 3,
+      "why": "В целом верно: инструмент связан со статусом в Weeek, но догадка не уточняет, что это проверка подключения к API и валидности токена.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_update_contact",
+      "status": "scored",
+      "guess": "Обновляет контакт в Weeek",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: обновление существующего контакта в CRM Weeek.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    },
+    {
+      "probe": "A",
+      "name": "weeek_update_deal",
+      "status": "scored",
+      "guess": "Обновляет сделку в Weeek",
+      "clear": true,
+      "score": 4,
+      "why": "Догадка точно описывает назначение: обновление сделки в Weeek.",
+      "servedModel": "opencode-go/deepseek-v4-flash"
+    }
+  ],
+  "probeB": []
+}
