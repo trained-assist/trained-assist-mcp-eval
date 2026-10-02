@@ -1,0 +1,80 @@
+{
+  "_comment": "Confusable-name groups for Probe B. Each group is a set of tool names whose real descriptions differ but whose names do not make the difference obvious. The model is shown the real descriptions and must say which description belongs to which name. Chance level is 1/k for a group of k — so a group of 4 is a much sharper test than a pair. Curated from the errors in FINDINGS.md §1-§3, not auto-generated: auto-generation by shared prefix would produce groups that are trivially separable by prefix, which is the opposite of what we are testing.",
+  "groups": [
+    {
+      "id": "hh-evaluate",
+      "names": ["hh_evaluate_resume", "hh_evaluate_candidate"],
+      "why": "Различие — есть ли отклик кандидата. В имени его нет."
+    },
+    {
+      "id": "gc-lesson-add",
+      "names": ["gc_lesson_add_text", "gc_lesson_add_video"],
+      "why": "Различие — тип контента. В имени есть, но только в последнем слове."
+    },
+    {
+      "id": "discover",
+      "names": ["hh_discover", "gc_discover", "checko_discover", "website_discover"],
+      "why": "Четыре инструмента с одинаковым глаголом discover и разными источниками. Имя не говорит, какой источник."
+    },
+    {
+      "id": "api-call",
+      "names": ["hh_api_call", "gc_api_call"],
+      "why": "Универсальное имя-пустышка, §2 прямо запрещает такие."
+    },
+    {
+      "id": "candidate-profile",
+      "names": ["hh_candidate_profile", "demo_candidate_profile"],
+      "why": "Демо-режим неотличим от боевого по имени."
+    },
+    {
+      "id": "list-vacancies",
+      "names": ["hh_list_vacancies", "applylink_list_vacancies"],
+      "why": "Два разных источника вакансий, имя не говорит какой."
+    },
+    {
+      "id": "flexi-notes",
+      "names": ["flexi_get_notes", "flexi_get_notes_bulk"],
+      "why": "Различие — один или много. Слово bulk не несёт смысла для маршрутизатора."
+    },
+    {
+      "id": "illustrate",
+      "names": ["illustrate_styles", "illustrate_providers"],
+      "why": "Стили и провайдеры — разные вещи, имена почти одинаковые."
+    },
+    {
+      "id": "search",
+      "names": ["search_serper", "search_serp_free", "search_exa"],
+      "why": "Три поиска с разными провайдерами и ценами. Имя не говорит какой."
+    },
+    {
+      "id": "cron",
+      "names": ["cron_pause", "cron_delete", "cron_resume"],
+      "why": "Глаголы pause/delete/resume — внутренняя реализация, не действие для пользователя."
+    },
+    {
+      "id": "gc-create",
+      "names": ["gc_section_create", "gc_lesson_create", "gc_course_create"],
+      "why": "Три уровня вложенности GetCourse. Имя не говорит, какой уровень."
+    },
+    {
+      "id": "hh-message",
+      "names": ["hh_generate_message", "cold_message_generate"],
+      "why": "Один и тот же смысл в двух разных стилях имён — синонимы, которые §2 требует устранить."
+    },
+    {
+      "id": "expo-qualify",
+      "names": ["expo_classify_targets", "expo_pipeline_qualify"],
+      "why": "Классификация и квалификация — разные стадии, имена почти одинаковые."
+    },
+    {
+      "id": "task-item",
+      "names": ["task_item_wait", "task_item_wake", "task_item_retry"],
+      "why": "Состояния задачи. Имя несёт внутреннюю машину состояний, а не действие."
+    },
+    {
+      "id": "gdrive-search",
+      "names": ["gdrive_search", "gdrive_list_files"],
+      "why": "Поиск и перечисление — разные действия, имена легко перепутать."
+    }
+  ]
+}

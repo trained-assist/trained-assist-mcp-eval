@@ -37,6 +37,7 @@ function arg(name, fallback) {
 }
 
 const PROFILE = arg('profile', 'free');
+const TASKS_FILE = arg('tasks', path.join(ROOT, 'tasks', 'selection.v1.jsonl'));
 const RUNS = Math.min(5, Math.max(1, Number(arg('runs', 1))));
 const CONCURRENCY = Math.min(8, Math.max(1, Number(arg('concurrency', 3))));
 const DISTRACTORS = Math.max(0, Number(arg('distractors', 0)));
@@ -171,12 +172,13 @@ function score(task, answer) {
 }
 
 async function runOne(catalog, task, runIndex) {
-  const rand = mulberry32(SEED + runIndex * 100003 + hash(task.id));
+  const rand = mulberry32(SEED + runIndex * 100003 + hash(task.id || task.tool));
   const prompt = buildPrompt(catalog, task, rand);
   const res = await callLadder(prompt);
   if (!res.ok) {
     return {
-      taskId: task.id,
+      taskId: task.id || `gen:${task.tool}`,
+      tool: task.tool || null,
       run: runIndex,
       category: task.category,
       request: task.request,
@@ -192,7 +194,8 @@ async function runOne(catalog, task, runIndex) {
   }
   const answer = parseAnswer(res.content);
   return {
-    taskId: task.id,
+    taskId: task.id || `gen:${task.tool}`,
+    tool: task.tool || null,
     run: runIndex,
     category: task.category,
     request: task.request,
@@ -229,6 +232,7 @@ async function pool(items, size, worker) {
 
 function summarize(rows) {
   const byCat = {};
+  const byTool = {};
   const byModel = {};
   let unavailable = 0;
   let parseErrors = 0;
@@ -243,6 +247,12 @@ function summarize(rows) {
     if (r.status === 'correct') byCat[r.category].correct++;
     else if (r.status === 'wrong') byCat[r.category].wrong++;
     else if (r.status === 'unavailable') byCat[r.category].unavailable++;
+    const key = r.taskId.startsWith('gen:') ? r.taskId : r.taskId;
+    byTool[key] = byTool[key] || { total: 0, correct: 0, wrong: 0, unavailable: 0 };
+    byTool[key].total++;
+    if (r.status === 'correct') byTool[key].correct++;
+    else if (r.status === 'wrong') byTool[key].wrong++;
+    else if (r.status === 'unavailable') byTool[key].unavailable++;
     if (r.status === 'unavailable') unavailable++;
     if (r.parseError) parseErrors++;
     if (r.servedModel) {
@@ -269,6 +279,7 @@ function summarize(rows) {
     unavailable,
     parseErrors,
     byCategory: byCat,
+    byTool,
     byModel,
     avgLatencyMs: latencyN ? Math.round(totalLatency / latencyN) : null,
     avgTokens: tokenN ? Math.round(totalTokens / tokenN) : null,
@@ -314,6 +325,21 @@ function markdownReport(meta, summary, rows) {
     lines.push(`| ${m} | ${n} |`);
   }
   lines.push('');
+  lines.push('## Худшие инструменты');
+  lines.push('');
+  lines.push('Инструменты, которые маршрутизируются хуже всех. Это и есть список на переименование:');
+  lines.push('не «красивое имя», а имя, по которому маршрутизатор не может понять назначение.');
+  lines.push('');
+  lines.push(`| Инструмент | Попыток | Верно | Точность |`);
+  lines.push(`|---|---|---|---|`);
+  const toolRows = Object.entries(summary.byTool)
+    .map(([id, s]) => ({ id, ...s, scored: s.total - s.unavailable }))
+    .filter((t) => t.scored > 0)
+    .sort((a, b) => a.correct / a.scored - b.correct / b.scored || b.scored - a.scored);
+  for (const t of toolRows.slice(0, 40)) {
+    lines.push(`| ${t.id} | ${t.scored} | ${t.correct} | ${pct(t.correct, t.scored)} |`);
+  }
+  lines.push('');
   lines.push('## Ошибки выбора');
   lines.push('');
   lines.push(`| Задача | Категория | Запрос | Ожидалось | Получено |`);
@@ -343,7 +369,7 @@ async function main() {
     process.exit(2);
   }
   const catalog = JSON.parse(fs.readFileSync(catalogFile, 'utf8'));
-  const allTasks = readJsonl(path.join(ROOT, 'tasks', 'selection.v1.jsonl'));
+  const allTasks = readJsonl(TASKS_FILE);
   const tasks = LIMIT > 0 ? allTasks.slice(0, LIMIT) : allTasks;
 
   const jobs = [];
