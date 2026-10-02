@@ -43,6 +43,7 @@ function arg(name, fallback) {
 }
 
 const PROFILE = arg('profile', 'free');
+const GROUPS_FILE = arg('groups', path.join(ROOT, 'tasks', 'confusable-groups.v1.json'));
 const CONCURRENCY = Math.min(8, Math.max(1, Number(arg('concurrency', 3))));
 const SEED = Number(arg('seed', 20261002));
 const LIMIT = Number(arg('limit', 0));
@@ -514,7 +515,7 @@ async function main() {
     .map(([name, t]) => ({ name, description: t.description || '' }))
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  const groups = JSON.parse(fs.readFileSync(path.join(ROOT, 'tasks', 'confusable-groups.v1.json'), 'utf8')).groups
+  const groups = JSON.parse(fs.readFileSync(GROUPS_FILE, 'utf8')).groups
     .map((g) => ({ ...g, descriptions: g.names.map((n) => tools.find((t) => t.name === n)?.description || '') }))
     .filter((g) => g.descriptions.every((d) => d.length > 0));
 
