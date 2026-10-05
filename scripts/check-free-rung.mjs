@@ -48,6 +48,10 @@ const check = (model, expected) => {
 for (const m of MUST_REJECT) check(m, false);
 for (const m of MUST_ACCEPT) check(m, true);
 check(DEFAULT_RUNG, true);
+if (DEFAULT_RUNG !== 'opencode-zen/mimo-v2.6-flash-free') {
+  failed++;
+  console.error(`FAIL  DEFAULT_RUNG moved without updating the measurement note in ladder-free.mjs`);
+}
 
 console.log('');
 if (failed) {

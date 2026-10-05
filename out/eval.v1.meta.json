@@ -1,13 +1,13 @@
 {
-  "at": "2026-10-02T16:41:08.118Z",
-  "profile": "free",
+  "at": "2026-10-05T01:41:31.613Z",
+  "rung": "opencode-zen/mimo-v2.5-free",
   "seed": 20261002,
   "runs": 1,
-  "concurrency": 5,
+  "concurrency": 4,
   "shuffle": true,
-  "distractors": 0,
+  "distractors": 5,
   "catalogTools": 331,
   "catalogGroups": 76,
   "catalogTokens": 2029,
-  "tasks": 1579
+  "tasks": 97
 }

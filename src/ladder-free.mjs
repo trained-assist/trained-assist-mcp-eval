@@ -32,9 +32,21 @@ function readTokenFile() {
   }
 }
 
-// The rung every eval pins unless told otherwise. Chosen from the `free` ladder's openrouter/zen
-// rungs — see RUNNING-EVALS-WITHOUT-SPENDING-MONEY.md for why it is a rung and not the alias.
-export const DEFAULT_RUNG = 'openrouter/nvidia/nemotron-3-super-120b-a12b:free';
+// The rung every eval pins unless told otherwise.
+//
+// Chosen by measurement, not by taste: all 97 hand-written tasks were routed on each candidate free
+// rung, and this one came out closest to the paid baseline the previous numbers were measured on.
+//
+//   opencode-zen/mimo-v2.6-flash-free          87.1% (81/93),  4 unavailable
+//   opencode-zen/mimo-v2.5-free                84.2% (80/95),  2 unavailable
+//   openrouter/cohere/north-mini-code:free     77.3% (68/88),  9 unavailable
+//   openrouter/nvidia/nemotron-3-super-120b-a12b:free  52.6% (51/97)
+//   opencode-zen/nemotron-3.5-lightning-free   did not finish 97 tasks in 7 min
+//
+// The baseline these are compared against is 90.2% on opencode-go/space-bunny-free — a paid
+// subscription model, so some drop is expected and is itself the finding: the free tier is
+// measurably worse at this task, and the old numbers were flattered by the model that served them.
+export const DEFAULT_RUNG = 'opencode-zen/mimo-v2.6-flash-free';
 
 const FREE_RUNG_PATTERNS = [/^openrouter\/.+:free$/, /^opencode-zen\/.+-free$/];
 
