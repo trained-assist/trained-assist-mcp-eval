@@ -20,27 +20,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { arg, callLadder as callLadderApi, requireToken, resolveRung } from './ladder-free.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
 
-const LADDER_BASE = (process.env.LADDER_BASE || 'https://llm-ladder.trainedassist.store').replace(/\/$/, '');
-const LADDER_TOKEN = process.env.LADDER_TOKEN || readTokenFile();
-
-function readTokenFile() {
-  try {
-    return fs.readFileSync(path.join(process.env.HOME || '/root', '.llm-ladder-token'), 'utf8').trim();
-  } catch {
-    return '';
-  }
-}
-
-function arg(name, fallback) {
-  const i = process.argv.indexOf(`--${name}`);
-  return i === -1 ? fallback : process.argv[i + 1];
-}
-
-const PROFILE = arg('profile', 'free');
+// A pinned rung, not the `free` alias — see src/ladder-free.mjs. The corpus is already
+// committed, so this script normally does not run at all.
+const RUNG = resolveRung();
 const PER_TOOL = Math.min(10, Math.max(1, Number(arg('per-tool', 5))));
 const CONCURRENCY = Math.min(8, Math.max(1, Number(arg('concurrency', 3))));
 const SEED = Number(arg('seed', 20261002));
@@ -78,36 +65,13 @@ const PROMPT = (name, description, n) => [
 ].join('\n');
 
 async function callLadder(messages, timeoutMs = 120000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  const started = Date.now();
-  try {
-    const res = await fetch(`${LADDER_BASE}/v1/chat/completions`, {
-      method: 'POST',
-      signal: controller.signal,
-      headers: {
-        Authorization: `Bearer ${LADDER_TOKEN}`,
-        'Content-Type': 'application/json',
-        'x-ladder-trace': 'mcp-eval-corpus-gen',
-      },
-      body: JSON.stringify({ model: PROFILE, messages, max_tokens: 400, stream: false, temperature: 0.9 }),
-    });
-    if (!res.ok) {
-      const text = await res.text().catch(() => '');
-      return { ok: false, error: `HTTP ${res.status}: ${text.slice(0, 200)}`, latencyMs: Date.now() - started };
-    }
-    const data = await res.json();
-    return {
-      ok: true,
-      content: data?.choices?.[0]?.message?.content ?? '',
-      servedModel: data.model || null,
-      latencyMs: Date.now() - started,
-    };
-  } catch (err) {
-    return { ok: false, error: err.name === 'AbortError' ? 'timeout' : err.message, latencyMs: Date.now() - started };
-  } finally {
-    clearTimeout(timer);
-  }
+  return callLadderApi(RUNG, {
+    messages,
+    maxTokens: 400,
+    trace: 'mcp-eval-corpus-gen',
+    temperature: 0.9,
+    timeoutMs,
+  });
 }
 
 function parseArray(content) {
@@ -148,10 +112,7 @@ async function pool(items, size, worker) {
 }
 
 async function main() {
-  if (!LADDER_TOKEN) {
-    console.error('[gen] LADDER_TOKEN is not set and ~/.llm-ladder-token is missing');
-    process.exit(2);
-  }
+  requireToken();
   const full = JSON.parse(fs.readFileSync(path.join(ROOT, 'out', 'catalog-full.json'), 'utf8'));
   const tools = Object.entries(full.tools)
     .map(([name, t]) => ({ name, description: t.description || '' }))
