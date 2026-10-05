@@ -50,6 +50,21 @@ export const DEFAULT_RUNG = 'opencode-zen/mimo-v2.6-flash-free';
 
 const FREE_RUNG_PATTERNS = [/^openrouter\/.+:free$/, /^opencode-zen\/.+-free$/];
 
+// A single free-tier blip ("fetch failed", 5xx, 429) must not become a permanent `unavailable`
+// row: at 1 579 calls one dropped connection otherwise shows up as a hole in the report. Retry
+// transient failures only — a non-free servedModel throws and is never retried.
+const TRANSIENT = (e) => /fetch failed|timeout|HTTP 5\d\d|HTTP 429|ECONNRESET|ETIMEDOUT|EAI_AGAIN|socket hang up|UND_ERR/i.test(String(e || ''));
+
+export async function callLadder(rung, opts) {
+  let last;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    last = await callLadderOnce(rung, opts);
+    if (last.ok || !TRANSIENT(last.error)) return last;
+    await new Promise((r) => setTimeout(r, 1000 * (attempt + 1)));
+  }
+  return last;
+}
+
 export function isFreeRung(model) {
   const m = String(model || '');
   return FREE_RUNG_PATTERNS.some((re) => re.test(m));
@@ -105,7 +120,7 @@ const LADDER_NAME = 'free';
 // wander onto a paid rung the way the alias did. A non-free `servedModel` throws instead of
 // returning a row — a silent report of 1 579 subscription calls is the worst possible outcome,
 // because the numbers look valid and nothing shows that they were paid for.
-export async function callLadder(rung, { messages, maxTokens = 300, trace, temperature = 0, timeoutMs = 120000 }) {
+async function callLadderOnce(rung, { messages, maxTokens = 300, trace, temperature = 0, timeoutMs = 120000 }) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   const started = Date.now();

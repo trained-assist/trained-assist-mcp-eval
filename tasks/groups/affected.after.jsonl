@@ -1,0 +1,168 @@
+{"tool":"browser_session_remote_url","request":"Открой удаленный браузер","accept":["browser_session_remote_url"],"source":"generated"}
+{"tool":"browser_session_remote_url","request":"Будьте добры, создайте ссылку на браузер для сайта с IP-привязкой, я сам введу логин и пароль","accept":["browser_session_remote_url"],"source":"generated"}
+{"tool":"browser_session_remote_url","request":"Скинь урл на виртуалку для Tilda, там токен нужен","accept":["browser_session_remote_url"],"source":"generated"}
+{"tool":"browser_session_remote_url","request":"Перед тем как логиниться на сайт с аппаратным токеном, дай ссылку на удаленный браузер","accept":["browser_session_remote_url"],"source":"generated"}
+{"tool":"browser_session_remote_url","request":"Открой броузерную сесию для сайта с IP-привязкой","accept":["browser_session_remote_url"],"source":"generated"}
+{"tool":"candidate_report_html","request":"Собери HTML-профиль кандидата","accept":["candidate_report_html"],"source":"generated"}
+{"tool":"candidate_report_html","request":"Пожалуйста, соберите HTML-профиль кандидата, проверьте на запрещённые фразы и опубликуйте","accept":["candidate_report_html"],"source":"generated"}
+{"tool":"candidate_report_html","request":"Слепи HTML-профиль кандидата, проверь на запрещёнку и выложи","accept":["candidate_report_html"],"source":"generated"}
+{"tool":"candidate_report_html","request":"Перед тем как отправить клиенту, собери HTML-профиль кандидата и проверь на запретные фразы","accept":["candidate_report_html"],"source":"generated"}
+{"tool":"candidate_report_html","request":"Собери HTML-профиль кандидата, проверь на запретные фразы и опублекуй","accept":["candidate_report_html"],"source":"generated"}
+{"tool":"checko_company_financial_and_legal_data","request":"Пробей ИНН 7701234567","accept":["checko_company_financial_and_legal_data"],"source":"generated"}
+{"tool":"checko_company_financial_and_legal_data","request":"Подскажите, пожалуйста, что можно узнать по ИНН 7701234567?","accept":["checko_company_financial_and_legal_data"],"source":"generated"}
+{"tool":"checko_company_financial_and_legal_data","request":"Пробей по инн 7701234567, что за контора","accept":["checko_company_financial_and_legal_data"],"source":"generated"}
+{"tool":"checko_company_financial_and_legal_data","request":"Перед тем как ответить клиенту, пробей ИНН 7701234567","accept":["checko_company_financial_and_legal_data"],"source":"generated"}
+{"tool":"checko_company_financial_and_legal_data","request":"прбей инн 7701234567","accept":["checko_company_financial_and_legal_data"],"source":"generated"}
+{"tool":"cold_message_generate","request":"Сообщение: резюме и вакансия","accept":["cold_message_generate"],"source":"generated"}
+{"tool":"cold_message_generate","request":"Не могли бы вы составить сообщение для кандидата на основе его резюме и описания вакансии?","accept":["cold_message_generate"],"source":"generated"}
+{"tool":"cold_message_generate","request":"Накидай сообщение по резюме и вакансии для кандидата","accept":["cold_message_generate"],"source":"generated"}
+{"tool":"cold_message_generate","request":"После того как я пришлю резюме и вакансию, сгенерируй сообщение кандидату","accept":["cold_message_generate"],"source":"generated"}
+{"tool":"cold_message_generate","request":"Сосатвь сообщение по резюме и вакансии","accept":["cold_message_generate"],"source":"generated"}
+{"tool":"company_find_by_name","request":"Реквизиты ООО Ромашка","accept":["company_find_by_name"],"source":"generated"}
+{"tool":"company_find_by_name","request":"Подскажите, пожалуйста, реквизиты ООО Ромашка","accept":["company_find_by_name"],"source":"generated"}
+{"tool":"company_find_by_name","request":"Пробей по названию ООО Ромашка","accept":["company_find_by_name"],"source":"generated"}
+{"tool":"company_find_by_name","request":"Перед тем как подписывать договор, узнай ИНН и директора ООО Ромашка","accept":["company_find_by_name"],"source":"generated"}
+{"tool":"company_find_by_name","request":"Найди реквезиты ООО Ромашка","accept":["company_find_by_name"],"source":"generated"}
+{"tool":"company_full_card","request":"Пробей ИНН 7701234567","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Будьте добры, подскажите по ИНН 7701234567 информацию о компании: директор, контакты, адрес, выручка и правовой статус.","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Пробей контору по инну, скинь всю инфу: директора, телефоны, мыло, сайт, адрес, выручку, статус.","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Перед тем как заключать сделку, проверь по ИНН 7701234567, кто директор, какие контакты, адрес, выручка и статус.","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Прбей ИНН 7701234567, дай данные: директор, телефоны, адрес, выручка, статус.","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Пробей Сбер","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Будьте добры, пробейте компанию Яндекс","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Пробей контору Газпром","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Перед тем как звонить, пробей эту компанию","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Пробей кампанию Тинькофф","accept":["company_full_card"],"source":"generated"}
+{"tool":"connect","request":"Подключи GitHub","accept":["connect"],"source":"generated"}
+{"tool":"connect","request":"Будьте добры, сделайте ссылку для авторизации в Figma","accept":["connect"],"source":"generated"}
+{"tool":"connect","request":"Запили зерокредс для linear","accept":["connect"],"source":"generated"}
+{"tool":"connect","request":"После того как я подготовлю поля, создай форму для входа в Kinescope","accept":["connect"],"source":"generated"}
+{"tool":"connect","request":"Падключи гугл драйв","accept":["connect"],"source":"generated"}
+{"tool":"company_full_card","request":"Карточка по ИНН 7701234567","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Не могли бы вы найти полную информацию о компании по ИНН 7701234567?","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Пробей ИНН 7701234567, вытащи всю инфу: директор, ОКВЭД, статус","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Раз уж есть ИНН 7701234567, давай полную карточку","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_full_card","request":"Дай полную картчку по ИНН 7701234567","accept":["company_full_card"],"source":"generated"}
+{"tool":"company_find_by_name","request":"Найди ИНН по названию","accept":["company_find_by_name"],"source":"generated"}
+{"tool":"company_find_by_name","request":"Не могли бы вы найти ИНН компании по её названию?","accept":["company_find_by_name"],"source":"generated"}
+{"tool":"company_find_by_name","request":"Пробей по названию, нужен ИНН","accept":["company_find_by_name"],"source":"generated"}
+{"tool":"company_find_by_name","request":"После того как найдешь организацию по названию, вытащи ИНН","accept":["company_find_by_name"],"source":"generated"}
+{"tool":"company_find_by_name","request":"Найди инн по названию кампнии","accept":["company_find_by_name"],"source":"generated"}
+{"tool":"demo_candidate_profile","request":"Дай досье на кандидата.","accept":["demo_candidate_profile"],"source":"generated"}
+{"tool":"demo_candidate_profile","request":"Можно посмотреть полную карточку кандидата — с опытом, навыками и перепиской?","accept":["demo_candidate_profile"],"source":"generated"}
+{"tool":"demo_candidate_profile","request":"Глянь чувака по полной: скиллы, стаж и переписку.","accept":["demo_candidate_profile"],"source":"generated"}
+{"tool":"demo_candidate_profile","request":"После того как закончишь с текущей задачей, покажи полный профиль кандидата: опыт, навыки и переписку.","accept":["demo_candidate_profile"],"source":"generated"}
+{"tool":"demo_candidate_profile","request":"Скинь полный профиль кндидата: опыт, навыки и переписку.","accept":["demo_candidate_profile"],"source":"generated"}
+{"tool":"engineering_spawn_workspace","request":"Подними воркспейс для репы","accept":["engineering_spawn_workspace"],"source":"generated"}
+{"tool":"engineering_spawn_workspace","request":"Пожалуйста, подготовь отдельное рабочее место под эту задачу в репозитории: настрой git, подтяни зависимости и сделай так, чтобы можно было сразу править код и запускать тесты.","accept":["engineering_spawn_workspace"],"source":"generated"}
+{"tool":"engineering_spawn_workspace","request":"Собери мне воркспейс под таску: отдельный воркtree, ветку, git identity и зависимости — и погнали.","accept":["engineering_spawn_workspace"],"source":"generated"}
+{"tool":"engineering_spawn_workspace","request":"Перед тем как я начну правки по этой задаче, сделай отдельную изолированную копию репы с веткой и установленными зависимостями, чтобы можно было тестировать.","accept":["engineering_spawn_workspace"],"source":"generated"}
+{"tool":"engineering_spawn_workspace","request":"зделай изолированое окружение под задачу в репозитории и установи зависимости, чтоб можно было тесты гонять","accept":["engineering_spawn_workspace"],"source":"generated"}
+{"tool":"engineering_spawn_workspace","request":"Подготовь ветку","accept":["engineering_spawn_workspace"],"source":"generated"}
+{"tool":"engineering_spawn_workspace","request":"Не могли бы вы подготовить отдельное рабочее пространство с веткой?","accept":["engineering_spawn_workspace"],"source":"generated"}
+{"tool":"engineering_spawn_workspace","request":"Заведи новый worktree и ветку, чтобы кодить","accept":["engineering_spawn_workspace"],"source":"generated"}
+{"tool":"engineering_spawn_workspace","request":"После того как решили делать PR, создай отдельную ветку","accept":["engineering_spawn_workspace"],"source":"generated"}
+{"tool":"engineering_spawn_workspace","request":"Создай отдельную ветку для этой задчи","accept":["engineering_spawn_workspace"],"source":"generated"}
+{"tool":"expo_enable_skills","request":"Включи экспо-режим.","accept":["expo_enable_skills"],"source":"generated"}
+{"tool":"expo_enable_skills","request":"Будьте добры, активируйте выставочный пайплайн.","accept":["expo_enable_skills"],"source":"generated"}
+{"tool":"expo_enable_skills","request":"Вруби примочки для выставок.","accept":["expo_enable_skills"],"source":"generated"}
+{"tool":"expo_enable_skills","request":"Перед тем как искать участников, активируй режим экспо.","accept":["expo_enable_skills"],"source":"generated"}
+{"tool":"expo_enable_skills","request":"Включи выстовочный режим.","accept":["expo_enable_skills"],"source":"generated"}
+{"tool":"flexi_set_active_exhibition","request":"Активируй rosupack2026","accept":["flexi_set_active_exhibition"],"source":"generated"}
+{"tool":"flexi_set_active_exhibition","request":"Будьте добры, сделайте активной выставку stonefair2026","accept":["flexi_set_active_exhibition"],"source":"generated"}
+{"tool":"flexi_set_active_exhibition","request":"Запили активку на oborot2026","accept":["flexi_set_active_exhibition"],"source":"generated"}
+{"tool":"flexi_set_active_exhibition","request":"После того как закончим с текущей, сделай активной reindustry2026","accept":["flexi_set_active_exhibition"],"source":"generated"}
+{"tool":"flexi_set_active_exhibition","request":"Активируй выстовку interautomechanica2026","accept":["flexi_set_active_exhibition"],"source":"generated"}
+{"tool":"connect","request":"Дай одноразовую ссылку","accept":["connect"],"source":"generated"}
+{"tool":"connect","request":"Не могли бы вы создать мне одноразовую ссылку для подключения, пожалуйста?","accept":["connect"],"source":"generated"}
+{"tool":"connect","request":"Скинь одноразовый линк для коннекта","accept":["connect"],"source":"generated"}
+{"tool":"connect","request":"После того как я введу домен и ключи, пришли мне одноразовую ссылку","accept":["connect"],"source":"generated"}
+{"tool":"connect","request":"Дай одноразовую сылку для входа","accept":["connect"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Что в Google Drive?","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Покажите, пожалуйста, список файлов в папке Google Drive.","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Глянь, что там на гугл-драйве.","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"После того как откроешь папку, перечисли файлы.","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Выведи список фйалов из гугл-диска","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Что в папке?","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Будьте добры, перечислите файлы из этой папки Google Drive.","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Глянь, что за файлы в этой гугл-папке?","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Перед тем как читать какой-либо файл, покажи список файлов в папке.","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Скинь список файлов в етой гугл-папке","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_status","request":"Драйв ок? Файлы?","accept":["gdrive_status"],"source":"generated"}
+{"tool":"gdrive_status","request":"Не подскажете, драйв в порядке и сколько файлов в нем?","accept":["gdrive_status"],"source":"generated"}
+{"tool":"gdrive_status","request":"Драйв пашет? Сколько файлов?","accept":["gdrive_status"],"source":"generated"}
+{"tool":"gdrive_status","request":"Перед тем как продолжить, проверь драйв и сколько файлов доступно.","accept":["gdrive_status"],"source":"generated"}
+{"tool":"gdrive_status","request":"Проверь драйв и сколь файлов доступно.","accept":["gdrive_status"],"source":"generated"}
+{"tool":"candidate_report_json","request":"Собери отчёт по кандидату","accept":["candidate_report_json"],"source":"generated"}
+{"tool":"candidate_report_json","request":"Будьте добры, подготовьте сводку по кандидату на основе резюме, вакансии и, если есть, интервью.","accept":["candidate_report_json"],"source":"generated"}
+{"tool":"candidate_report_json","request":"Слепи кандидатский репорт из резюме, вакансии и интервью, если оно есть.","accept":["candidate_report_json"],"source":"generated"}
+{"tool":"candidate_report_json","request":"После того как пришлю резюме и текст вакансии, собери по ним единый отчёт по кандидату.","accept":["candidate_report_json"],"source":"generated"}
+{"tool":"candidate_report_json","request":"Собери отчёт по кндидату из резюме и вакансии, если есть интервью тоже учти.","accept":["candidate_report_json"],"source":"generated"}
+{"tool":"hermes_web_research","request":"Найди в интернете.","accept":["hermes_web_research"],"source":"generated"}
+{"tool":"hermes_web_research","request":"Будьте добры, проведите исследование в сети и пришлите краткие выводы.","accept":["hermes_web_research"],"source":"generated"}
+{"tool":"hermes_web_research","request":"Пошерсти в вебе, открой страницы, сведи всё в отчёт и скинь.","accept":["hermes_web_research"],"source":"generated"}
+{"tool":"hermes_web_research","request":"Найди в интернете инфу и сведи несколько иточников, потом кинь выводы.","accept":["hermes_web_research"],"source":"generated"}
+{"tool":"hermes_run_task","request":"Исследуй и верни JSON","accept":["hermes_run_task"],"source":"generated"}
+{"tool":"hermes_run_task","request":"Будьте добры, проведите исследование и верните результат в JSON","accept":["hermes_run_task"],"source":"generated"}
+{"tool":"hermes_run_task","request":"Прогони задачку на исследование и скинь JSON","accept":["hermes_run_task"],"source":"generated"}
+{"tool":"hermes_run_task","request":"После того как закончишь с предыдущим, выполни это исследование и верни ответ в JSON","accept":["hermes_run_task"],"source":"generated"}
+{"tool":"hermes_run_task","request":"Исследуй тему и верни резульат в JSON","accept":["hermes_run_task"],"source":"generated"}
+{"tool":"candidate_report_markdown","request":"Сделай md-профиль кандидата","accept":["candidate_report_markdown"],"source":"generated"}
+{"tool":"candidate_report_markdown","request":"Будьте добры, оформите кандидата в markdown для показа клиенту","accept":["candidate_report_markdown"],"source":"generated"}
+{"tool":"candidate_report_markdown","request":"Накидай презенташку по кандидату в markdown, клиенту показать","accept":["candidate_report_markdown"],"source":"generated"}
+{"tool":"candidate_report_markdown","request":"Перед тем как отправить клиенту, подготовь чистый markdown-профиль кандидата","accept":["candidate_report_markdown"],"source":"generated"}
+{"tool":"candidate_report_markdown","request":"Сделай markdowm-профиль кандидата для нанимающего менеджера","accept":["candidate_report_markdown"],"source":"generated"}
+{"tool":"hh_evaluate_candidate","request":"Оцени по ATS","accept":["hh_evaluate_candidate"],"source":"generated"}
+{"tool":"hh_evaluate_candidate","request":"Будьте добры, проверьте кандидата через ATS и вынесите вердикт","accept":["hh_evaluate_candidate"],"source":"generated"}
+{"tool":"hh_evaluate_candidate","request":"Прогони кандидата через ATS-скор, скажи, пропускать или отклонить","accept":["hh_evaluate_candidate"],"source":"generated"}
+{"tool":"hh_evaluate_candidate","request":"После того как пришлют резюме и сопроводительное, сразу прогони через ATS и дай балл","accept":["hh_evaluate_candidate"],"source":"generated"}
+{"tool":"hh_evaluate_candidate","request":"Оцени кандитата по ATS, нужен вердикт и пробелы","accept":["hh_evaluate_candidate"],"source":"generated"}
+{"tool":"hh_evaluate_candidate","request":"Оцени резюме из поиска","accept":["hh_evaluate_candidate"],"source":"generated"}
+{"tool":"hh_evaluate_candidate","request":"Будьте добры, оцените резюме из поиска","accept":["hh_evaluate_candidate"],"source":"generated"}
+{"tool":"hh_evaluate_candidate","request":"Прогони резюме по ATS-рубрике, как отклики","accept":["hh_evaluate_candidate"],"source":"generated"}
+{"tool":"hh_evaluate_candidate","request":"После того как нашёл резюме, оцени его, прежде чем приглашать","accept":["hh_evaluate_candidate"],"source":"generated"}
+{"tool":"hh_evaluate_candidate","request":"Оцени резюме из поиска, а то незнаю, звать ли","accept":["hh_evaluate_candidate"],"source":"generated"}
+{"tool":"hh_generate_message_to_applicant","request":"Сгенерируй сообщение кандидату","accept":["hh_generate_message_to_applicant"],"source":"generated"}
+{"tool":"hh_generate_message_to_applicant","request":"Пожалуйста, сгенерируй сообщение кандидату","accept":["hh_generate_message_to_applicant"],"source":"generated"}
+{"tool":"hh_generate_message_to_applicant","request":"Накидай сообщение кандидату","accept":["hh_generate_message_to_applicant"],"source":"generated"}
+{"tool":"hh_generate_message_to_applicant","request":"После того как прочитаешь историю кандидата, сгенерируй сообщение","accept":["hh_generate_message_to_applicant"],"source":"generated"}
+{"tool":"hh_generate_message_to_applicant","request":"Сгенерируй саобщение кандидату","accept":["hh_generate_message_to_applicant"],"source":"generated"}
+{"tool":"hh_vacancy_publish_landing","request":"Дай ссылку на лендинг","accept":["hh_vacancy_publish_landing"],"source":"generated"}
+{"tool":"hh_vacancy_publish_landing","request":"Не могли бы вы опубликовать черновик и прислать ссылку?","accept":["hh_vacancy_publish_landing"],"source":"generated"}
+{"tool":"hh_vacancy_publish_landing","request":"Задеплой черновик и скинь URL","accept":["hh_vacancy_publish_landing"],"source":"generated"}
+{"tool":"hh_vacancy_publish_landing","request":"После того как поправишь черновик, опубликуй и дай ссылку","accept":["hh_vacancy_publish_landing"],"source":"generated"}
+{"tool":"hh_vacancy_publish_landing","request":"Опубликуй ченовик и дай сылку","accept":["hh_vacancy_publish_landing"],"source":"generated"}
+{"tool":"list_published_pages","request":"Покажи все страницы","accept":["list_published_pages"],"source":"generated"}
+{"tool":"list_published_pages","request":"Не могли бы вы показать список всех моих опубликованных страниц?","accept":["list_published_pages"],"source":"generated"}
+{"tool":"list_published_pages","request":"Скинь перечень всех моих страниц","accept":["list_published_pages"],"source":"generated"}
+{"tool":"list_published_pages","request":"Перед тем как перейдём к следующему шагу, покажи все мои опубликованные страницы","accept":["list_published_pages"],"source":"generated"}
+{"tool":"list_published_pages","request":"Пакажи все мои страницы","accept":["list_published_pages"],"source":"generated"}
+{"tool":"playbook_batch_status","request":"Статус батча","accept":["playbook_batch_status"],"source":"generated"}
+{"tool":"playbook_batch_status","request":"Будьте добры, подскажите статус пакетного запуска","accept":["playbook_batch_status"],"source":"generated"}
+{"tool":"playbook_batch_status","request":"Скинь статус батча, что там по шагам?","accept":["playbook_batch_status"],"source":"generated"}
+{"tool":"playbook_batch_status","request":"После того как запустил батч, покажи его статус","accept":["playbook_batch_status"],"source":"generated"}
+{"tool":"playbook_batch_status","request":"Статус батча, который запскали, покажи","accept":["playbook_batch_status"],"source":"generated"}
+{"tool":"playbook_check_reachability","request":"Плейбук виден?","accept":["playbook_check_reachability"],"source":"generated"}
+{"tool":"playbook_check_reachability","request":"Не могли бы вы проверить, доступен ли плейбук для моего профиля?","accept":["playbook_check_reachability"],"source":"generated"}
+{"tool":"playbook_check_reachability","request":"Плейбук доедет до меня?","accept":["playbook_check_reachability"],"source":"generated"}
+{"tool":"playbook_check_reachability","request":"Перед тем как обещать юзеру, проверь, что плейбук реально доходит до моего профиля.","accept":["playbook_check_reachability"],"source":"generated"}
+{"tool":"playbook_check_reachability","request":"Проверь, виден ли плейбук для моего профля?","accept":["playbook_check_reachability"],"source":"generated"}
+{"tool":"publish_page","request":"Сделай страницу","accept":["publish_page"],"source":"generated"}
+{"tool":"publish_page","request":"Не могли бы вы выложить это на страницу и прислать ссылку?","accept":["publish_page"],"source":"generated"}
+{"tool":"publish_page","request":"Залей простыню на страницу, кинь урл","accept":["publish_page"],"source":"generated"}
+{"tool":"publish_page","request":"После того как закончишь анализ, выложи его на страницу и дай ссылку","accept":["publish_page"],"source":"generated"}
+{"tool":"publish_page","request":"Опубликуй ето как страницу и дай сылку","accept":["publish_page"],"source":"generated"}
+{"tool":"tilda_list_pages","request":"Все страницы проекта","accept":["tilda_list_pages"],"source":"generated"}
+{"tool":"tilda_list_pages","request":"Будьте добры, покажите список страниц проекта","accept":["tilda_list_pages"],"source":"generated"}
+{"tool":"tilda_list_pages","request":"Скинь перечень страничек проекта","accept":["tilda_list_pages"],"source":"generated"}
+{"tool":"tilda_list_pages","request":"Перед тем как продолжить, покажи список страниц проекта","accept":["tilda_list_pages"],"source":"generated"}
+{"tool":"tilda_list_pages","request":"Покажи списак страниц проекта","accept":["tilda_list_pages"],"source":"generated"}
+{"tool":"tilda_publish_page","request":"Опубликуй страницу","accept":["tilda_publish_page"],"source":"generated"}
+{"tool":"tilda_publish_page","request":"Будьте добры, опубликуйте страницу","accept":["tilda_publish_page"],"source":"generated"}
+{"tool":"tilda_publish_page","request":"После того как я одобрю тестовую, опубликуй прод","accept":["tilda_publish_page"],"source":"generated"}
+{"tool":"tilda_publish_page","request":"Опупликуй страницу","accept":["tilda_publish_page"],"source":"generated"}
+{"tool":"web_current_page","request":"Что сейчас открыто?","accept":["web_current_page"],"source":"generated"}
+{"tool":"web_current_page","request":"Подскажите, пожалуйста, какая страница сейчас открыта в браузере?","accept":["web_current_page"],"source":"generated"}
+{"tool":"web_current_page","request":"Глянь, что у нас на вкладке висит?","accept":["web_current_page"],"source":"generated"}
+{"tool":"web_current_page","request":"Перед тем как отвечать, скажи, я уже залогинен на сайте?","accept":["web_current_page"],"source":"generated"}
+{"tool":"web_current_page","request":"Какая страница сейчас откыта?","accept":["web_current_page"],"source":"generated"}
