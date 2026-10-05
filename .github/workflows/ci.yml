@@ -18,8 +18,13 @@ on:
   pull_request:
   push:
     branches: [main]
+  # Once a day, not every 6 hours. This schedule was `17 */6 * * *` and it spent
+  # 21 224 calls in three days with nobody asking: a full pass is 2 653 calls, four
+  # times a day. One call is worth roughly 1-2 pp of noise (README "Baseline"), so
+  # four runs a day bought no extra information at 4x the cost. See
+  # RUNNING-EVALS-WITHOUT-SPENDING-MONEY.md.
   schedule:
-    - cron: '17 */6 * * *'
+    - cron: '23 4 * * *'
   workflow_dispatch:
     inputs:
       runs:
@@ -30,6 +35,11 @@ on:
         description: 'Fake tools added to the catalog'
         required: false
         default: '5'
+      corpus:
+        description: 'Also route the 1579-phrasing generated corpus (dispatch only)'
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: read
@@ -97,7 +107,11 @@ jobs:
           CATALOG_REPO_ROOT: ${{ runner.temp }}/repos
         run: node src/catalog.mjs
 
-      - name: Route the generated corpus
+      - name: Route the generated corpus (dispatch only)
+        # 1 579 calls, 60% of a full pass, and a one-day cadence is already enough to
+        # see drift. It stays out of the schedule: pass `corpus: true` when a rename
+        # needs to be scored, which is the only reason this corpus has to be re-run.
+        if: github.event_name == 'workflow_dispatch' && inputs.corpus
         env:
           CATALOG_REPO_ROOT: ${{ runner.temp }}/repos
           LADDER_TOKEN: ${{ secrets.LADDER_TOKEN }}
@@ -107,6 +121,9 @@ jobs:
             --runs "${{ github.event.inputs.runs || 1 }}" \
             --distractors "${{ github.event.inputs.distractors || 5 }}" \
             --concurrency 5
+          # eval-select always writes out/eval.v1.*, and the hand-written corpus runs
+          # next into the same names. Keep both or the corpus result is lost.
+          for ext in json md meta.json; do mv "out/eval.v1.$ext" "out/corpus.v1.$ext"; done
 
       - name: Route the hand-written corpus
         env:
