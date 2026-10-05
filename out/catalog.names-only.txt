@@ -54,8 +54,8 @@ recruiting/99b-interview-portrait: hh_interview_coverage, hh_interview_evaluate
 sales/30-weeek: weeek_add_comment, weeek_add_task, weeek_create_contact, weeek_create_deal, weeek_delete_deal, weeek_get_contact, weeek_get_deal, weeek_get_refs, weeek_list_contacts, weeek_list_deals, weeek_list_funnels, weeek_list_statuses, weeek_set_refs, weeek_set_token, weeek_status, weeek_update_contact, weeek_update_deal
 sales/40-company: company_find_by_email, company_find_by_name, company_get_by_inn, company_review, company_set_dadata_token
 sales/70-inn-enrichment: inn_enrich_batch, inn_set_checko_key, inn_set_dadata_token, inn_set_rusprofile_cookie, inn_status
-sales/71-dadata: dadata_address, dadata_find, dadata_suggest
-sales/72-checko: checko_discover, checko_get, checko_qualify
+sales/71-dadata: dadata_address, dadata_suggest
+sales/72-checko: checko_discover, checko_qualify, read_checko_company_data
 sales/85-expo: expo_enable, expo_find_participants, expo_parse_participants
 sales/86-expo-flexi: expo_check_target_revenue, expo_classify_targets, expo_generate_ex_array
 sales/87-expo-pipeline: expo_pipeline_get_criteria, expo_pipeline_get_site_config, expo_pipeline_qualify, expo_pipeline_set_criteria, expo_pipeline_set_site_config, expo_pipeline_status

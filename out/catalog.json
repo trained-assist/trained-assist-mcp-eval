@@ -15,13 +15,13 @@
     {
       "id": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
-      "tools": 57
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
+      "tools": 56
     },
     {
       "id": "documents",
       "repo": "trained-assist/trained-assist-documents-skill",
-      "commit": "cae8835065709241c774e434e273c322eb92e1ca",
+      "commit": "e0baf5b36f48f52120855d152588aa8751139ee3",
       "tools": 17
     },
     {
@@ -43,7 +43,7 @@
       "tools": 2
     }
   ],
-  "totalTools": 303,
+  "totalTools": 302,
   "totalGroups": 66,
   "groups": [
     {
@@ -467,7 +467,7 @@
       "subgroup": "10-deck",
       "source": "documents",
       "repo": "trained-assist/trained-assist-documents-skill",
-      "commit": "cae8835065709241c774e434e273c322eb92e1ca",
+      "commit": "e0baf5b36f48f52120855d152588aa8751139ee3",
       "tools": [
         "deck_check",
         "deck_markup_guide",
@@ -479,7 +479,7 @@
       "subgroup": "20-doc-export",
       "source": "documents",
       "repo": "trained-assist/trained-assist-documents-skill",
-      "commit": "cae8835065709241c774e434e273c322eb92e1ca",
+      "commit": "e0baf5b36f48f52120855d152588aa8751139ee3",
       "tools": [
         "doc_export"
       ]
@@ -489,7 +489,7 @@
       "subgroup": "30-document-review",
       "source": "documents",
       "repo": "trained-assist/trained-assist-documents-skill",
-      "commit": "cae8835065709241c774e434e273c322eb92e1ca",
+      "commit": "e0baf5b36f48f52120855d152588aa8751139ee3",
       "tools": [
         "document_content_review"
       ]
@@ -499,7 +499,7 @@
       "subgroup": "50-gdrive",
       "source": "documents",
       "repo": "trained-assist/trained-assist-documents-skill",
-      "commit": "cae8835065709241c774e434e273c322eb92e1ca",
+      "commit": "e0baf5b36f48f52120855d152588aa8751139ee3",
       "tools": [
         "gdrive_create_file",
         "gdrive_delete_file",
@@ -772,7 +772,7 @@
       "subgroup": "30-weeek",
       "source": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
       "tools": [
         "weeek_add_comment",
         "weeek_add_task",
@@ -798,7 +798,7 @@
       "subgroup": "40-company",
       "source": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
       "tools": [
         "company_find_by_email",
         "company_find_by_name",
@@ -812,7 +812,7 @@
       "subgroup": "70-inn-enrichment",
       "source": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
       "tools": [
         "inn_enrich_batch",
         "inn_set_checko_key",
@@ -826,10 +826,9 @@
       "subgroup": "71-dadata",
       "source": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
       "tools": [
         "dadata_address",
-        "dadata_find",
         "dadata_suggest"
       ]
     },
@@ -838,11 +837,11 @@
       "subgroup": "72-checko",
       "source": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
       "tools": [
         "checko_discover",
-        "checko_get",
-        "checko_qualify"
+        "checko_qualify",
+        "read_checko_company_data"
       ]
     },
     {
@@ -850,7 +849,7 @@
       "subgroup": "85-expo",
       "source": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
       "tools": [
         "expo_enable",
         "expo_find_participants",
@@ -862,7 +861,7 @@
       "subgroup": "86-expo-flexi",
       "source": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
       "tools": [
         "expo_check_target_revenue",
         "expo_classify_targets",
@@ -874,7 +873,7 @@
       "subgroup": "87-expo-pipeline",
       "source": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
       "tools": [
         "expo_pipeline_get_criteria",
         "expo_pipeline_get_site_config",
@@ -889,7 +888,7 @@
       "subgroup": "88-expo-catalog",
       "source": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
       "tools": [
         "expo_build_catalog",
         "expo_deploy_catalog"
@@ -900,7 +899,7 @@
       "subgroup": "89-expo-pipeline-run",
       "source": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
       "tools": [
         "expo_pipeline_run"
       ]
@@ -910,7 +909,7 @@
       "subgroup": "92-flexi-sales",
       "source": "sales",
       "repo": "trained-assist/trained-assist-sales-skill",
-      "commit": "f939d748a5f7521936184b4c851b507c1b1e8136",
+      "commit": "62f60ea66de8000b17f8d59a1b8d5ffef14b4eb8",
       "tools": [
         "flexi_add_note",
         "flexi_deal_from_catalog",

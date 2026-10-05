@@ -1,0 +1,257 @@
+[
+  {
+    "taskId": "gen:checko_get",
+    "tool": "checko_get",
+    "run": 0,
+    "request": "Пробей ИНН 7701234567",
+    "expected": [
+      "checko_get"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3561,
+    "tokens": 2775
+  },
+  {
+    "taskId": "gen:checko_get",
+    "tool": "checko_get",
+    "run": 0,
+    "request": "Подскажите, пожалуйста, что можно узнать по ИНН 7701234567?",
+    "expected": [
+      "checko_get"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 5244,
+    "tokens": 2686
+  },
+  {
+    "taskId": "gen:checko_get",
+    "tool": "checko_get",
+    "run": 0,
+    "request": "Пробей по инн 7701234567, что за контора",
+    "expected": [
+      "checko_get"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3508,
+    "tokens": 2776
+  },
+  {
+    "taskId": "gen:checko_get",
+    "tool": "checko_get",
+    "run": 0,
+    "request": "Перед тем как ответить клиенту, пробей ИНН 7701234567",
+    "expected": [
+      "checko_get"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 5396,
+    "tokens": 3026
+  },
+  {
+    "taskId": "gen:checko_get",
+    "tool": "checko_get",
+    "run": 0,
+    "request": "прбей инн 7701234567",
+    "expected": [
+      "checko_get"
+    ],
+    "expect": "tool",
+    "actual": "inn_enrich_batch",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3165,
+    "tokens": 2834
+  },
+  {
+    "taskId": "gen:company_get_by_inn",
+    "tool": "company_get_by_inn",
+    "run": 0,
+    "request": "Пробей ИНН 7701234567",
+    "expected": [
+      "company_get_by_inn"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "correct",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 2604,
+    "tokens": 2768
+  },
+  {
+    "taskId": "gen:company_get_by_inn",
+    "tool": "company_get_by_inn",
+    "run": 0,
+    "request": "Будьте добры, подскажите по ИНН 7701234567 информацию о компании: директор, контакты, адрес, выручка и правовой статус.",
+    "expected": [
+      "company_get_by_inn"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "correct",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 4735,
+    "tokens": 2804
+  },
+  {
+    "taskId": "gen:company_get_by_inn",
+    "tool": "company_get_by_inn",
+    "run": 0,
+    "request": "Пробей контору по инну, скинь всю инфу: директора, телефоны, мыло, сайт, адрес, выручку, статус.",
+    "expected": [
+      "company_get_by_inn"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "correct",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3329,
+    "tokens": 2846
+  },
+  {
+    "taskId": "gen:company_get_by_inn",
+    "tool": "company_get_by_inn",
+    "run": 0,
+    "request": "Перед тем как заключать сделку, проверь по ИНН 7701234567, кто директор, какие контакты, адрес, выручка и статус.",
+    "expected": [
+      "company_get_by_inn"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "correct",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 6868,
+    "tokens": 3023
+  },
+  {
+    "taskId": "gen:company_get_by_inn",
+    "tool": "company_get_by_inn",
+    "run": 0,
+    "request": "Прбей ИНН 7701234567, дай данные: директор, телефоны, адрес, выручка, статус.",
+    "expected": [
+      "company_get_by_inn"
+    ],
+    "expect": "tool",
+    "actual": "inn_enrich_batch",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 6368,
+    "tokens": 2845
+  },
+  {
+    "taskId": "gen:dadata_find",
+    "tool": "dadata_find",
+    "run": 0,
+    "request": "Карточка по ИНН 7701234567",
+    "expected": [
+      "dadata_find"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3747,
+    "tokens": 2696
+  },
+  {
+    "taskId": "gen:dadata_find",
+    "tool": "dadata_find",
+    "run": 0,
+    "request": "Не могли бы вы найти полную информацию о компании по ИНН 7701234567?",
+    "expected": [
+      "dadata_find"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3511,
+    "tokens": 2847
+  },
+  {
+    "taskId": "gen:dadata_find",
+    "tool": "dadata_find",
+    "run": 0,
+    "request": "Пробей ИНН 7701234567, вытащи всю инфу: директор, ОКВЭД, статус",
+    "expected": [
+      "dadata_find"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3649,
+    "tokens": 2941
+  },
+  {
+    "taskId": "gen:dadata_find",
+    "tool": "dadata_find",
+    "run": 0,
+    "request": "Раз уж есть ИНН 7701234567, давай полную карточку",
+    "expected": [
+      "dadata_find"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 2345,
+    "tokens": 2790
+  },
+  {
+    "taskId": "gen:dadata_find",
+    "tool": "dadata_find",
+    "run": 0,
+    "request": "Дай полную картчку по ИНН 7701234567",
+    "expected": [
+      "dadata_find"
+    ],
+    "expect": "tool",
+    "actual": "company_get_by_inn",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3502,
+    "tokens": 2825
+  }
+]
