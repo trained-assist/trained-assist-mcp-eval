@@ -1,0 +1,257 @@
+[
+  {
+    "taskId": "gen:gdrive_list_files",
+    "tool": "gdrive_list_files",
+    "run": 0,
+    "request": "Что в Google Drive?",
+    "expected": [
+      "gdrive_list_files"
+    ],
+    "expect": "tool",
+    "actual": "gdrive_list_files",
+    "reason": "",
+    "status": "correct",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3187,
+    "tokens": 2697
+  },
+  {
+    "taskId": "gen:gdrive_list_files",
+    "tool": "gdrive_list_files",
+    "run": 0,
+    "request": "Покажите, пожалуйста, список файлов в папке Google Drive.",
+    "expected": [
+      "gdrive_list_files"
+    ],
+    "expect": "tool",
+    "actual": "gdrive_list_files",
+    "reason": "",
+    "status": "correct",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3137,
+    "tokens": 2555
+  },
+  {
+    "taskId": "gen:gdrive_list_files",
+    "tool": "gdrive_list_files",
+    "run": 0,
+    "request": "Глянь, что там на гугл-драйве.",
+    "expected": [
+      "gdrive_list_files"
+    ],
+    "expect": "tool",
+    "actual": "gdrive_list_files",
+    "reason": "",
+    "status": "correct",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3073,
+    "tokens": 2706
+  },
+  {
+    "taskId": "gen:gdrive_list_files",
+    "tool": "gdrive_list_files",
+    "run": 0,
+    "request": "После того как откроешь папку, перечисли файлы.",
+    "expected": [
+      "gdrive_list_files"
+    ],
+    "expect": "tool",
+    "actual": null,
+    "reason": "нет подходящего инструмента",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 1959,
+    "tokens": 2602
+  },
+  {
+    "taskId": "gen:gdrive_list_files",
+    "tool": "gdrive_list_files",
+    "run": 0,
+    "request": "Выведи список фйалов из гугл-диска",
+    "expected": [
+      "gdrive_list_files"
+    ],
+    "expect": "tool",
+    "actual": "gdrive_list_files",
+    "reason": "",
+    "status": "correct",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 4834,
+    "tokens": 2904
+  },
+  {
+    "taskId": "gen:gdrive_public_folder",
+    "tool": "gdrive_public_folder",
+    "run": 0,
+    "request": "Что в папке?",
+    "expected": [
+      "gdrive_list_files"
+    ],
+    "expect": "tool",
+    "actual": null,
+    "reason": "нет подходящего инструмента",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 1945,
+    "tokens": 2548
+  },
+  {
+    "taskId": "gen:gdrive_public_folder",
+    "tool": "gdrive_public_folder",
+    "run": 0,
+    "request": "Будьте добры, перечислите файлы из этой папки Google Drive.",
+    "expected": [
+      "gdrive_list_files"
+    ],
+    "expect": "tool",
+    "actual": "gdrive_list_files",
+    "reason": "",
+    "status": "correct",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 5627,
+    "tokens": 2575
+  },
+  {
+    "taskId": "gen:gdrive_public_folder",
+    "tool": "gdrive_public_folder",
+    "run": 0,
+    "request": "Глянь, что за файлы в этой гугл-папке?",
+    "expected": [
+      "gdrive_list_files"
+    ],
+    "expect": "tool",
+    "actual": "gdrive_list_files",
+    "reason": "",
+    "status": "correct",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 2557,
+    "tokens": 2743
+  },
+  {
+    "taskId": "gen:gdrive_public_folder",
+    "tool": "gdrive_public_folder",
+    "run": 0,
+    "request": "Перед тем как читать какой-либо файл, покажи список файлов в папке.",
+    "expected": [
+      "gdrive_list_files"
+    ],
+    "expect": "tool",
+    "actual": null,
+    "reason": "нужно уточнить запрос",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 3191,
+    "tokens": 2773
+  },
+  {
+    "taskId": "gen:gdrive_public_folder",
+    "tool": "gdrive_public_folder",
+    "run": 0,
+    "request": "Скинь список файлов в етой гугл-папке",
+    "expected": [
+      "gdrive_list_files"
+    ],
+    "expect": "tool",
+    "actual": "gdrive_list_files",
+    "reason": "",
+    "status": "correct",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 2556,
+    "tokens": 2715
+  },
+  {
+    "taskId": "gen:gdrive_status",
+    "tool": "gdrive_status",
+    "run": 0,
+    "request": "Драйв ок? Файлы?",
+    "expected": [
+      "gdrive_status"
+    ],
+    "expect": "tool",
+    "actual": null,
+    "reason": "нужно уточнить запрос",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 6906,
+    "tokens": 2725
+  },
+  {
+    "taskId": "gen:gdrive_status",
+    "tool": "gdrive_status",
+    "run": 0,
+    "request": "Не подскажете, драйв в порядке и сколько файлов в нем?",
+    "expected": [
+      "gdrive_status"
+    ],
+    "expect": "tool",
+    "actual": null,
+    "reason": "нет подходящего инструмента",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 8694,
+    "tokens": 3092
+  },
+  {
+    "taskId": "gen:gdrive_status",
+    "tool": "gdrive_status",
+    "run": 0,
+    "request": "Драйв пашет? Сколько файлов?",
+    "expected": [
+      "gdrive_status"
+    ],
+    "expect": "tool",
+    "actual": null,
+    "reason": "нужно уточнить запрос",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 8125,
+    "tokens": 2826
+  },
+  {
+    "taskId": "gen:gdrive_status",
+    "tool": "gdrive_status",
+    "run": 0,
+    "request": "Перед тем как продолжить, проверь драйв и сколько файлов доступно.",
+    "expected": [
+      "gdrive_status"
+    ],
+    "expect": "tool",
+    "actual": "gdrive_list_files",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 2864,
+    "tokens": 2805
+  },
+  {
+    "taskId": "gen:gdrive_status",
+    "tool": "gdrive_status",
+    "run": 0,
+    "request": "Проверь драйв и сколь файлов доступно.",
+    "expected": [
+      "gdrive_status"
+    ],
+    "expect": "tool",
+    "actual": "gdrive_list_files",
+    "reason": "",
+    "status": "wrong",
+    "parseError": null,
+    "servedModel": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "latencyMs": 4164,
+    "tokens": 2847
+  }
+]

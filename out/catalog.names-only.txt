@@ -31,22 +31,12 @@ core/99b-search-exa: fetch_exa, search_exa
 core/99c-search-searxng: search_serp_free
 documents/10-deck: deck_check, deck_markup_guide, deck_render
 documents/20-doc-export: doc_export
-documents/50-gdrive: gdrive_create_file, gdrive_delete_file, gdrive_docs_get_structure, gdrive_docs_insert_text, gdrive_list_files, gdrive_public_folder, gdrive_public_sheet, gdrive_read_file, gdrive_search, gdrive_setup, gdrive_status, gdrive_update_file, gdrive_write_sheet
+documents/30-document-review: document_content_review
+documents/50-gdrive: gdrive_create_file, gdrive_delete_file, gdrive_docs_get_structure, gdrive_docs_insert_text, gdrive_list_files, gdrive_public_sheet, gdrive_read_file, gdrive_search, gdrive_setup, gdrive_status, gdrive_update_file, gdrive_write_sheet
 engineering/10-prepare-task: engineering_prepare_task
 engineering/20-workspace: engineering_release_workspace, engineering_spawn_workspace, engineering_workspace_status
-engineering/30-repo-context: engineering_repo_context
-engineering/35-repo-map: repo_map
-engineering/40-qa-logs: qa_log_list, qa_log_lookup, qa_log_register
-engineering/50-pr-autofix: engineering_pr_autofix_disable, engineering_pr_autofix_install, engineering_pr_autofix_register, engineering_pr_autofix_rollout, engineering_pr_autofix_status
-engineering/60-github: github_add_comment, github_create_issue, github_create_or_update_file, github_create_pr, github_get_file, github_list_issues, github_list_prs, github_list_repos, github_pr_checks, github_search, github_status, github_update_issue
-engineering/61-dev: dev_new_repo, dev_supersede_pr, dev_workspace_setup
-engineering/62-pr-status: issue_status, pr_status
-engineering/63-ci-cd: ci_run_branch, cicd_track_pr
-engineering/64-complexity: engineering_estimate_complexity
-engineering/65-spec-generation: engineering_generate_all, engineering_generate_spec, engineering_generation_note, engineering_get_spec, engineering_spec_generation_defaults, engineering_spec_generation_explained
-freelance/10-freelance-project: freelance_add_info, freelance_assess, freelance_get_project, freelance_list, freelance_new_project, freelance_questions, freelance_set_folder
+freelance/10-freelance-project: freelance_add_info, freelance_assess, freelance_generate_all, freelance_generate_spec, freelance_generation_note, freelance_get_project, freelance_get_spec, freelance_list, freelance_new_project, freelance_questions, freelance_set_folder, freelance_spec_generation_defaults, freelance_spec_generation_explained
 freelance/20-freelance-classifier: freelance_classify_document
-freelance/30-freelance-search: freelance_search
 recruiting/90-hh: hh_batch_evaluate, hh_bulk_reject, hh_candidate_profile, hh_connect, hh_deactivate_vacancy, hh_draft_review_page, hh_evaluate_candidate, hh_evaluate_resume, hh_extract_ats_config, hh_funnel_stats, hh_generate_message, hh_get_messages, hh_invite_resume, hh_list_responses, hh_list_vacancies, hh_move_candidate, hh_open_ats_editor, hh_regenerate_messages, hh_search_resumes, hh_send_message, hh_set_active_vacancy, hh_set_publish_domain, hh_set_rejection_template, hh_set_token, hh_status, hh_vacancy_create_draft, hh_vacancy_get_draft, hh_vacancy_publish_page, hh_vacancy_update_draft
 recruiting/90b-hh-portrait: hh_portrait_completeness, hh_portrait_extract, hh_portrait_get, hh_portrait_to_ats, hh_portrait_update
 recruiting/91-hh-discovery: hh_api_call, hh_discover
@@ -61,7 +51,7 @@ recruiting/98-demo: demo_activate, demo_candidate_profile, demo_candidates, demo
 recruiting/98b-interview: hh_interview_structure, hh_interview_transcribe
 recruiting/99-interview-analysis: interview_analyze, interview_get_criteria, interview_set_criteria
 recruiting/99b-interview-portrait: hh_interview_coverage, hh_interview_evaluate
-sales/30-weeek: weeek_add_comment, weeek_add_task, weeek_create_contact, weeek_create_deal, weeek_delete_deal, weeek_get_contact, weeek_get_deal, weeek_list_contacts, weeek_list_deals, weeek_list_funnels, weeek_list_statuses, weeek_set_token, weeek_status, weeek_update_contact, weeek_update_deal
+sales/30-weeek: weeek_add_comment, weeek_add_task, weeek_create_contact, weeek_create_deal, weeek_delete_deal, weeek_get_contact, weeek_get_deal, weeek_get_refs, weeek_list_contacts, weeek_list_deals, weeek_list_funnels, weeek_list_statuses, weeek_set_refs, weeek_set_token, weeek_status, weeek_update_contact, weeek_update_deal
 sales/40-company: company_find_by_email, company_find_by_name, company_get_by_inn, company_review, company_set_dadata_token
 sales/70-inn-enrichment: inn_enrich_batch, inn_set_checko_key, inn_set_dadata_token, inn_set_rusprofile_cookie, inn_status
 sales/71-dadata: dadata_address, dadata_find, dadata_suggest
@@ -71,6 +61,6 @@ sales/86-expo-flexi: expo_check_target_revenue, expo_classify_targets, expo_gene
 sales/87-expo-pipeline: expo_pipeline_get_criteria, expo_pipeline_get_site_config, expo_pipeline_qualify, expo_pipeline_set_criteria, expo_pipeline_set_site_config, expo_pipeline_status
 sales/88-expo-catalog: expo_build_catalog, expo_deploy_catalog
 sales/89-expo-pipeline-run: expo_pipeline_run
-sales/92-flexi-sales: flexi_add_note, flexi_delete_note, flexi_get_notes, flexi_get_notes_bulk, flexi_reject_company, flexi_set_exhibition, flexi_status, flexi_unreject_company
+sales/92-flexi-sales: flexi_add_note, flexi_deal_from_catalog, flexi_delete_note, flexi_get_notes, flexi_get_notes_bulk, flexi_reject_company, flexi_set_exhibition, flexi_status, flexi_unreject_company
 search/99-search-serper: search_serper
 search/99c-search-searxng: search_serp_free

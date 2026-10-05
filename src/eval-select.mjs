@@ -29,6 +29,8 @@ const RUNS = Math.min(5, Math.max(1, Number(arg('runs', 1))));
 const CONCURRENCY = Math.min(8, Math.max(1, Number(arg('concurrency', 3))));
 const DISTRACTORS = Math.max(0, Number(arg('distractors', 0)));
 const LIMIT = Number(arg('limit', 0));
+// Results directory for this run. Empty = out/eval.v1.*, the full-corpus baseline.
+const OUT_DIR = arg('out', '');
 const SEED = Number(arg('seed', 20261002));
 const SHUFFLE = arg('shuffle', 'on') !== 'off';
 
@@ -105,6 +107,20 @@ async function callLadder(prompt, timeoutMs = 120000) {
   });
 }
 
+// A model asked to pick from a grouped catalog often answers with the path it was shown —
+// `documents/50-gdrive:gdrive_list_files` — rather than the bare name. That is a correct routing
+// decision scored as wrong: the corpus stores bare names, so the qualified form matches nothing.
+// Strip the group prefix instead. A leading group path with no tool part is left alone, since that
+// is a refusal-shaped answer and `score` already treats `null` as "no tool".
+function normalizeToolName(name) {
+  if (typeof name !== 'string') return null;
+  const s = name.trim();
+  const colon = s.lastIndexOf(':');
+  if (colon === -1) return s || null;
+  const tail = s.slice(colon + 1).trim();
+  return tail || s;
+}
+
 function parseAnswer(content) {
   const cleaned = String(content).replace(/```(?:json)?/gi, '').trim();
   const start = cleaned.indexOf('{');
@@ -112,7 +128,7 @@ function parseAnswer(content) {
   if (start === -1 || end === -1 || end <= start) return { tool: null, raw: cleaned, parseError: 'no JSON object' };
   try {
     const obj = JSON.parse(cleaned.slice(start, end + 1));
-    const tool = typeof obj.tool === 'string' ? obj.tool : null;
+    const tool = typeof obj.tool === 'string' ? normalizeToolName(obj.tool) : null;
     return { tool, reason: typeof obj.reason === 'string' ? obj.reason : '', raw: cleaned, parseError: null };
   } catch (err) {
     return { tool: null, raw: cleaned, parseError: err.message };
@@ -334,9 +350,13 @@ async function main() {
   const rows = await pool(jobs, CONCURRENCY, (job) => runOne(catalog, job.task, job.run));
 
   const summary = summarize(rows);
-  const outDir = path.join(ROOT, 'out');
+  // `--out NAME` keeps one run's rows from overwriting another's. Comparing a renamed group against
+  // its own before-state needs both results on disk at once; `out/eval.v1.*` is the full-corpus
+  // baseline and a 15-call group run must not clobber it.
+  const outDir = OUT_DIR ? path.resolve(ROOT, OUT_DIR) : path.join(ROOT, 'out');
+  const suffix = OUT_DIR ? '' : '.v1';
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, 'eval.v1.json'), JSON.stringify(rows, null, 2) + '\n');
+  fs.writeFileSync(path.join(outDir, `eval${suffix}.json`), JSON.stringify(rows, null, 2) + '\n');
 
   const meta = {
     at: new Date().toISOString(),
@@ -349,16 +369,16 @@ async function main() {
     catalogTools: catalog.totalTools,
     catalogGroups: catalog.totalGroups,
     catalogTokens: Math.ceil(
-      fs.readFileSync(path.join(outDir, 'catalog.names-only.txt'), 'utf8').length / 4
+      fs.readFileSync(path.join(ROOT, 'out', 'catalog.names-only.txt'), 'utf8').length / 4
     ),
     tasks: tasks.length,
   };
-  fs.writeFileSync(path.join(outDir, 'eval.v1.meta.json'), JSON.stringify(meta, null, 2) + '\n');
-  fs.writeFileSync(path.join(outDir, 'eval.v1.md'), markdownReport(meta, summary, rows));
+  fs.writeFileSync(path.join(outDir, `eval${suffix}.meta.json`), JSON.stringify(meta, null, 2) + '\n');
+  fs.writeFileSync(path.join(outDir, `eval${suffix}.md`), markdownReport(meta, summary, rows));
 
   console.error(`[eval] accuracy=${summary.accuracy == null ? 'n/a' : (100 * summary.accuracy).toFixed(1) + '%'} (${summary.correct}/${summary.scored}) unavailable=${summary.unavailable} parseErrors=${summary.parseErrors}`);
   console.error(`[eval] models: ${Object.entries(summary.byModel).map(([m, n]) => `${m}×${n}`).join(', ')}`);
-  console.error(`[eval] report: out/eval.v1.md`);
+  console.error(`[eval] report: ${path.relative(ROOT, path.join(outDir, `eval${suffix}.md`))}`);
 }
 
 main().catch((err) => {

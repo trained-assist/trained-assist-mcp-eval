@@ -1,0 +1,15 @@
+{"tool":"gdrive_list_files","request":"Что в Google Drive?","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Покажите, пожалуйста, список файлов в папке Google Drive.","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Глянь, что там на гугл-драйве.","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"После того как откроешь папку, перечисли файлы.","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_list_files","request":"Выведи список фйалов из гугл-диска","accept":["gdrive_list_files"],"source":"generated"}
+{"tool":"gdrive_public_folder","request":"Что в папке?","accept":["gdrive_list_files"],"source":"generated","remappedFrom":"gdrive_public_folder"}
+{"tool":"gdrive_public_folder","request":"Будьте добры, перечислите файлы из этой папки Google Drive.","accept":["gdrive_list_files"],"source":"generated","remappedFrom":"gdrive_public_folder"}
+{"tool":"gdrive_public_folder","request":"Глянь, что за файлы в этой гугл-папке?","accept":["gdrive_list_files"],"source":"generated","remappedFrom":"gdrive_public_folder"}
+{"tool":"gdrive_public_folder","request":"Перед тем как читать какой-либо файл, покажи список файлов в папке.","accept":["gdrive_list_files"],"source":"generated","remappedFrom":"gdrive_public_folder"}
+{"tool":"gdrive_public_folder","request":"Скинь список файлов в етой гугл-папке","accept":["gdrive_list_files"],"source":"generated","remappedFrom":"gdrive_public_folder"}
+{"tool":"gdrive_status","request":"Драйв ок? Файлы?","accept":["gdrive_status"],"source":"generated"}
+{"tool":"gdrive_status","request":"Не подскажете, драйв в порядке и сколько файлов в нем?","accept":["gdrive_status"],"source":"generated"}
+{"tool":"gdrive_status","request":"Драйв пашет? Сколько файлов?","accept":["gdrive_status"],"source":"generated"}
+{"tool":"gdrive_status","request":"Перед тем как продолжить, проверь драйв и сколько файлов доступно.","accept":["gdrive_status"],"source":"generated"}
+{"tool":"gdrive_status","request":"Проверь драйв и сколь файлов доступно.","accept":["gdrive_status"],"source":"generated"}
