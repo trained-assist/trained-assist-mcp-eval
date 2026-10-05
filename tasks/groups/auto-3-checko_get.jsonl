@@ -1,0 +1,15 @@
+{"tool":"checko_get","request":"Пробей ИНН 7701234567","accept":["checko_get"],"source":"generated"}
+{"tool":"checko_get","request":"Подскажите, пожалуйста, что можно узнать по ИНН 7701234567?","accept":["checko_get"],"source":"generated"}
+{"tool":"checko_get","request":"Пробей по инн 7701234567, что за контора","accept":["checko_get"],"source":"generated"}
+{"tool":"checko_get","request":"Перед тем как ответить клиенту, пробей ИНН 7701234567","accept":["checko_get"],"source":"generated"}
+{"tool":"checko_get","request":"прбей инн 7701234567","accept":["checko_get"],"source":"generated"}
+{"tool":"company_get_by_inn","request":"Пробей ИНН 7701234567","accept":["company_get_by_inn"],"source":"generated"}
+{"tool":"company_get_by_inn","request":"Будьте добры, подскажите по ИНН 7701234567 информацию о компании: директор, контакты, адрес, выручка и правовой статус.","accept":["company_get_by_inn"],"source":"generated"}
+{"tool":"company_get_by_inn","request":"Пробей контору по инну, скинь всю инфу: директора, телефоны, мыло, сайт, адрес, выручку, статус.","accept":["company_get_by_inn"],"source":"generated"}
+{"tool":"company_get_by_inn","request":"Перед тем как заключать сделку, проверь по ИНН 7701234567, кто директор, какие контакты, адрес, выручка и статус.","accept":["company_get_by_inn"],"source":"generated"}
+{"tool":"company_get_by_inn","request":"Прбей ИНН 7701234567, дай данные: директор, телефоны, адрес, выручка, статус.","accept":["company_get_by_inn"],"source":"generated"}
+{"tool":"dadata_find","request":"Карточка по ИНН 7701234567","accept":["company_get_by_inn"],"source":"generated","remappedFrom":"dadata_find"}
+{"tool":"dadata_find","request":"Не могли бы вы найти полную информацию о компании по ИНН 7701234567?","accept":["company_get_by_inn"],"source":"generated","remappedFrom":"dadata_find"}
+{"tool":"dadata_find","request":"Пробей ИНН 7701234567, вытащи всю инфу: директор, ОКВЭД, статус","accept":["company_get_by_inn"],"source":"generated","remappedFrom":"dadata_find"}
+{"tool":"dadata_find","request":"Раз уж есть ИНН 7701234567, давай полную карточку","accept":["company_get_by_inn"],"source":"generated","remappedFrom":"dadata_find"}
+{"tool":"dadata_find","request":"Дай полную картчку по ИНН 7701234567","accept":["company_get_by_inn"],"source":"generated","remappedFrom":"dadata_find"}

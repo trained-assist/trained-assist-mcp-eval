@@ -1,0 +1,3 @@
+{"tool": "gdrive_status", "request": "Проверь, подключён ли Google Drive.", "accept": ["gdrive_status"], "source": "added"}
+{"tool": "gdrive_status", "request": "Доступен ли драйв этому агенту?", "accept": ["gdrive_status"], "source": "added"}
+{"tool": "gdrive_status", "request": "Есть ли у тебя доступ к моему Google Drive?", "accept": ["gdrive_status"], "source": "added"}

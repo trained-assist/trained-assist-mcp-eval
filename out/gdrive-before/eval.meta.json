@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-05T02:37:01.953Z",
+  "rung": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+  "seed": 20261002,
+  "runs": 1,
+  "concurrency": 3,
+  "shuffle": true,
+  "distractors": 0,
+  "catalogTools": 304,
+  "catalogGroups": 66,
+  "catalogTokens": 1827,
+  "tasks": 15
+}
