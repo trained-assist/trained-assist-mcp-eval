@@ -69,6 +69,11 @@ jobs:
           # REVIEW-OF-ISSUE-124.md §"Что уже есть".
           npm ci --no-audit --no-fund --prefix "$RUNNER_TEMP/repos/trained-assist-agent"
 
+      - name: Check the free-rung whitelist
+        # No credentials, so it belongs in the free job. This is the guardrail for the guardrail:
+        # the bleed it checks for was a rung whose NAME looked free and was not.
+        run: node scripts/check-free-rung.mjs
+
       - name: Build names-only catalog
         env:
           CATALOG_REPO_ROOT: ${{ runner.temp }}/repos

@@ -12,7 +12,10 @@ no runtime code with any product service, so it cannot break one by construction
 
 **Why it is safe to run.** All seven MCP repos are public. The catalog is built by cloning them and
 requiring their registries — no `npm install`, no credentials, no product endpoint. The LLM calls go
-to the `free` profile of `llm-ladder`, which is free-tier models only.
+to one pinned free rung of `llm-ladder`, chosen because the ladder's `free` profile turned out to be an
+alias for a paid subscription. See
+[RUNNING-EVALS-WITHOUT-SPENDING-MONEY.md](RUNNING-EVALS-WITHOUT-SPENDING-MONEY.md) and
+`src/ladder-free.mjs`.
 
 ## What is here
 
@@ -79,6 +82,9 @@ the plan's §1 premise confirmed by measurement rather than by promise.
 # Catalog only — deterministic, no credentials, ~2s
 CATALOG_REPO_ROOT=/path/to/parent node src/catalog.mjs
 
+# Check the free-rung whitelist — zero LLM calls, run in CI on every PR
+npm run check-free-rung
+
 # Generate the test database (1579 phrasings, ~1650 LLM calls)
 node src/gen-corpus.mjs --per-tool 5 --concurrency 4
 
@@ -96,6 +102,31 @@ node src/eval-informativeness.mjs --concurrency 4
 (`trained-assist-agent`, `trained-assist-hh-skill`, …). Without it the script looks next to this
 repository, which is how it works on a laptop with the usual `~/Code` layout.
 
+### Pinned rung, not a profile
+
+Every eval pins one rung via the ladder's `ladder_rung` ("one rung, no failover") instead of asking
+for the `free` profile. The distinction is the whole safety story:
+
+- `free` is an **alias**. Its first two rungs are `opencode-go/*` — a paid OpenCode Go subscription,
+  despite `-free` in the model name. A 2 653-call pass put 2 652 calls there.
+- A **rung** is one model. With `ladder_rung` set, the ladder collapses to that single rung: no
+  failover, no health skip. There is nowhere else for the call to go.
+
+The default is `openrouter/nvidia/nemotron-3-super-120b-a12b:free`. The whitelist in
+`src/ladder-free.mjs` is `openrouter/*.:free` and `opencode-zen/*-free` — the two suffixes that
+actually mean $0. `opencode-go/*` is excluded on purpose.
+
+Two guards, because a silent paid report is worse than no report:
+
+- `--profile` that is not in the whitelist → **refusal at startup**, before any call is spent.
+- a `servedModel` that is not in the whitelist → **exception**, never a row in the report.
+
+```bash
+node src/eval-select.mjs --profile free        # refuses: "free" is an alias, not a price
+node src/eval-select.mjs --profile opencode-go/space-bunny-free   # refuses: paid subscription
+node src/eval-select.mjs --profile opencode-zen/mimo-v2.6-flash-free  # ok
+```
+
 ### Eval flags
 
 | Flag | Default | Why it exists |
@@ -107,7 +138,7 @@ repository, which is how it works on a laptop with the usual `~/Code` layout.
 | `--shuffle on/off` | on | §7 — a model that only works because the answer sits at a fixed position must fail. |
 | `--seed N` | 20261002 | Reproducible shuffle, so before/after a rename is a real comparison. |
 | `--limit N` | 0 | Smoke-test a subset. |
-| `--profile` | `free` | Ladder profile. |
+| `--profile` | pinned free rung | Ladder **rung**, not a profile. Refused unless it is in the free whitelist. |
 
 ## Baseline
 
@@ -126,10 +157,15 @@ bottleneck is **name informativeness**, not catalog size.
 
 Two jobs, because they cost different things:
 
-- **`catalog`** — every PR. Builds the catalog, fails on a hard duplicate or an ungrouped tool.
-  No credentials.
-- **`eval`** — schedule (every 6 h) and dispatch only. Needs `LADDER_TOKEN` as a repository secret,
+- **`catalog`** — every PR. Checks the free-rung whitelist, builds the catalog, fails on a hard
+  duplicate or an ungrouped tool. No credentials.
+- **`eval`** — schedule (daily) and dispatch only. Needs `LADDER_TOKEN` as a repository secret,
   which is why it never runs on a PR: a fork must not be able to spend the token.
+
+The schedule is once a day. It was `17 */6 * * *`, which spent 21 224 calls in three days with
+nobody asking — four full passes a day at 2 653 calls each. The 1 579-call generated corpus is
+dispatch-only behind a `corpus` input; a daily cadence of the 97 hand-written tasks plus the
+informativeness probes is enough to see drift.
 
 ## Adding a task
 

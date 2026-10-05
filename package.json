@@ -10,6 +10,7 @@
   "scripts": {
     "catalog": "node src/catalog.mjs",
     "eval": "node src/eval-select.mjs",
-    "baseline": "node src/catalog.mjs && node src/eval-select.mjs --runs 2 --concurrency 4 --distractors 5"
+    "baseline": "node src/catalog.mjs && node src/eval-select.mjs --runs 2 --concurrency 4 --distractors 5",
+    "check-free-rung": "node scripts/check-free-rung.mjs"
   }
 }

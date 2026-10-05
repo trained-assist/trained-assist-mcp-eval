@@ -16,27 +16,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { arg, callLadder as callLadderApi, requireToken, resolveRung } from './ladder-free.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
 
-const LADDER_BASE = (process.env.LADDER_BASE || 'https://llm-ladder.trainedassist.store').replace(/\/$/, '');
-const LADDER_TOKEN = process.env.LADDER_TOKEN || readTokenFile();
-
-function readTokenFile() {
-  try {
-    return fs.readFileSync(path.join(process.env.HOME || '/root', '.llm-ladder-token'), 'utf8').trim();
-  } catch {
-    return '';
-  }
-}
-
-function arg(name, fallback) {
-  const i = process.argv.indexOf(`--${name}`);
-  return i === -1 ? fallback : process.argv[i + 1];
-}
-
-const PROFILE = arg('profile', 'free');
+// A pinned rung, not the `free` alias: the alias's first rungs are a paid subscription. See
+// src/ladder-free.mjs and RUNNING-EVALS-WITHOUT-SPENDING-MONEY.md.
+const RUNG = resolveRung();
 const TASKS_FILE = arg('tasks', path.join(ROOT, 'tasks', 'selection.v1.jsonl'));
 const RUNS = Math.min(5, Math.max(1, Number(arg('runs', 1))));
 const CONCURRENCY = Math.min(8, Math.max(1, Number(arg('concurrency', 3))));
@@ -109,44 +96,13 @@ function buildPrompt(catalog, task, rand) {
 }
 
 async function callLadder(prompt, timeoutMs = 120000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  const started = Date.now();
-  try {
-    const res = await fetch(`${LADDER_BASE}/v1/chat/completions`, {
-      method: 'POST',
-      signal: controller.signal,
-      headers: {
-        Authorization: `Bearer ${LADDER_TOKEN}`,
-        'Content-Type': 'application/json',
-        'x-ladder-trace': 'mcp-eval-selection',
-      },
-      body: JSON.stringify({
-        model: PROFILE,
-        messages: [{ role: 'user', content: prompt }],
-        max_tokens: 200,
-        stream: false,
-        temperature: 0,
-      }),
-    });
-    if (!res.ok) {
-      const text = await res.text().catch(() => '');
-      return { ok: false, error: `HTTP ${res.status}: ${text.slice(0, 200)}`, latencyMs: Date.now() - started };
-    }
-    const data = await res.json();
-    const content = data?.choices?.[0]?.message?.content ?? '';
-    return {
-      ok: true,
-      content,
-      servedModel: data.model || null,
-      usage: data.usage || null,
-      latencyMs: Date.now() - started,
-    };
-  } catch (err) {
-    return { ok: false, error: err.name === 'AbortError' ? 'timeout' : err.message, latencyMs: Date.now() - started };
-  } finally {
-    clearTimeout(timer);
-  }
+  return callLadderApi(RUNG, {
+    messages: [{ role: 'user', content: prompt }],
+    maxTokens: 200,
+    trace: 'mcp-eval-selection',
+    temperature: 0,
+    timeoutMs,
+  });
 }
 
 function parseAnswer(content) {
@@ -358,10 +314,7 @@ function markdownReport(meta, summary, rows) {
 }
 
 async function main() {
-  if (!LADDER_TOKEN) {
-    console.error('[eval] LADDER_TOKEN is not set and ~/.llm-ladder-token is missing — cannot reach the ladder');
-    process.exit(2);
-  }
+  requireToken();
 
   const catalogFile = path.join(ROOT, 'out', 'catalog.json');
   if (!fs.existsSync(catalogFile)) {
@@ -377,7 +330,7 @@ async function main() {
     for (const task of tasks) jobs.push({ task, run });
   }
 
-  console.error(`[eval] ${tasks.length} tasks × ${RUNS} run(s) = ${jobs.length} calls, profile=${PROFILE}, concurrency=${CONCURRENCY}`);
+  console.error(`[eval] ${tasks.length} tasks × ${RUNS} run(s) = ${jobs.length} calls, rung=${RUNG}, concurrency=${CONCURRENCY}`);
   const rows = await pool(jobs, CONCURRENCY, (job) => runOne(catalog, job.task, job.run));
 
   const summary = summarize(rows);
@@ -387,7 +340,7 @@ async function main() {
 
   const meta = {
     at: new Date().toISOString(),
-    profile: PROFILE,
+    rung: RUNG,
     seed: SEED,
     runs: RUNS,
     concurrency: CONCURRENCY,

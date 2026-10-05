@@ -16,33 +16,19 @@
 //              if `hh_evaluate_resume` and `hh_evaluate_candidate` are indistinguishable by name,
 //              the model is at chance on that group no matter how good it is at everything else.
 //
-// Both probes use the same free ladder profile and record the serving model, for the same reason as
+// Both probes pin the same free rung and record the serving model, for the same reason as
 // the selection eval: a silent fallback must not change the measurement.
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { arg, callLadder as callLadderApi, requireToken, resolveRung } from './ladder-free.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
 
-const LADDER_BASE = (process.env.LADDER_BASE || 'https://llm-ladder.trainedassist.store').replace(/\/$/, '');
-const LADDER_TOKEN = process.env.LADDER_TOKEN || readTokenFile();
-
-function readTokenFile() {
-  try {
-    return fs.readFileSync(path.join(process.env.HOME || '/root', '.llm-ladder-token'), 'utf8').trim();
-  } catch {
-    return '';
-  }
-}
-
-function arg(name, fallback) {
-  const i = process.argv.indexOf(`--${name}`);
-  return i === -1 ? fallback : process.argv[i + 1];
-}
-
-const PROFILE = arg('profile', 'free');
+// A pinned rung, not the `free` alias — see src/ladder-free.mjs.
+const RUNG = resolveRung();
 const GROUPS_FILE = arg('groups', path.join(ROOT, 'tasks', 'confusable-groups.v1.json'));
 const CONCURRENCY = Math.min(8, Math.max(1, Number(arg('concurrency', 3))));
 const SEED = Number(arg('seed', 20261002));
@@ -69,37 +55,7 @@ function shuffle(arr, rand) {
 }
 
 async function callLadder(messages, timeoutMs = 120000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  const started = Date.now();
-  try {
-    const res = await fetch(`${LADDER_BASE}/v1/chat/completions`, {
-      method: 'POST',
-      signal: controller.signal,
-      headers: {
-        Authorization: `Bearer ${LADDER_TOKEN}`,
-        'Content-Type': 'application/json',
-        'x-ladder-trace': 'mcp-eval-informativeness',
-      },
-      body: JSON.stringify({ model: PROFILE, messages, max_tokens: 300, stream: false, temperature: 0 }),
-    });
-    if (!res.ok) {
-      const text = await res.text().catch(() => '');
-      return { ok: false, error: `HTTP ${res.status}: ${text.slice(0, 200)}`, latencyMs: Date.now() - started };
-    }
-    const data = await res.json();
-    return {
-      ok: true,
-      content: data?.choices?.[0]?.message?.content ?? '',
-      servedModel: data.model || null,
-      usage: data.usage || null,
-      latencyMs: Date.now() - started,
-    };
-  } catch (err) {
-    return { ok: false, error: err.name === 'AbortError' ? 'timeout' : err.message, latencyMs: Date.now() - started };
-  } finally {
-    clearTimeout(timer);
-  }
+  return callLadderApi(RUNG, { messages, maxTokens: 300, trace: 'mcp-eval-informativeness', temperature: 0, timeoutMs });
 }
 
 function parseJson(content) {
@@ -407,7 +363,7 @@ function summarizeC(rows) {
 function markdown(meta, a, b, c, rowsA, rowsB, rowsC) {
   const pct = (n, d) => (d ? `${((100 * n) / d).toFixed(1)}%` : 'n/a');
   const L = [];
-  L.push(`# Name-informativeness eval — ${meta.profile}`);
+  L.push(`# Name-informativeness eval — ${meta.rung}`);
   L.push('');
   L.push(`Run: ${meta.at} · seed ${meta.seed} · probes ${meta.probes}`);
   L.push('');
@@ -501,10 +457,7 @@ function markdown(meta, a, b, c, rowsA, rowsB, rowsC) {
 }
 
 async function main() {
-  if (!LADDER_TOKEN) {
-    console.error('[info] LADDER_TOKEN is not set and ~/.llm-ladder-token is missing');
-    process.exit(2);
-  }
+  requireToken();
   const fullFile = path.join(ROOT, 'out', 'catalog-full.json');
   if (!fs.existsSync(fullFile)) {
     console.error('[info] out/catalog-full.json is missing — run `node src/catalog.mjs` first');
@@ -576,7 +529,7 @@ async function main() {
 
   const meta = {
     at: new Date().toISOString(),
-    profile: PROFILE,
+    rung: RUNG,
     seed: SEED,
     probes: PROBES.join(''),    tools: tools.length,
     groups: groups.length,
