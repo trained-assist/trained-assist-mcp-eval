@@ -48,7 +48,7 @@ function readTokenFile() {
 // measurably worse at this task, and the old numbers were flattered by the model that served them.
 export const DEFAULT_RUNG = 'opencode-zen/mimo-v2.6-flash-free';
 
-const FREE_RUNG_PATTERNS = [/^openrouter\/.+:free$/, /^opencode-zen\/.+-free$/];
+const FREE_RUNG_PATTERNS = [/^openrouter\/.+:free$/, /^opencode-zen\/.+-free$/, /^zen-pool\/.+-free$/];
 
 // A single free-tier blip ("fetch failed", 5xx, 429) must not become a permanent `unavailable`
 // row: at 1 579 calls one dropped connection otherwise shows up as a hole in the report. Retry
@@ -113,8 +113,9 @@ export function requireToken() {
 // The ladder name `model` must be — the API takes a ladder, not a bare rung. Safety comes from
 // `ladder_rung`, not from this string: with a pin the ladder collapses to exactly that one rung,
 // with no failover and no health skip (ladder.js: `all = [pinRung]`). The `opencode-go/*` rungs
-// at the head of this ladder are therefore unreachable.
-const LADDER_NAME = 'free';
+// at the head of a ladder are therefore unreachable. Default `free`; `--ladder build` exposes the
+// `zen-pool/*` rungs, which are free but only listed on the role ladders.
+const LADDER_NAME = arg('ladder', 'free');
 
 // One call, pinned to a single rung: `ladder_rung` means "no failover", so the answer cannot
 // wander onto a paid rung the way the alias did. A non-free `servedModel` throws instead of
