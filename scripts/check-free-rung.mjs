@@ -1,32 +1,27 @@
-#!/usr/bin/env node
-// Zero-call check that the free-rung whitelist does what it exists to do.
-//
-// The bleed it guards against was a NAME that looked free and was not: `opencode-go/space-bunny-free`
-// sat at the head of the `free` ladder and 2 652 of 2 653 calls landed on it. So the cases below are
-// the actual rungs from config/ladders.json, not hypotheticals — the first four must be rejected.
-//
-//   node scripts/check-free-rung.mjs
-
 import { DEFAULT_RUNG, isFreeRung } from '../src/ladder-free.mjs';
 
-// Every rung of the ladder's `free` profile, verbatim from config/ladders.json.
+// Every rung of the ladder's `free` profile, verbatim from config/ladders.json
+// (updated 2026-10-27, #13: the opencode-zen/* rungs left the profile on 2026-10-07,
+//  zen-rings/* took their place; opencode-go/longcat... is gone too, beam-free leads).
 const FREE_LADDER_RUNGS = [
-  'opencode-go/space-bunny-free',
-  'opencode-go/longcat-2.5-preview-free',
+  'opencode-go/beam-free',
+  'zen-rings/nemotron-3-ultra-free',
+  'zen-rings/mimo-v2.6-flash-free',
   'openrouter/nvidia/nemotron-3-super-120b-a12b:free',
   'openrouter/inclusionai/ling-3.0-flash-sante:free',
   'openrouter/nvidia/nemotron-3-ultra-550b-a55b:free',
   'openrouter/cohere/north-mini-code:free',
   'openrouter/dots-studio/dots-3-note-preview:free',
   'openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free',
-  'opencode-zen/mimo-v2.6-flash-free',
-  'opencode-zen/mimo-v2.5-free',
-  'opencode-zen/big-pickle',
-  'opencode-zen/nemotron-3.5-lightning-free',
+  'zen-rings/nemotron-3.5-lightning-free',
+  'zen-rings/big-pickle',
 ];
 
 const MUST_REJECT = [
   ...FREE_LADDER_RUNGS.filter((r) => r.startsWith('opencode-go/')),
+  // The retired prefix must stay rejected: a ladder serving opencode-zen/* today would be a
+  // config regression, and recording it as "free" would silently resurrect a dead rung (#13).
+  'opencode-zen/mimo-v2.6-flash-free',
   'opencode-zen/big-pickle',
   'free',
   'service',
@@ -34,7 +29,7 @@ const MUST_REJECT = [
 ];
 
 const MUST_ACCEPT = FREE_LADDER_RUNGS.filter(
-  (r) => r.startsWith('openrouter/') || (r.startsWith('opencode-zen/') && r.endsWith('-free'))
+  (r) => r.startsWith('openrouter/') || r.startsWith('zen-rings/'),
 );
 
 let failed = 0;
@@ -48,10 +43,6 @@ const check = (model, expected) => {
 for (const m of MUST_REJECT) check(m, false);
 for (const m of MUST_ACCEPT) check(m, true);
 check(DEFAULT_RUNG, true);
-if (DEFAULT_RUNG !== 'opencode-zen/mimo-v2.6-flash-free') {
-  failed++;
-  console.error(`FAIL  DEFAULT_RUNG moved without updating the measurement note in ladder-free.mjs`);
-}
 
 console.log('');
 if (failed) {

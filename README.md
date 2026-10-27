@@ -112,9 +112,10 @@ for the `free` profile. The distinction is the whole safety story:
 - A **rung** is one model. With `ladder_rung` set, the ladder collapses to that single rung: no
   failover, no health skip. There is nowhere else for the call to go.
 
-The default is `openrouter/nvidia/nemotron-3-super-120b-a12b:free`. The whitelist in
-`src/ladder-free.mjs` is `openrouter/*.:free` and `opencode-zen/*-free` — the two suffixes that
-actually mean $0. `opencode-go/*` is excluded on purpose.
+The default is `zen-rings/mimo-v2.6-flash-free`. The whitelist in
+`src/ladder-free.mjs` is `openrouter/*:free`, `zen-pool/*-free` and `zen-rings/*` — the free tiers
+of OpenRouter and of the self-hosted ring (the successor of the `opencode-zen/*` rungs the ladder
+retired on 2026-10-07). `opencode-go/*` is excluded on purpose.
 
 Two guards, because a silent paid report is worse than no report:
 
@@ -124,7 +125,7 @@ Two guards, because a silent paid report is worse than no report:
 ```bash
 node src/eval-select.mjs --profile free        # refuses: "free" is an alias, not a price
 node src/eval-select.mjs --profile opencode-go/space-bunny-free   # refuses: paid subscription
-node src/eval-select.mjs --profile opencode-zen/mimo-v2.6-flash-free  # ok
+node src/eval-select.mjs --profile zen-rings/mimo-v2.6-flash-free  # ok
 ```
 
 ### Eval flags

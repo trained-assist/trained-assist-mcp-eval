@@ -40,19 +40,22 @@ const PROFILE = arg('profile', 'free');
 (`config/ladders.json`), а не обещание бесплатно. Нынешний алиас:
 
 ```
-opencode-go/space-bunny-free
-opencode-go/longcat-2.5-preview-free
+opencode-go/beam-free
+zen-rings/nemotron-3-ultra-free
+zen-rings/mimo-v2.6-flash-free
 openrouter/nvidia/nemotron-3-super-120b-a12b:free
 openrouter/inclusionai/ling-3.0-flash-sante:free
 openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
 openrouter/cohere/north-mini-code:free
 openrouter/dots-studio/dots-3-note-preview:free
 openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free
-opencode-zen/mimo-v2.6-flash-free
-opencode-zen/mimo-v2.5-free
-opencode-zen/big-pickle
-opencode-zen/nemotron-3.5-lightning-free
+zen-rings/nemotron-3.5-lightning-free
+zen-rings/big-pickle
 ```
+
+(Список обновлён 2026-10-27: `opencode-zen/*` вышел из профиля ещё 07.10 —
+легаси заменил кольцевой пул `zen-rings/*`; старый пин на `opencode-zen/...`
+с тех пор ронял каждый вызов с `rung not in ladder`.)
 
 Первые две ступени — `opencode-go/*`, а это подписка OpenCode Go, платная по счёту,
 несмотря на `-free` в имени. Лестница падает на них сверху и там и остаётся: 2 652
@@ -83,7 +86,8 @@ opencode-zen/nemotron-3.5-lightning-free
 В ладдере это `ladder_rung` — «pin one rung, no failover» (см. README
 `trained-assist-llm-ladder`, строка про `ladder_rung`). Тогда ответ не может уехать
 на подписку, потому что альтернатив нет. Практически: брать `openrouter/...:free`
-или `opencode-zen/...-free` из списка выше.
+или `zen-rings/...` из списка выше (сам белый список — `FREE_RUNG_PATTERNS`
+в `src/ladder-free.mjs`).
 
 Дефолт `--profile` надо поменять на пин, а не на `free`: значение по умолчанию —
 это то, что 8 раз задеплоило подписку без спроса.
