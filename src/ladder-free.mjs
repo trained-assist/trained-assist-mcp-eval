@@ -46,9 +46,17 @@ function readTokenFile() {
 // The baseline these are compared against is 90.2% on opencode-go/space-bunny-free — a paid
 // subscription model, so some drop is expected and is itself the finding: the free tier is
 // measurably worse at this task, and the old numbers were flattered by the model that served them.
-export const DEFAULT_RUNG = 'opencode-zen/mimo-v2.6-flash-free';
+//
+// 2026-10-27 (#13): the ladder retired every `opencode-zen/*` rung on 2026-10-07 («легаси, кольцо
+// заменяет его полностью»), so the pin has been failing every call since — `rung not in ladder`,
+// 675 calls a day at 0 %. The same model now lives on the ring as `zen-rings/mimo-v2.6-flash-free`;
+// the measurement above transfers as-is (same model, same free tier, self-hosted pool).
+export const DEFAULT_RUNG = 'zen-rings/mimo-v2.6-flash-free';
 
-const FREE_RUNG_PATTERNS = [/^openrouter\/.+:free$/, /^opencode-zen\/.+-free$/, /^zen-pool\/.+-free$/];
+// `zen-rings/` is the self-hosted free pool the ring replaced opencode-zen with — every rung in
+// the ladder's `free` profile, including big-pickle, which carries no `-free` suffix. The old
+// `opencode-zen/` pattern is gone on purpose: a served legacy model no longer exists to record.
+const FREE_RUNG_PATTERNS = [/^openrouter\/.+:free$/, /^zen-pool\/.+-free$/, /^zen-rings\/.+/];
 
 // A single free-tier blip ("fetch failed", 5xx, 429) must not become a permanent `unavailable`
 // row: at 1 579 calls one dropped connection otherwise shows up as a hole in the report. Retry
